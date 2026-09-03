@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Raissa Harrell — creative project management portfolio featuring NDA-safe case studies in social campaign operations, creator workflows, project planning, and team coordination." />
+  <title>Raissa Harrell | Creative Project Management Portfolio</title>
+  <style>
+    :root{
+      --forest:#18221d;
+      --forest-2:#223028;
+      --cream:#f4efe6;
+      --paper:#fffdf8;
+      --ink:#171b18;
+      --muted:#69685f;
+      --gold:#c59a5b;
+      --gold-soft:#e6d0ad;
+      --sage:#dce2d8;
+      --line:#d8d1c5;
+      --shadow:0 20px 60px rgba(19,26,22,.12);
+      --radius:26px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:var(--cream);
+      color:var(--ink);
+      font-family:Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height:1.6;
+    }
+    a{color:inherit}
+    button{font:inherit}
+    .wrap{width:min(1180px,calc(100% - 40px));margin:auto}
+
+    /* Navigation */
+    .nav{
+      position:sticky;top:0;z-index:50;
+      background:rgba(24,34,29,.94);
+      backdrop-filter:blur(16px);
+      border-bottom:1px solid rgba(255,255,255,.1);
+      color:#fff;
+    }
+    .nav-inner{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand{text-decoration:none;font-weight:800;letter-spacing:.08em;font-size:.86rem}
+    .nav-links{display:flex;align-items:center;gap:25px;color:rgba(255,255,255,.78);font-size:.91rem}
+    .nav-links a{text-decoration:none}
+    .nav-links a:hover{color:#fff}
+    .nav-cta{padding:9px 14px;border:1px solid rgba(255,255,255,.22);border-radius:999px;color:#fff!important}
+
+    /* Hero */
+    .hero-shell{background:var(--forest);color:#fff;overflow:hidden;position:relative}
+    .hero-shell:before{
+      content:"";position:absolute;width:520px;height:520px;border-radius:50%;
+      border:1px solid rgba(197,154,91,.24);right:-160px;top:-170px;
+      box-shadow:0 0 0 90px rgba(197,154,91,.03),0 0 0 180px rgba(197,154,91,.025);
+    }
+    .hero{min-height:700px;padding:110px 0 95px;display:grid;grid-template-columns:1.15fr .85fr;gap:70px;align-items:center;position:relative}
+    .eyebrow{font-size:.76rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-soft);font-weight:800;margin-bottom:22px}
+    h1{font-size:clamp(3.7rem,7.4vw,7rem);line-height:.89;letter-spacing:-.065em;margin:0 0 28px;max-width:900px}
+    .script{font-family:Georgia,"Times New Roman",serif;font-style:italic;font-weight:400;color:var(--gold-soft);letter-spacing:-.045em}
+    .hero-copy{font-size:1.1rem;max-width:680px;color:rgba(255,255,255,.72);margin:0}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:34px}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 17px;border-radius:999px;text-decoration:none;font-weight:800;font-size:.9rem;border:1px solid transparent}
+    .btn-light{background:#fff;color:var(--forest)}
+    .btn-ghost{border-color:rgba(255,255,255,.28);color:#fff}
+
+    .hero-board{position:relative;min-height:490px}
+    .board-card{position:absolute;background:#f8f2e8;color:var(--ink);box-shadow:0 25px 70px rgba(0,0,0,.22);border-radius:22px;border:1px solid rgba(255,255,255,.18)}
+    .board-main{width:86%;right:0;top:22px;padding:28px;transform:rotate(2deg)}
+    .board-note{width:48%;left:0;bottom:2px;padding:22px;transform:rotate(-5deg);background:#d6b77f;color:#211d17}
+    .board-mini{width:38%;left:18px;top:25px;padding:18px;transform:rotate(-7deg);background:#fffdf8}
+    .board-label{font-size:.7rem;text-transform:uppercase;letter-spacing:.14em;font-weight:900;color:#777064}
+    .board-main h3{font-size:1.65rem;line-height:1.1;margin:9px 0 19px;letter-spacing:-.04em}
+    .fake-row{display:grid;grid-template-columns:1.2fr .75fr .75fr;gap:8px;padding:10px 0;border-top:1px solid #ded6ca;font-size:.77rem}
+    .status{display:inline-block;padding:3px 7px;border-radius:999px;background:#dce8da;font-size:.68rem;font-weight:700}
+    .status.review{background:#f2dfb8}
+    .status.edit{background:#dce3ee}
+    .note-big{font-family:Georgia,"Times New Roman",serif;font-style:italic;font-size:2rem;line-height:1.05;margin:10px 0 5px}
+    .note-small{font-size:.78rem;opacity:.72}
+    .mini-lines div{height:7px;border-radius:99px;background:#ddd7ce;margin-top:8px}
+    .mini-lines div:nth-child(2){width:80%}.mini-lines div:nth-child(3){width:58%}
+
+    /* General */
+    section{padding:92px 0}
+    .section-kicker{font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:#7a7166;font-weight:900;margin-bottom:14px}
+    .section-head{display:grid;grid-template-columns:1fr .72fr;gap:60px;align-items:end;margin-bottom:42px}
+    h2{font-size:clamp(2.7rem,5vw,4.8rem);letter-spacing:-.055em;line-height:.94;margin:0}
+    .section-head p{margin:0;color:var(--muted);font-size:1.02rem}
+    .confidentiality{display:flex;gap:15px;align-items:flex-start;background:#ebe3d6;border:1px solid #d7cbbb;border-radius:18px;padding:19px 21px;margin-bottom:28px;color:#58534d}
+    .lock{width:34px;height:34px;min-width:34px;border-radius:50%;display:grid;place-items:center;background:var(--forest);color:#fff;font-size:.9rem}
+    .confidentiality strong{color:var(--ink)}
+
+    /* Brand experience gallery */
+    .brand-experience{
+      margin:0 0 56px;
+      padding:34px 34px 38px;
+      background:rgba(255,253,248,.72);
+      border:1px solid var(--line);
+      border-radius:22px;
+    }
+    .brand-experience-head{
+      display:grid;
+      grid-template-columns:1fr .9fr;
+      gap:30px;
+      align-items:end;
+      margin-bottom:30px;
+    }
+    .brand-experience h3{
+      margin:5px 0 0;
+      font-size:1.55rem;
+      line-height:1.08;
+      letter-spacing:-.035em;
+    }
+    .brand-experience p{margin:0;color:var(--muted);font-size:.9rem}
+    .brand-gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .brand-experience + .projects{margin-top:56px}
+    .brand-card{
+      margin:0;
+      min-height:170px;
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:16px;
+      display:grid;
+      place-items:center;
+      overflow:hidden;
+      padding:18px;
+    }
+    .brand-card img{
+      width:100%;
+      height:135px;
+      object-fit:contain;
+      display:block;
+    }
+    .brand-card.photo{padding:0}
+    .brand-card.photo img{height:210px;object-fit:cover}
+    .brand-note{margin-top:12px!important;font-size:.75rem!important;font-style:italic;color:#746e66!important}
+
+    /* Project cards */
+    .projects{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+    .project-card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:0 10px 30px rgba(28,33,29,.045);transition:.25s}
+    .project-card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+    .project-visual{height:265px;background:#ece5da;padding:25px;position:relative;overflow:hidden}
+    .project-body{padding:27px 28px 30px}
+    .project-num{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:#80786e;font-weight:900}
+    .project-card h3{font-size:1.7rem;line-height:1.08;letter-spacing:-.04em;margin:11px 0 9px}
+    .project-card p{color:var(--muted);margin:0}
+    .tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:20px}
+    .tag{font-size:.7rem;border:1px solid var(--line);border-radius:999px;padding:6px 9px;background:#fff}
+    .case-link{display:inline-block;margin-top:22px;font-weight:900;font-size:.87rem;text-decoration:none;border-bottom:1px solid var(--ink)}
+
+    /* Mini visuals */
+    .tracker{background:#fff;border:1px solid #d4cec6;border-radius:12px;box-shadow:0 14px 30px rgba(30,30,20,.08);overflow:hidden;transform:rotate(-1deg)}
+    .tracker-head{display:grid;grid-template-columns:1.35fr .8fr .8fr .8fr;background:#f3f0eb;font-weight:900;font-size:.66rem;padding:10px}
+    .tracker-r{display:grid;grid-template-columns:1.35fr .8fr .8fr .8fr;font-size:.66rem;padding:10px;border-top:1px solid #ece7df;align-items:center}
+    .pill{font-size:.61rem;padding:3px 6px;border-radius:999px;background:#dbe8d8;width:max-content}
+    .pill.yellow{background:#f1deb7}.pill.blue{background:#dbe4f1}
+
+    .timeline-mini{height:100%;display:flex;align-items:center;gap:8px;position:relative}
+    .timeline-mini:before{content:"";position:absolute;height:2px;background:#4f554f;left:4%;right:4%;top:57%}
+    .mile{position:relative;z-index:1;flex:1;text-align:center}
+    .mile-box{background:#fff;border:1px solid #d7d0c6;border-radius:10px;padding:10px 5px;font-size:.61rem;min-height:58px;display:grid;place-items:center}
+    .mile-dot{width:10px;height:10px;background:var(--forest);border-radius:50%;margin:17px auto 6px}
+    .mile small{font-size:.58rem;color:#726c65}
+
+    .folders{display:grid;grid-template-columns:1fr 1fr;gap:8px;background:#fff;border:1px solid #d8d2ca;border-radius:13px;padding:15px;transform:rotate(1deg)}
+    .folder{display:flex;align-items:center;gap:7px;font-size:.66rem;padding:7px;border-radius:8px;background:#f7f3ed}
+    .folder-icon{width:15px;height:11px;border-radius:2px;background:#d5a34f;position:relative}
+    .folder-icon:before{content:"";position:absolute;top:-3px;left:2px;width:7px;height:4px;border-radius:2px 2px 0 0;background:#d5a34f}
+
+    .hotsheet{background:#fff;border:1px solid #d9d2c8;border-radius:14px;padding:17px;box-shadow:0 12px 25px rgba(30,30,20,.07);transform:rotate(-1.5deg)}
+    .hot-top{display:flex;justify-content:space-between;border-bottom:1px solid #e6dfd6;padding-bottom:9px;margin-bottom:10px;font-size:.68rem;font-weight:900}
+    .hot-cols{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+    .hot-box{background:#f4f0ea;border-radius:9px;padding:9px;font-size:.6rem;min-height:56px}
+    .hot-box b{display:block;font-size:.63rem;margin-bottom:4px}
+
+    .wowdeck{display:flex;align-items:center;justify-content:center;padding:8px 0}
+    .slide{width:90%;height:auto;background:#fff;border:1px solid #d4cec5;border-radius:10px;padding:16px 18px;box-shadow:0 15px 30px rgba(30,30,20,.08);transform:rotate(.5deg)}
+    .slide-title{font-family:Georgia,"Times New Roman",serif;font-style:italic;font-size:1.3rem;line-height:1.05;margin:0 0 10px;color:#223028}
+    .rules{display:grid;grid-template-columns:1fr 1fr;gap:6px 14px}
+    .rule{border-top:1px solid #dad4cb;padding:6px 0 4px;font-size:.58rem;line-height:1.2;min-width:0}
+    .rule b{display:block;margin-bottom:2px;font-size:.61rem}
+
+    /* Keep the Ways of Working preview completely inside its white card */
+    .project-visual .wowdeck{height:100%;padding:16px;align-items:stretch}
+    .project-visual .wowdeck .slide{width:100%;height:100%;max-height:none;overflow:hidden;display:flex;flex-direction:column;padding:14px 18px}
+    .project-visual .wowdeck .slide-title{flex:0 0 auto;margin-bottom:10px}
+    .project-visual .wowdeck .rules{flex:1;min-height:0;grid-template-rows:repeat(3,minmax(0,1fr));gap:0 14px}
+    .project-visual .wowdeck .rule{min-height:0;padding:5px 0 3px;font-size:.57rem;line-height:1.14;overflow:hidden}
+    .project-visual .wowdeck .rule b{margin-bottom:1px;font-size:.60rem}
+
+    .recap{background:#fff;border:1px solid #d5cec4;border-radius:14px;padding:16px;transform:rotate(-1deg)}
+    .recap-top{font-weight:900;font-size:.68rem;margin-bottom:10px}
+    .msg{background:#f2efe9;padding:8px;border-radius:8px;margin:6px 0;font-size:.6rem}
+    .msg b{display:block;margin-bottom:2px}
+
+    /* Case studies */
+    .case{padding:105px 0;border-top:1px solid var(--line)}
+    .case:nth-of-type(even){background:#eee7dc}
+    .case-grid{display:grid;grid-template-columns:.82fr 1.18fr;gap:70px;align-items:start}
+    .case-sticky{position:sticky;top:110px}
+    .case-labels{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+    .label{font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;font-weight:900;padding:7px 9px;border-radius:999px;background:var(--forest);color:#fff}
+    .label.recreated{background:#d8b97f;color:#2c251c}
+    .case h3{font-size:clamp(2.2rem,4vw,4rem);line-height:.98;letter-spacing:-.05em;margin:0 0 20px}
+    .case-lede{font-size:1.05rem;color:var(--muted);margin:0 0 26px}
+    .meta{display:grid;grid-template-columns:1fr 1fr;gap:14px;border-top:1px solid var(--line);padding-top:20px}
+    .meta b{font-size:.73rem;text-transform:uppercase;letter-spacing:.1em;display:block;margin-bottom:4px}
+    .meta span{font-size:.9rem;color:var(--muted)}
+    .case-content{display:grid;gap:18px}
+    .content-card{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:25px}
+    .content-card h4{font-size:.77rem;text-transform:uppercase;letter-spacing:.12em;margin:0 0 12px}
+    .content-card p{margin:0;color:var(--muted)}
+    .content-card ul{margin:0;padding-left:19px;color:var(--muted)}
+    .content-card li{margin:7px 0}
+    .mockup-card{background:#e9e1d5;border:1px solid #d4c8b9;border-radius:20px;padding:23px}
+    .mock-note{font-size:.72rem;color:#6a645b;margin-top:12px;font-style:italic}
+
+    /* Lifecycle */
+    .lifecycle{background:var(--forest);color:#fff}
+    .lifecycle .section-kicker{color:var(--gold-soft)}
+    .lifecycle .section-head p{color:rgba(255,255,255,.64)}
+    .steps{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+    .step{border:1px solid rgba(255,255,255,.13);background:rgba(255,255,255,.04);border-radius:18px;padding:20px;min-height:180px}
+    .step small{color:var(--gold-soft);font-weight:900;letter-spacing:.12em}
+    .step h4{font-size:1.1rem;margin:22px 0 8px}
+    .step p{color:rgba(255,255,255,.62);font-size:.85rem;margin:0}
+
+    /* About */
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:start}
+    .about-copy{font-family:Georgia,"Times New Roman",serif;font-size:clamp(1.8rem,3vw,3rem);line-height:1.2;letter-spacing:-.025em;margin:0}
+    .capabilities{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid var(--line)}
+    .cap{padding:18px 0;border-bottom:1px solid var(--line);font-weight:800}
+    .cap:nth-child(odd){padding-right:18px}.cap:nth-child(even){padding-left:18px;border-left:1px solid var(--line)}
+
+    .contact{background:#d8b97f;padding:75px 0;color:#1c1d18}
+    .contact-inner{display:flex;justify-content:space-between;align-items:end;gap:40px}
+    .contact h2{max-width:760px}
+    .contact p{max-width:360px;margin:0}
+
+    footer{background:#111814;color:rgba(255,255,255,.68);padding:28px 0}
+    .footer-inner{display:flex;justify-content:space-between;gap:20px;font-size:.8rem}
+
+    @media(max-width:900px){
+      .hero{grid-template-columns:1fr;min-height:auto;padding-top:85px}.hero-board{min-height:450px}
+      .section-head,.case-grid,.about-grid{grid-template-columns:1fr;gap:30px}
+      .brand-experience-head{grid-template-columns:1fr;gap:10px}.brand-gallery{grid-template-columns:1fr 1fr}
+      .case-sticky{position:static}.projects{grid-template-columns:1fr}.steps{grid-template-columns:1fr 1fr}.contact-inner{display:block}.contact p{margin-top:20px}
+    }
+    @media(max-width:620px){
+      .wrap{width:min(100% - 24px,1180px)}.nav-links a:not(.nav-cta){display:none}.hero{padding:72px 0 65px}.hero-board{min-height:380px}
+      .board-main{width:92%;top:30px}.board-note{width:60%;bottom:10px}.board-mini{display:none}
+      h1{font-size:3.7rem}.brand-experience{padding:24px;margin-bottom:42px}.brand-experience + .projects{margin-top:42px}.brand-gallery{grid-template-columns:1fr}.brand-card{min-height:145px}.brand-card img{height:115px}.steps{grid-template-columns:1fr}.meta,.capabilities{grid-template-columns:1fr}.cap:nth-child(even){padding-left:0;border-left:0}.case{padding:75px 0}.project-visual{height:235px}
+      .footer-inner{display:block}.footer-inner div+div{margin-top:7px}
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#top">RAISSA HARRELL</a>
+      <div class="nav-links">
+        <a href="#work">Work</a>
+        <a href="#about">About</a>
+        <a href="#process">Process</a>
+        <a class="nav-cta" href="#contact">Portfolio Note</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero-shell" id="top">
+    <div class="wrap hero">
+      <div>
+        <div class="eyebrow">Creative Project Management · Social · Creator Operations</div>
+        <h1>Turning moving pieces into <span class="script">clear action.</span></h1>
+        <p class="hero-copy">A project portfolio highlighting hands-on internship experience supporting creative production, social campaigns, creator partnerships, project documentation, timelines, team communication, and launch readiness.</p>
+        <div class="hero-actions">
+          <a class="btn btn-light" href="#work">View selected work ↓</a>
+          <a class="btn btn-ghost" href="#about">About my approach</a>
+        </div>
+      </div>
+
+      <div class="hero-board" aria-label="Fictional portfolio recreation of a campaign tracker and planning notes">
+        <div class="board-card board-main">
+          <div class="board-label">Portfolio Recreation · Production Tracker</div>
+          <h3>Multi-Platform Campaign</h3>
+          <div class="fake-row"><b>Hero Video</b><span>TikTok</span><span class="status">Approved</span></div>
+          <div class="fake-row"><b>Creator Cutdown</b><span>Instagram</span><span class="status review">In Review</span></div>
+          <div class="fake-row"><b>BTS Clip</b><span>YouTube</span><span class="status edit">Editing</span></div>
+          <div class="fake-row"><b>Static Asset</b><span>Instagram</span><span class="status review">Round 1</span></div>
+        </div>
+        <div class="board-card board-mini">
+          <div class="board-label">Work-Back</div>
+          <div class="mini-lines"><div></div><div></div><div></div></div>
+          <div class="mini-lines"><div></div><div></div><div></div></div>
+          <div class="mini-lines"><div></div><div></div><div></div></div>
+        </div>
+        <div class="board-card board-note">
+          <div class="board-label">My PM mindset</div>
+          <div class="note-big">Plan.<br>Organize.<br>Follow through.</div>
+          <div class="note-small">Structure gives creative work room to move.</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="work">
+      <div class="wrap">
+        <div class="section-kicker">Selected Work</div>
+        <div class="section-head">
+          <h2>Real responsibilities.<br>Recreated visuals.</h2>
+          <p>These case studies describe work I actually supported during my internship. Any tables, names, dates, timelines, folders, or sample content shown here were independently recreated for portfolio purposes.</p>
+        </div>
+
+        <div class="confidentiality">
+          <div class="lock">↗</div>
+          <div><strong>Confidentiality-first portfolio:</strong> no original client files, internal screenshots, campaign creative, proprietary data, contracts, budgets, or confidential employer materials are displayed. Public brand marks may be shown only for context where permitted; campaign details remain omitted or generalized.</div>
+        </div>
+
+        <div class="brand-experience" aria-label="Selected brand experience">
+          <div class="brand-experience-head">
+            <div>
+              <div class="project-num">Selected Brand Experience</div>
+              <h3>Brands I supported through creative project work.</h3>
+            </div>
+            <p>A visual snapshot of public-facing brands connected to my internship experience. The case studies below focus on my project-management responsibilities rather than confidential campaign creative.</p>
+          </div>
+          <div class="brand-gallery">
+            <figure class="brand-card"><img src="assets/brand-mark.png" alt="Brand mark from internship experience"></figure>
+            <figure class="brand-card"><img src="assets/gemini.png" alt="Gemini brand logo"></figure>
+            <figure class="brand-card"><img src="assets/android.png" alt="Android brand logo"></figure>
+          </div>
+        </div>
+
+        <div class="projects">
+          <article class="project-card">
+            <div class="project-visual">
+              <div class="tracker">
+                <div class="tracker-head"><span>Asset</span><span>Platform</span><span>Status</span><span>Review</span></div>
+                <div class="tracker-r"><b>Hero Video</b><span>TikTok</span><span class="pill">Approved</span><span>Final</span></div>
+                <div class="tracker-r"><b>Cutdown A</b><span>Instagram</span><span class="pill yellow">Review</span><span>Round 2</span></div>
+                <div class="tracker-r"><b>Creator Post</b><span>TikTok</span><span class="pill blue">Editing</span><span>Round 1</span></div>
+                <div class="tracker-r"><b>BTS Clip</b><span>YouTube</span><span class="pill">Approved</span><span>Final</span></div>
+              </div>
+            </div>
+            <div class="project-body">
+              <div class="project-num">01 · Campaign Operations</div>
+              <h3>Social Campaign Production Tracker</h3>
+              <p>Rebuilt and maintained a centralized view of deliverables, specifications, review rounds, approvals, deadlines, and go-live details across social platforms.</p>
+              <div class="tags"><span class="tag">Google Sheets</span><span class="tag">TikTok</span><span class="tag">Instagram</span><span class="tag">YouTube</span></div>
+              <a class="case-link" href="#case-tracker">View case study →</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-visual">
+              <div class="timeline-mini">
+                <div class="mile"><div class="mile-box">Brief + Strategy</div><div class="mile-dot"></div><small>W1</small></div>
+                <div class="mile"><div class="mile-box">Creative Development</div><div class="mile-dot"></div><small>W2</small></div>
+                <div class="mile"><div class="mile-box">Creator Content</div><div class="mile-dot"></div><small>W3–5</small></div>
+                <div class="mile"><div class="mile-box">Reviews + Approval</div><div class="mile-dot"></div><small>W6–8</small></div>
+                <div class="mile"><div class="mile-box">Launch</div><div class="mile-dot"></div><small>W9</small></div>
+              </div>
+            </div>
+            <div class="project-body">
+              <div class="project-num">02 · Project Planning</div>
+              <h3>Work-Back Schedule & Timeline Planning</h3>
+              <p>Supported the translation of campaign timing into structured project phases, tasks, dates, statuses, dependencies, and notes in Asana.</p>
+              <div class="tags"><span class="tag">Asana</span><span class="tag">Timelines</span><span class="tag">Dependencies</span><span class="tag">Project Phases</span></div>
+              <a class="case-link" href="#case-wbs">View case study →</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-visual">
+              <div class="folders">
+                <div class="folder"><i class="folder-icon"></i>01_Project Brief</div><div class="folder"><i class="folder-icon"></i>06_Concepts</div>
+                <div class="folder"><i class="folder-icon"></i>02_Creator Profiling</div><div class="folder"><i class="folder-icon"></i>07_Content Reviews</div>
+                <div class="folder"><i class="folder-icon"></i>03_Sourcing</div><div class="folder"><i class="folder-icon"></i>08_Approved Assets</div>
+                <div class="folder"><i class="folder-icon"></i>04_Contracts</div><div class="folder"><i class="folder-icon"></i>09_Analytics</div>
+                <div class="folder"><i class="folder-icon"></i>05_Creator Briefs</div><div class="folder"><i class="folder-icon"></i>10_Retrospective</div>
+              </div>
+            </div>
+            <div class="project-body">
+              <div class="project-num">03 · Creator Operations</div>
+              <h3>Creator Campaign Project Organization</h3>
+              <p>Maintained campaign resources across the creator lifecycle so teams could locate briefs, sourcing materials, contracts, concepts, reviews, analytics, and retrospectives.</p>
+              <div class="tags"><span class="tag">Google Drive</span><span class="tag">Creator Partnerships</span><span class="tag">Documentation</span></div>
+              <a class="case-link" href="#case-files">View case study →</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-visual">
+              <div class="hotsheet">
+                <div class="hot-top"><span>HOT SHEET</span><span>Tuesday · Sample</span></div>
+                <div class="hot-cols">
+                  <div class="hot-box"><b>Today's Priorities</b>Round 2 feedback<br>Creator concepts</div>
+                  <div class="hot-box"><b>Upcoming</b>Internal review<br>Client status</div>
+                  <div class="hot-box"><b>Team Availability</b>OOO notes<br>Coverage</div>
+                  <div class="hot-box"><b>Resources</b>Timeline<br>Feedback doc</div>
+                </div>
+              </div>
+            </div>
+            <div class="project-body">
+              <div class="project-num">04 · Team Operations</div>
+              <h3>Daily Hot Sheet</h3>
+              <p>Created and distributed concise daily updates combining priorities, deadlines, owners, out-of-office information, and direct links to project resources.</p>
+              <div class="tags"><span class="tag">Slack</span><span class="tag">Prioritization</span><span class="tag">Team Visibility</span></div>
+              <a class="case-link" href="#case-hot">View case study →</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-visual">
+              <div class="wowdeck">
+                <div class="slide">
+                  <div class="slide-title">Ways of Working</div>
+                  <div class="rules">
+                    <div class="rule"><b>Communication</b>Where updates live</div>
+                    <div class="rule"><b>Responsibilities</b>How roles align</div>
+                    <div class="rule"><b>Workflow</b>How work moves</div>
+                    <div class="rule"><b>Meetings</b>Cadence + purpose</div>
+                    <div class="rule"><b>Resources</b>Where files live</div>
+                    <div class="rule"><b>Escalation</b>When to flag risk</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="project-body">
+              <div class="project-num">05 · Process Design</div>
+              <h3>Ways of Working / Team Onboarding</h3>
+              <p>Supported the development of onboarding and workflow resources documenting responsibilities, communication expectations, processes, and project-management practices.</p>
+              <div class="tags"><span class="tag">Google Slides</span><span class="tag">Process</span><span class="tag">Onboarding</span></div>
+              <a class="case-link" href="#case-wow">View case study →</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-visual">
+              <div class="recap">
+                <div class="recap-top">Post-Meeting Recap · Sample</div>
+                <div class="msg"><b>Action 01</b>Creative team to incorporate consolidated feedback.</div>
+                <div class="msg"><b>Action 02</b>PM to update timing and confirm review window.</div>
+                <div class="msg"><b>Resources</b>Feedback document · Working deck · Timeline</div>
+                <div class="msg"><b>Next Checkpoint</b>Internal review before client delivery.</div>
+              </div>
+            </div>
+            <div class="project-body">
+              <div class="project-num">06 · Communication</div>
+              <h3>Meeting Recap & Action System</h3>
+              <p>Turned meeting notes into concise follow-up messages with action items, timing, next steps, and links to the resources teams needed to keep moving.</p>
+              <div class="tags"><span class="tag">Slack</span><span class="tag">Meeting Notes</span><span class="tag">Action Items</span></div>
+              <a class="case-link" href="#case-recap">View case study →</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="case" id="case-tracker">
+      <div class="wrap case-grid">
+        <div class="case-sticky">
+          <div class="case-labels"><span class="label">Real Responsibility</span><span class="label recreated">Recreated Visual</span></div>
+          <div class="project-num">Case Study 01</div>
+          <h3>Social Campaign Production Tracker</h3>
+          <p class="case-lede">A centralized production view designed to help the team understand what was being created, what stage each asset was in, and what still needed to happen before launch.</p>
+          <div class="meta">
+            <div><b>Role</b><span>Project Management Intern</span></div>
+            <div><b>Focus</b><span>Campaign Operations</span></div>
+            <div><b>Tools</b><span>Google Sheets</span></div>
+            <div><b>Channels</b><span>TikTok · Instagram · YouTube</span></div>
+          </div>
+        </div>
+        <div class="case-content">
+          <div class="content-card"><h4>Challenge</h4><p>Multi-platform campaign work requires teams to keep track of many deliverables, platform specifications, review stages, approvals, deadlines, and launch details at the same time.</p></div>
+          <div class="content-card"><h4>What I Supported</h4><ul><li>Rebuilt and updated paid asset trackers.</li><li>Tracked deliverables, specifications, deadlines, review rounds, approvals, and go-live details.</li><li>Maintained a centralized view of campaign progress across social platforms.</li><li>Updated information as projects moved through review and launch preparation.</li></ul></div>
+          <div class="mockup-card">
+            <div class="tracker">
+              <div class="tracker-head"><span>Asset</span><span>Platform</span><span>Status</span><span>Review</span></div>
+              <div class="tracker-r"><b>Hero Video</b><span>TikTok</span><span class="pill">Approved</span><span>Final</span></div>
+              <div class="tracker-r"><b>Cutdown A</b><span>Instagram</span><span class="pill yellow">Review</span><span>Round 2</span></div>
+              <div class="tracker-r"><b>Creator Post</b><span>TikTok</span><span class="pill blue">Editing</span><span>Round 1</span></div>
+              <div class="tracker-r"><b>BTS Clip</b><span>YouTube</span><span class="pill">Approved</span><span>Final</span></div>
+            </div>
+            <div class="mock-note">Portfolio recreation. Names, assets, dates, statuses, and data are fictional.</div>
+          </div>
+          <div class="content-card"><h4>What It Demonstrates</h4><p>Attention to detail, production visibility, deadline tracking, review-stage awareness, and an understanding of how social content moves from creation through approval and launch.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="case" id="case-wbs">
+      <div class="wrap case-grid">
+        <div class="case-sticky">
+          <div class="case-labels"><span class="label">Real Responsibility</span><span class="label recreated">Recreated Visual</span></div>
+          <div class="project-num">Case Study 02</div>
+          <h3>Work-Back Schedule & Timeline Planning</h3>
+          <p class="case-lede">A structured way to map campaign milestones backward from launch and translate timing into actionable project-management tasks.</p>
+          <div class="meta"><div><b>Role</b><span>Project Management Intern</span></div><div><b>Focus</b><span>Project Planning</span></div><div><b>Tools</b><span>Asana · Google Sheets</span></div><div><b>Skills</b><span>Phases · Dates · Dependencies</span></div></div>
+        </div>
+        <div class="case-content">
+          <div class="content-card"><h4>Challenge</h4><p>A campaign schedule only works when high-level timing is translated into clear phases, tasks, dependencies, milestones, and review windows that teams can actually follow.</p></div>
+          <div class="content-card"><h4>What I Supported</h4><ul><li>Supported integration of work-back schedules from Google Sheets into Asana.</li><li>Organized timelines into project phases and individual tasks.</li><li>Added dates, statuses, dependencies, notes, and timing information.</li><li>Observed how project managers structure schedules across planning, strategy, creative, creator work, launch, reporting, and housekeeping.</li></ul></div>
+          <div class="mockup-card"><div class="timeline-mini"><div class="mile"><div class="mile-box">Strategy & Brief</div><div class="mile-dot"></div><small>W1</small></div><div class="mile"><div class="mile-box">Creative Development</div><div class="mile-dot"></div><small>W2</small></div><div class="mile"><div class="mile-box">Creator Sourcing</div><div class="mile-dot"></div><small>W3</small></div><div class="mile"><div class="mile-box">Content + Reviews</div><div class="mile-dot"></div><small>W4–8</small></div><div class="mile"><div class="mile-box">Launch</div><div class="mile-dot"></div><small>W9</small></div></div><div class="mock-note">Fictional timeline used only to demonstrate the scheduling logic I practiced.</div></div>
+          <div class="content-card"><h4>What It Demonstrates</h4><p>Work-back planning, schedule structure, task sequencing, dependency awareness, and the ability to translate a campaign lifecycle into a project-management system.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="case" id="case-files">
+      <div class="wrap case-grid">
+        <div class="case-sticky">
+          <div class="case-labels"><span class="label">Real Responsibility</span><span class="label recreated">Recreated Visual</span></div>
+          <div class="project-num">Case Study 03</div>
+          <h3>Creator Campaign Project Organization</h3>
+          <p class="case-lede">A practical folder and documentation structure supporting creator campaigns from early planning through content reviews, analytics, and retrospective.</p>
+          <div class="meta"><div><b>Role</b><span>Project Management Intern</span></div><div><b>Focus</b><span>Creator Operations</span></div><div><b>Tool</b><span>Google Drive</span></div><div><b>Skills</b><span>File Governance · Documentation</span></div></div>
+        </div>
+        <div class="case-content">
+          <div class="content-card"><h4>Challenge</h4><p>Creator projects generate large volumes of documents throughout sourcing, contracting, briefing, concepting, content review, launch, and reporting. Poor organization slows teams down.</p></div>
+          <div class="content-card"><h4>What I Supported</h4><ul><li>Maintained project resources in the appropriate shared-drive folders.</li><li>Organized briefs, creator profiling documents, sourcing/outreach materials, contracts and invoices.</li><li>Maintained creator briefs, concepts, content review files, analytics, and retrospective reports.</li><li>Used the campaign lifecycle as a guide for where resources belonged.</li></ul></div>
+          <div class="mockup-card"><div class="folders"><div class="folder"><i class="folder-icon"></i>01_Project Brief</div><div class="folder"><i class="folder-icon"></i>06_Concepts</div><div class="folder"><i class="folder-icon"></i>02_Creator Profiling</div><div class="folder"><i class="folder-icon"></i>07_Content Reviews</div><div class="folder"><i class="folder-icon"></i>03_Sourcing</div><div class="folder"><i class="folder-icon"></i>08_Approved Assets</div><div class="folder"><i class="folder-icon"></i>04_Contracts</div><div class="folder"><i class="folder-icon"></i>09_Analytics</div><div class="folder"><i class="folder-icon"></i>05_Creator Briefs</div><div class="folder"><i class="folder-icon"></i>10_Retrospective</div></div><div class="mock-note">Fictional folder names recreate the type of project structure I supported; no internal files are shown.</div></div>
+          <div class="content-card"><h4>What It Demonstrates</h4><p>Information architecture, documentation discipline, creator-program workflow awareness, and the ability to maintain organized shared resources across a project lifecycle.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="case" id="case-hot">
+      <div class="wrap case-grid">
+        <div class="case-sticky">
+          <div class="case-labels"><span class="label">Real Responsibility</span><span class="label recreated">Recreated Visual</span></div>
+          <div class="project-num">Case Study 04</div>
+          <h3>Daily Hot Sheet</h3>
+          <p class="case-lede">A concise daily communication tool that surfaced immediate priorities, timing, ownership, resources, and team availability.</p>
+          <div class="meta"><div><b>Role</b><span>Project Management Intern</span></div><div><b>Focus</b><span>Team Operations</span></div><div><b>Tool</b><span>Slack Canvas</span></div><div><b>Skills</b><span>Prioritization · Visibility</span></div></div>
+        </div>
+        <div class="case-content">
+          <div class="content-card"><h4>Challenge</h4><p>Fast-moving teams can lose time scanning multiple channels to understand what matters today, who is available, and where to find the right resource.</p></div>
+          <div class="content-card"><h4>What I Supported</h4><ul><li>Created and distributed daily Hot Sheets through Slack.</li><li>Tracked priority action items, deadlines, assigned owners, out-of-office notes, and resources.</li><li>Reviewed availability information before distribution.</li><li>Maintained a quick-reference view of the day’s most relevant project information.</li></ul></div>
+          <div class="mockup-card"><div class="hotsheet"><div class="hot-top"><span>HOT SHEET</span><span>Sample · Fictional</span></div><div class="hot-cols"><div class="hot-box"><b>Today's Priorities</b>Finalize feedback<br>Review creator concepts</div><div class="hot-box"><b>Upcoming</b>Creative review<br>Client status</div><div class="hot-box"><b>Availability</b>OOO coverage<br>Team notes</div><div class="hot-box"><b>Resources</b>Timeline<br>Feedback doc</div></div></div><div class="mock-note">Recreated from scratch to illustrate the information structure, not the employer’s original Slack Canvas.</div></div>
+          <div class="content-card"><h4>What It Demonstrates</h4><p>Prioritization, concise communication, team-awareness, resource linking, and the ability to synthesize fast-moving information into an easy daily reference.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="case" id="case-wow">
+      <div class="wrap case-grid">
+        <div class="case-sticky">
+          <div class="case-labels"><span class="label">Real Responsibility</span><span class="label recreated">Recreated Visual</span></div>
+          <div class="project-num">Case Study 05</div>
+          <h3>Ways of Working / Team Onboarding</h3>
+          <p class="case-lede">Process documentation designed to make responsibilities, communication expectations, workflows, and operating practices easier for a team to understand.</p>
+          <div class="meta"><div><b>Role</b><span>Project Management Intern</span></div><div><b>Focus</b><span>Process Design</span></div><div><b>Tool</b><span>Google Slides</span></div><div><b>Skills</b><span>Documentation · Onboarding</span></div></div>
+        </div>
+        <div class="case-content">
+          <div class="content-card"><h4>Challenge</h4><p>Teams work more consistently when important operating practices are documented instead of living only in people’s heads or scattered messages.</p></div>
+          <div class="content-card"><h4>What I Supported</h4><ul><li>Supported development of Ways of Working and onboarding materials.</li><li>Helped organize team processes, responsibilities, communication expectations, and workflows.</li><li>Contributed to account resources including timelines, trackers, and process decks.</li><li>Observed how project managers translate working norms into reusable documentation.</li></ul></div>
+          <div class="mockup-card"><div class="wowdeck"><div class="slide"><div class="slide-title">Ways of Working</div><div class="rules"><div class="rule"><b>Communication</b>Where updates live</div><div class="rule"><b>Responsibilities</b>Who owns what</div><div class="rule"><b>Workflow</b>How work moves</div><div class="rule"><b>Meetings</b>Cadence + purpose</div><div class="rule"><b>Resources</b>Where files live</div><div class="rule"><b>Escalation</b>When to flag risk</div></div></div></div><div class="mock-note">Independent portfolio recreation of a process-deck concept. No employer deck or language is reproduced.</div></div>
+          <div class="content-card"><h4>What It Demonstrates</h4><p>Process thinking, documentation, onboarding awareness, communication design, and an understanding of how PM systems help teams work consistently.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="case" id="case-recap">
+      <div class="wrap case-grid">
+        <div class="case-sticky">
+          <div class="case-labels"><span class="label">Real Responsibility</span><span class="label recreated">Recreated Visual</span></div>
+          <div class="project-num">Case Study 06</div>
+          <h3>Meeting Recap & Action System</h3>
+          <p class="case-lede">A follow-up workflow for converting live meeting discussion into a concise written record of actions, timing, resources, and next steps.</p>
+          <div class="meta"><div><b>Role</b><span>Project Management Intern</span></div><div><b>Focus</b><span>Project Communication</span></div><div><b>Tool</b><span>Slack</span></div><div><b>Skills</b><span>Notes · Actions · Follow-through</span></div></div>
+        </div>
+        <div class="case-content">
+          <div class="content-card"><h4>Challenge</h4><p>Decisions and follow-ups can disappear after a meeting unless somebody turns the discussion into a clear record of what happens next.</p></div>
+          <div class="content-card"><h4>What I Supported</h4><ul><li>Took notes during internal meetings.</li><li>Prepared recap messages with action items and timing.</li><li>Included links to relevant feedback documents, decks, and project resources.</li><li>Shared follow-ups through Slack so next steps were visible to the team.</li></ul></div>
+          <div class="mockup-card"><div class="recap"><div class="recap-top">Post-Meeting Recap · Fictional Example</div><div class="msg"><b>Action 01</b>Creative team to incorporate consolidated feedback.</div><div class="msg"><b>Action 02</b>PM to update timing and confirm review window.</div><div class="msg"><b>Resources</b>Feedback document · Working deck · Timeline</div><div class="msg"><b>Next Checkpoint</b>Internal review before client delivery.</div></div><div class="mock-note">Fictional language and project details used to demonstrate the communication format.</div></div>
+          <div class="content-card"><h4>What It Demonstrates</h4><p>Active listening, synthesis, action-item tracking, resource organization, and clear post-meeting communication.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="lifecycle" id="process">
+      <div class="wrap">
+        <div class="section-kicker">Project Lifecycle Exposure</div>
+        <div class="section-head"><h2>From brief intake<br>through reporting.</h2><p>My internship exposed me to the full creative project lifecycle. My hands-on contributions were concentrated in organization, documentation, tracking, communication, schedule support, and launch preparation.</p></div>
+        <div class="steps">
+          <div class="step"><small>01</small><h4>Initiation + Planning</h4><p>Brief intake, kickoff participation, project setup, calendar support, and initial schedule visibility.</p></div>
+          <div class="step"><small>02</small><h4>Strategy + Concept</h4><p>Tracked materials, reviews, decisions, resources, and evolving project information.</p></div>
+          <div class="step"><small>03</small><h4>Production</h4><p>Supported deliverable tracking, creator workflows, feedback rounds, documentation, and team updates.</p></div>
+          <div class="step"><small>04</small><h4>Launch</h4><p>Maintained visibility into approvals, deadlines, final details, and launch readiness.</p></div>
+          <div class="step"><small>05</small><h4>Reporting + Retro</h4><p>Maintained organized resources through analytics, reporting, retrospective, and housekeeping stages.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="wrap">
+        <div class="section-kicker">About My Approach</div>
+        <div class="about-grid">
+          <p class="about-copy">I’m most energized by the operational side of creative work: building structure, finding the right information, connecting moving pieces, and helping teams turn ideas into something executable.</p>
+          <div class="capabilities">
+            <div class="cap">Project Planning & Scheduling</div><div class="cap">Campaign Operations</div>
+            <div class="cap">Creator Workflow Support</div><div class="cap">Cross-Functional Communication</div>
+            <div class="cap">Process Documentation</div><div class="cap">Launch Readiness</div>
+            <div class="cap">Project Resource Organization</div><div class="cap">Continuous Improvement Mindset</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="wrap contact-inner">
+        <h2>Built to show the work<br>without exposing the work.</h2>
+        <p>Every portfolio visual on this site is an independent recreation using fictional information. It demonstrates my responsibilities and project-management thinking while protecting client and employer confidentiality.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner"><div>RAISSA HARRELL · PROJECT MANAGEMENT PORTFOLIO</div><div>Social · Creator · Creative Operations</div></div>
+  </footer>
+</body>
+</html>
