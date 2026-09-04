@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Raissa Harrell — creative project management portfolio featuring NDA-safe case studies in campaign operations, project planning, creator workflows, team communication, and process design." />
+<title>Raissa Harrell | Creative Project Management</title>
+<style>
+:root{
+  --bg:#f4f0e8;
+  --paper:#fbf8f2;
+  --ink:#151916;
+  --muted:#66675f;
+  --forest:#18221d;
+  --gold:#cba867;
+  --sage:#dfe5dc;
+  --line:#cfc8bc;
+  --stage:#e9e1d5;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  line-height:1.45;
+}
+a{color:inherit}
+.wrap{width:min(1260px,calc(100% - 64px));margin:auto}
+
+/* Minimal editorial navigation */
+.nav{
+  position:sticky;top:0;z-index:20;
+  background:rgba(244,240,232,.94);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(21,25,22,.12);
+}
+.nav-inner{height:72px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{font-weight:850;letter-spacing:-.02em;text-decoration:none;font-size:1rem}
+.nav-links{display:flex;gap:28px;align-items:center;font-size:.88rem}
+.nav-links a{text-decoration:none;border-bottom:1px solid transparent}
+.nav-links a:hover{border-bottom-color:currentColor}
+
+/* Hero — deliberately sparse, editorial and text-led */
+.hero{padding:92px 0 68px;border-bottom:1px solid var(--line)}
+.hero-grid{display:grid;grid-template-columns:1.65fr .55fr;gap:80px;align-items:end}
+.eyebrow,.kicker{font-size:.72rem;text-transform:uppercase;letter-spacing:.18em;font-weight:900;color:#747168}
+.hero h1{
+  font-size:clamp(4.7rem,10vw,9.3rem);
+  line-height:.84;
+  letter-spacing:-.072em;
+  margin:14px 0 30px;
+  max-width:1050px;
+}
+.hero h1 em{font-family:Georgia,"Times New Roman",serif;font-weight:400;letter-spacing:-.05em}
+.hero-intro{font-size:clamp(1.12rem,1.6vw,1.45rem);max-width:720px;margin:0;color:#4f514a}
+.hero-actions{display:flex;gap:18px;flex-wrap:wrap;margin-top:28px}
+.editorial-link{display:inline-block;text-decoration:none;font-size:.76rem;text-transform:uppercase;letter-spacing:.13em;font-weight:900;border-bottom:1px solid var(--ink);padding-bottom:4px}
+.hero-side{border-top:1px solid var(--ink);padding-top:15px}
+.hero-side h2{font-size:.76rem;text-transform:uppercase;letter-spacing:.13em;margin:0 0 18px}
+.quick-fact{padding:12px 0;border-top:1px solid var(--line);font-size:.92rem}
+.quick-fact:first-of-type{border-top:0}
+
+/* Brand experience: no cards, just visual brand strip */
+.brands{padding:58px 0 66px;border-bottom:1px solid var(--line)}
+.section-intro{display:grid;grid-template-columns:.8fr 1.2fr;gap:60px;align-items:start;margin-bottom:44px}
+.section-intro h2{font-size:clamp(2.8rem,6vw,6.3rem);line-height:.9;letter-spacing:-.06em;margin:8px 0 0}
+.section-intro p{max-width:570px;color:var(--muted);font-size:1.02rem;margin:6px 0 0}
+.logo-strip{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.logo-item{min-height:190px;display:grid;place-items:center;padding:28px;border-right:1px solid var(--line)}
+.logo-item:last-child{border-right:0}
+.logo-item img{width:100%;height:125px;object-fit:contain;display:block}
+.portfolio-note{margin-top:20px;font-size:.78rem;color:#767269;max-width:860px}
+
+/* Selected work — rows instead of cards */
+.work{padding:76px 0 10px}
+.work-header{display:flex;justify-content:space-between;gap:40px;align-items:end;margin-bottom:28px}
+.work-header h2{font-size:clamp(3.4rem,7vw,7rem);line-height:.88;letter-spacing:-.065em;margin:7px 0 0}
+.work-header p{max-width:500px;color:var(--muted);margin:0 0 5px}
+.project-row{border-top:1px solid var(--line);padding:46px 0 50px}
+.project-main{display:grid;grid-template-columns:80px .85fr 1.15fr;gap:34px;align-items:start}
+.project-number{font-family:Georgia,"Times New Roman",serif;font-style:italic;font-size:1.15rem;color:#6f6d66;padding-top:7px}
+.project-copy h3{font-size:clamp(2.15rem,4vw,4.5rem);line-height:.94;letter-spacing:-.052em;margin:0 0 16px}
+.project-copy .lede{font-size:1rem;color:var(--muted);max-width:480px;margin:0 0 20px}
+.meta-line{font-size:.72rem;text-transform:uppercase;letter-spacing:.12em;font-weight:850;color:#66655f;line-height:1.7}
+.visual-stage{background:var(--stage);min-height:320px;padding:34px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.visual-stage.tall{min-height:360px}
+
+/* case details are present, but visually quiet until opened */
+details.case-details{margin:28px 0 0 114px;border-top:1px solid var(--ink);border-bottom:1px solid var(--line)}
+details.case-details summary{cursor:pointer;list-style:none;padding:16px 0;font-size:.76rem;text-transform:uppercase;letter-spacing:.13em;font-weight:900;display:flex;justify-content:space-between;align-items:center}
+details.case-details summary::-webkit-details-marker{display:none}
+details.case-details summary:after{content:"+";font-size:1.25rem;font-weight:400}
+details.case-details[open] summary:after{content:"–"}
+.detail-grid{display:grid;grid-template-columns:.85fr 1.2fr .95fr;gap:36px;padding:8px 0 28px}
+.detail-block{border-top:1px solid var(--line);padding-top:14px}
+.detail-block h4{font-size:.7rem;text-transform:uppercase;letter-spacing:.13em;margin:0 0 10px}
+.detail-block p,.detail-block ul{margin:0;color:var(--muted);font-size:.91rem}
+.detail-block ul{padding-left:18px}
+.detail-block li{margin:6px 0}
+
+/* Mini visuals */
+.tracker{width:100%;background:#fff;border:1px solid #d5cec5;box-shadow:0 18px 40px rgba(34,31,24,.09);overflow:hidden}
+.tracker-head,.tracker-r{display:grid;grid-template-columns:1.35fr .8fr .8fr .8fr;gap:7px;align-items:center}
+.tracker-head{background:#f4f0ea;font-weight:900;font-size:.68rem;padding:12px}
+.tracker-r{font-size:.67rem;padding:12px;border-top:1px solid #ece7df}
+.pill{font-size:.6rem;padding:4px 7px;border-radius:999px;background:#dce8da;width:max-content}.pill.yellow{background:#f1deb7}.pill.blue{background:#dbe4f1}
+
+.timeline-mini{width:100%;display:flex;align-items:center;gap:9px;position:relative;padding:34px 0 24px}
+.timeline-mini:before{content:"";position:absolute;height:2px;background:#454c46;left:4%;right:4%;top:61%}
+.mile{position:relative;z-index:1;flex:1;text-align:center}
+.mile-box{background:#fff;border:1px solid #d7d0c6;padding:12px 7px;font-size:.62rem;min-height:70px;display:grid;place-items:center}
+.mile-dot{width:11px;height:11px;background:var(--forest);border-radius:50%;margin:18px auto 7px}.mile small{font-size:.58rem;color:#726c65}
+.timeline-note{font-size:.68rem;color:#746e66;font-style:italic;margin-top:4px;text-align:left;width:100%}
+
+.folders{width:100%;display:grid;grid-template-columns:1fr 1fr;gap:9px;background:#fff;border:1px solid #d8d2ca;padding:18px;box-shadow:0 18px 40px rgba(34,31,24,.07)}
+.folder{display:flex;align-items:center;gap:8px;font-size:.66rem;padding:8px;background:#f7f3ed}.folder-icon{width:16px;height:11px;border-radius:2px;background:#d5a34f;position:relative}.folder-icon:before{content:"";position:absolute;top:-3px;left:2px;width:7px;height:4px;background:#d5a34f}
+
+.hotsheet{width:100%;background:#fff;border:1px solid #d9d2c8;padding:20px;box-shadow:0 18px 40px rgba(34,31,24,.07)}
+.hot-top{display:flex;justify-content:space-between;border-bottom:1px solid #e6dfd6;padding-bottom:10px;margin-bottom:12px;font-size:.68rem;font-weight:900}.hot-cols{display:grid;grid-template-columns:1fr 1fr;gap:10px}.hot-box{background:#f4f0ea;padding:11px;font-size:.62rem;min-height:62px}.hot-box b{display:block;margin-bottom:4px}
+
+.wowdeck{width:100%;display:flex;align-items:center;justify-content:center}.slide{width:95%;background:#fff;border:1px solid #d4cec5;padding:24px 25px;box-shadow:0 18px 40px rgba(34,31,24,.07)}.slide-title{font-family:Georgia,"Times New Roman",serif;font-style:italic;font-size:1.6rem;margin-bottom:16px;color:#223028}.rules{display:grid;grid-template-columns:1fr 1fr;gap:8px 18px}.rule{border-top:1px solid #dad4cb;padding:9px 0 3px;font-size:.66rem}.rule b{display:block;margin-bottom:2px}
+
+.recap{width:100%;background:#fff;border:1px solid #d5cec4;padding:20px;box-shadow:0 18px 40px rgba(34,31,24,.07)}.recap-top{font-weight:900;font-size:.72rem;margin-bottom:12px}.msg{background:#f2efe9;padding:9px 10px;margin:7px 0;font-size:.63rem}.msg b{display:block;margin-bottom:2px}
+
+/* Resume — compact editorial summary, with the full PDF one click away */
+.resume{padding:86px 0;border-top:1px solid var(--line)}
+.resume-header{display:grid;grid-template-columns:1.05fr .95fr;gap:70px;align-items:end;margin-bottom:34px}
+.resume-header h2{font-size:clamp(3.2rem,6.5vw,6.7rem);line-height:.88;letter-spacing:-.062em;margin:8px 0 0}
+.resume-header p{max-width:520px;color:var(--muted);font-size:1rem;margin:0}
+.resume-list{border-top:1px solid var(--ink)}
+.resume-row{display:grid;grid-template-columns:150px 1.2fr 1fr;gap:28px;align-items:baseline;padding:18px 0;border-bottom:1px solid var(--line)}
+.resume-date{font-family:Georgia,"Times New Roman",serif;font-style:italic;color:#747168;font-size:.92rem}
+.resume-role{font-weight:850;font-size:1rem}
+.resume-org{color:var(--muted);font-size:.92rem}
+.resume-footer{display:flex;justify-content:space-between;gap:36px;align-items:center;margin-top:28px}
+.resume-education{color:var(--muted);font-size:.85rem;line-height:1.65;max-width:720px}
+.resume-education strong{color:var(--ink)}
+.resume-button{display:inline-flex;align-items:center;white-space:nowrap;text-decoration:none;border:1px solid var(--ink);border-radius:999px;padding:11px 16px;font-size:.78rem;text-transform:uppercase;letter-spacing:.1em;font-weight:900}
+
+/* Lifecycle — one line, not five cards */
+.process{padding:82px 0;border-top:1px solid var(--line)}
+.process h2{font-size:clamp(3rem,6.5vw,6.4rem);line-height:.9;letter-spacing:-.06em;margin:8px 0 38px}
+.process-line{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid var(--ink);border-bottom:1px solid var(--ink)}
+.process-step{padding:22px 18px 24px;border-right:1px solid var(--line);min-height:140px}.process-step:last-child{border-right:0}.process-step small{font-family:Georgia,"Times New Roman",serif;font-style:italic;color:#767269}.process-step h3{font-size:1rem;margin:18px 0 7px}.process-step p{font-size:.78rem;color:var(--muted);margin:0}
+
+/* About inspired by reference site's quick-facts approach */
+.about{padding:88px 0;border-top:1px solid var(--line)}
+.about-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:90px;align-items:start}
+.about-copy{font-family:Georgia,"Times New Roman",serif;font-size:clamp(2.2rem,4vw,4.4rem);line-height:1.03;letter-spacing:-.035em;margin:10px 0 0}
+.capability-list{border-top:1px solid var(--ink)}
+.capability{display:flex;justify-content:space-between;gap:20px;padding:15px 0;border-bottom:1px solid var(--line);font-size:.9rem}.capability span:last-child{color:#77736b}
+
+.contact{padding:72px 0;background:var(--forest);color:#fff;margin-top:30px}.contact-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:70px;align-items:end}.contact h2{font-size:clamp(3.2rem,7vw,7rem);line-height:.88;letter-spacing:-.06em;margin:0}.contact p{color:rgba(255,255,255,.68);max-width:470px;margin:0}.contact strong{color:#fff}
+footer{background:var(--forest);color:rgba(255,255,255,.55);border-top:1px solid rgba(255,255,255,.14);padding:24px 0;font-size:.76rem}.footer-inner{display:flex;justify-content:space-between;gap:20px}
+
+@media(max-width:980px){
+  .hero-grid,.section-intro,.about-grid,.contact-grid,.resume-header{grid-template-columns:1fr;gap:36px}
+  .hero-side{max-width:520px}
+  .project-main{grid-template-columns:55px 1fr;gap:24px}.visual-stage{grid-column:2;margin-top:8px}.project-number{grid-row:1 / span 2}
+  details.case-details{margin-left:79px}.detail-grid{grid-template-columns:1fr}
+  .process-line{grid-template-columns:1fr 1fr}.process-step:nth-child(2n){border-right:0}
+  .resume-row{grid-template-columns:110px 1.2fr 1fr}.resume-footer{align-items:flex-start}
+}
+@media(max-width:680px){
+  .wrap{width:min(100% - 30px,1260px)}.nav-inner{height:62px}.nav-links{gap:14px}.nav-links a:nth-child(2){display:none}
+  .hero{padding:72px 0 52px}.hero h1{font-size:3.9rem}.hero-intro{font-size:1rem}
+  .logo-strip{grid-template-columns:1fr}.logo-item{border-right:0;border-bottom:1px solid var(--line);min-height:150px}.logo-item:last-child{border-bottom:0}.logo-item img{height:105px}
+  .work{padding-top:58px}.work-header{display:block}.work-header p{margin-top:18px}
+  .project-row{padding:38px 0}.project-main{grid-template-columns:1fr}.project-number{grid-row:auto}.visual-stage{grid-column:auto;min-height:250px;padding:20px}.project-copy h3{font-size:2.65rem}
+  details.case-details{margin-left:0}.timeline-mini{gap:4px}.mile-box{font-size:.54rem;padding:8px 4px;min-height:58px}.mile-dot{margin-top:14px}
+  .process-line{grid-template-columns:1fr}.process-step{border-right:0}
+  .resume-row{grid-template-columns:1fr;gap:5px;padding:16px 0}.resume-footer{display:block}.resume-button{margin-top:20px}
+  .footer-inner{display:block}.footer-inner div+div{margin-top:6px}
+}
+
+/* =========================================================
+   WARM EDITORIAL COLOR LAYER
+   Keeps the clean layout, while adding translucent color,
+   soft gradients, glass surfaces and a more inviting feel.
+   ========================================================= */
+:root{
+  --bg:#f8f4ec;
+  --paper:rgba(255,255,255,.72);
+  --ink:#17201c;
+  --muted:#686760;
+  --forest:#20312a;
+  --forest-soft:#31483e;
+  --gold:#c7a064;
+  --gold-wash:rgba(211,174,117,.22);
+  --sage:#bed0c2;
+  --sage-wash:rgba(180,205,188,.30);
+  --lavender:#c9bee3;
+  --lavender-wash:rgba(199,187,226,.30);
+  --blush:#e4c3c2;
+  --blush-wash:rgba(229,193,194,.28);
+  --sky-wash:rgba(185,211,225,.25);
+  --peach-wash:rgba(239,209,180,.27);
+  --line:rgba(55,65,58,.15);
+  --stage:rgba(255,255,255,.52);
+}
+
+body{
+  background:
+    radial-gradient(circle at 7% 4%, rgba(199,187,226,.22) 0, transparent 25%),
+    radial-gradient(circle at 94% 10%, rgba(180,205,188,.24) 0, transparent 24%),
+    linear-gradient(180deg,#fbf8f3 0%,#f7f1e8 45%,#f9f5ef 100%);
+}
+
+/* translucent navigation */
+.nav{
+  background:rgba(250,247,241,.76);
+  backdrop-filter:blur(20px) saturate(125%);
+  -webkit-backdrop-filter:blur(20px) saturate(125%);
+  border-bottom:1px solid rgba(52,66,58,.10);
+  box-shadow:0 7px 30px rgba(37,47,40,.035);
+}
+.nav-links a{padding:7px 0}
+
+/* hero: soft color, not a flat block */
+.hero{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  background:
+    linear-gradient(120deg,rgba(255,255,255,.50),rgba(255,255,255,.08)),
+    linear-gradient(135deg,rgba(199,187,226,.20) 0%,rgba(239,209,180,.16) 46%,rgba(180,205,188,.22) 100%);
+  border-bottom:0;
+  padding-top:104px;
+  padding-bottom:82px;
+}
+.hero::before,
+.hero::after{
+  content:"";
+  position:absolute;
+  z-index:-1;
+  border-radius:50%;
+  filter:blur(18px);
+  pointer-events:none;
+}
+.hero::before{
+  width:470px;height:470px;
+  right:-145px;top:-170px;
+  background:radial-gradient(circle,rgba(207,186,225,.46),rgba(207,186,225,0) 68%);
+}
+.hero::after{
+  width:430px;height:430px;
+  left:-155px;bottom:-235px;
+  background:radial-gradient(circle,rgba(213,177,116,.28),rgba(213,177,116,0) 70%);
+}
+.eyebrow,.kicker{color:#6d665c}
+.hero h1 em{color:#6c5d82}
+.hero-intro{color:#51534e}
+.hero-side{
+  border:1px solid rgba(255,255,255,.72);
+  border-radius:28px;
+  padding:24px 24px 20px;
+  background:rgba(255,255,255,.40);
+  box-shadow:0 20px 55px rgba(47,50,44,.07);
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+}
+.hero-side h2{margin-bottom:12px}
+.quick-fact{border-top-color:rgba(59,67,62,.13)}
+.editorial-link{
+  border:0;
+  padding:11px 17px;
+  border-radius:999px;
+  background:rgba(255,255,255,.46);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.72),0 10px 28px rgba(42,48,44,.055);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  transition:transform .22s ease,box-shadow .22s ease,background .22s ease;
+}
+.editorial-link:first-child{background:var(--forest);color:#fff;box-shadow:0 12px 30px rgba(32,49,42,.17)}
+.editorial-link:hover{transform:translateY(-2px);box-shadow:0 15px 32px rgba(42,48,44,.11)}
+
+/* brand section: translucent washes with individually tinted logo panels */
+.brands{
+  position:relative;
+  padding:76px 0 80px;
+  border-bottom:0;
+  background:
+    radial-gradient(circle at 12% 60%,rgba(229,193,194,.18),transparent 27%),
+    radial-gradient(circle at 88% 35%,rgba(185,211,225,.17),transparent 25%);
+}
+.logo-strip{
+  gap:16px;
+  border:0;
+}
+.logo-item{
+  min-height:205px;
+  border:1px solid rgba(255,255,255,.70) !important;
+  border-radius:26px;
+  box-shadow:0 17px 44px rgba(47,50,44,.06);
+  backdrop-filter:blur(15px);
+  -webkit-backdrop-filter:blur(15px);
+}
+.logo-item:nth-child(1){background:linear-gradient(145deg,rgba(255,255,255,.70),rgba(229,193,194,.29))}
+.logo-item:nth-child(2){background:linear-gradient(145deg,rgba(255,255,255,.72),rgba(199,187,226,.28))}
+.logo-item:nth-child(3){background:linear-gradient(145deg,rgba(255,255,255,.72),rgba(180,205,188,.31))}
+.logo-item img{height:132px;filter:drop-shadow(0 8px 20px rgba(33,39,35,.045))}
+.portfolio-note{
+  width:fit-content;
+  max-width:940px;
+  margin-top:24px;
+  padding:12px 15px;
+  border-radius:14px;
+  background:rgba(255,255,255,.38);
+  border:1px solid rgba(255,255,255,.60);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+}
+
+/* work: keep the editorial rows, give the visuals personality */
+.work{padding-top:90px}
+.project-row{border-top-color:rgba(60,69,63,.14);padding:54px 0 58px}
+.project-number{
+  width:54px;height:54px;
+  display:grid;place-items:center;
+  border-radius:50%;
+  background:rgba(255,255,255,.47);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.72);
+  color:#6b5a7b;
+  padding:0;
+}
+.visual-stage{
+  border-radius:30px;
+  border:1px solid rgba(255,255,255,.67);
+  box-shadow:0 22px 58px rgba(40,47,42,.07);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+}
+.project-row:nth-of-type(1) .visual-stage{background:linear-gradient(145deg,rgba(255,255,255,.48),rgba(185,211,225,.25))}
+.project-row:nth-of-type(2) .visual-stage{background:linear-gradient(145deg,rgba(255,255,255,.49),rgba(239,209,180,.29))}
+.project-row:nth-of-type(3) .visual-stage{background:linear-gradient(145deg,rgba(255,255,255,.49),rgba(180,205,188,.30))}
+.project-row:nth-of-type(4) .visual-stage{background:linear-gradient(145deg,rgba(255,255,255,.49),rgba(229,193,194,.28))}
+.project-row:nth-of-type(5) .visual-stage{background:linear-gradient(145deg,rgba(255,255,255,.49),rgba(199,187,226,.29))}
+.project-row:nth-of-type(6) .visual-stage{background:linear-gradient(145deg,rgba(255,255,255,.49),rgba(211,174,117,.24))}
+
+.tracker,.folders,.hotsheet,.slide,.recap{
+  border-radius:18px;
+  border-color:rgba(87,85,76,.13);
+  box-shadow:0 18px 42px rgba(35,39,36,.08);
+}
+.mile-box{border-radius:13px;border-color:rgba(87,85,76,.14);box-shadow:0 8px 18px rgba(42,45,40,.045)}
+.timeline-mini:before{background:rgba(48,59,52,.63)}
+.folder,.hot-box,.msg{border-radius:11px}
+
+/* expanded case text becomes a subtle glass drawer */
+details.case-details{
+  border-top-color:rgba(30,41,35,.36);
+  border-bottom-color:rgba(50,59,53,.12);
+}
+details.case-details[open]{
+  margin-top:30px;
+  padding:0 20px 22px;
+  border:1px solid rgba(255,255,255,.70);
+  border-radius:22px;
+  background:rgba(255,255,255,.33);
+  box-shadow:0 16px 40px rgba(43,49,45,.045);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+}
+.detail-block{border-top-color:rgba(55,63,58,.12)}
+
+/* resume: warmer tinted section with a clean translucent list */
+.resume{
+  position:relative;
+  overflow:hidden;
+  border-top:0;
+  background:
+    radial-gradient(circle at 8% 25%,rgba(199,187,226,.20),transparent 30%),
+    radial-gradient(circle at 90% 70%,rgba(180,205,188,.22),transparent 28%),
+    linear-gradient(180deg,rgba(255,255,255,.12),rgba(255,255,255,.26));
+  padding:96px 0;
+}
+.resume-list{
+  border:1px solid rgba(255,255,255,.72);
+  border-radius:25px;
+  overflow:hidden;
+  background:rgba(255,255,255,.39);
+  box-shadow:0 20px 58px rgba(43,49,45,.055);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+}
+.resume-row{padding:19px 24px;border-bottom-color:rgba(62,69,64,.12)}
+.resume-row:last-child{border-bottom:0}
+.resume-button{
+  border:0;
+  background:var(--forest);
+  color:#fff;
+  box-shadow:0 12px 28px rgba(32,49,42,.16);
+  padding:13px 18px;
+  transition:transform .22s ease,box-shadow .22s ease;
+}
+.resume-button:hover{transform:translateY(-2px);box-shadow:0 16px 34px rgba(32,49,42,.20)}
+
+/* process: glass timeline with gentle alternating tints */
+.process{
+  border-top:0;
+  padding:96px 0;
+  background:linear-gradient(180deg,rgba(190,208,194,.10),rgba(255,255,255,.12));
+}
+.process-line{
+  gap:10px;
+  border:0;
+}
+.process-step{
+  min-height:165px;
+  border:1px solid rgba(255,255,255,.70) !important;
+  border-radius:20px;
+  background:rgba(255,255,255,.39);
+  box-shadow:0 14px 34px rgba(43,49,45,.045);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+}
+.process-step:nth-child(1){background:linear-gradient(150deg,rgba(255,255,255,.54),rgba(185,211,225,.19))}
+.process-step:nth-child(2){background:linear-gradient(150deg,rgba(255,255,255,.54),rgba(199,187,226,.19))}
+.process-step:nth-child(3){background:linear-gradient(150deg,rgba(255,255,255,.54),rgba(229,193,194,.19))}
+.process-step:nth-child(4){background:linear-gradient(150deg,rgba(255,255,255,.54),rgba(239,209,180,.20))}
+.process-step:nth-child(5){background:linear-gradient(150deg,rgba(255,255,255,.54),rgba(180,205,188,.22))}
+
+/* about: quiet, colorful, roomy */
+.about{
+  border-top:0;
+  position:relative;
+  background:
+    radial-gradient(circle at 82% 20%,rgba(229,193,194,.18),transparent 28%),
+    radial-gradient(circle at 18% 90%,rgba(199,187,226,.15),transparent 30%);
+  padding:100px 0;
+}
+.about-copy{color:#23302a}
+
+/* contact: richer forest with subtle glowing color */
+.contact{
+  position:relative;
+  overflow:hidden;
+  margin-top:0;
+  background:
+    radial-gradient(circle at 82% 10%,rgba(199,187,226,.18),transparent 27%),
+    radial-gradient(circle at 12% 95%,rgba(211,174,117,.18),transparent 31%),
+    linear-gradient(135deg,#203129 0%,#293c33 52%,#1c2a24 100%);
+}
+.contact p{color:rgba(255,255,255,.75)}
+footer{background:#1b2822}
+
+@media(max-width:980px){
+  .hero{padding-top:86px}
+  .hero-side{max-width:560px}
+  .logo-strip{gap:12px}
+  .process-line{gap:8px}
+  .process-step{min-height:auto}
+}
+
+@media(max-width:680px){
+  .hero{padding-top:68px;padding-bottom:62px}
+  .hero-side{border-radius:22px}
+  .logo-strip{gap:12px}
+  .logo-item{border-radius:22px;min-height:165px}
+  .logo-item img{height:105px}
+  .project-number{width:45px;height:45px;margin-bottom:12px}
+  .visual-stage{border-radius:23px;padding:22px}
+  details.case-details[open]{padding:0 14px 17px}
+  .resume-list{border-radius:20px}
+  .resume-row{padding:16px 18px}
+  .process-line{gap:10px}
+}
+
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top">RAISSA HARRELL</a>
+    <div class="nav-links"><a href="#work">Work</a><a href="#resume">Resume</a><a href="#about">About</a><a href="#process">Process</a></div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Creative Project Management · Social · Creator Operations</div>
+      <h1>Raissa Harrell:<br><em>Creative Project Manager</em></h1>
+      <p class="hero-intro">I bring structure to creative work — organizing timelines, deliverables, resources, communication, and launch readiness so teams can keep moving.</p>
+      <div class="hero-actions"><a class="editorial-link" href="#work">View selected work ↓</a><a class="editorial-link" href="assets/Raissa_Harrell_Resume.pdf" target="_blank" rel="noopener">Résumé PDF ↗</a></div>
+    </div>
+    <aside class="hero-side" aria-label="Quick facts">
+      <h2>Quick facts</h2>
+      <div class="quick-fact">MBA · Project Management</div>
+      <div class="quick-fact">Creative agency internship experience</div>
+      <div class="quick-fact">Social + creator campaign operations</div>
+      <div class="quick-fact">Planning · tracking · process · communication</div>
+    </aside>
+  </div>
+</header>
+
+<main>
+<section class="brands">
+  <div class="wrap">
+    <div class="section-intro">
+      <div><div class="kicker">Selected brand experience</div><h2>Brands connected to my creative project work.</h2></div>
+      <p>Public-facing brand marks provide context for my internship experience. The work below focuses on my project-management responsibilities, while confidential campaign materials remain private.</p>
+    </div>
+    <div class="logo-strip" aria-label="Selected brand experience">
+      <div class="logo-item"><img src="assets/brand-mark.png" alt="Casamigos logo"></div>
+      <div class="logo-item"><img src="assets/gemini.png" alt="Gemini logo"></div>
+      <div class="logo-item"><img src="assets/android.png" alt="Android logo"></div>
+    </div>
+    <div class="portfolio-note"><strong>Portfolio note:</strong> all project visuals below are independently recreated with fictional names, dates, statuses, and sample content. No original client files, internal screenshots, proprietary data, contracts, or budgets are shown.</div>
+  </div>
+</section>
+
+<section class="work" id="work">
+  <div class="wrap">
+    <div class="work-header">
+      <div><div class="kicker">Selected work</div><h2>How I supported the work.</h2></div>
+      <p>Six examples of the systems and project-management support I contributed across campaign planning, creator operations, team communication, and process design.</p>
+    </div>
+
+    <article class="project-row" id="case-tracker">
+      <div class="project-main">
+        <div class="project-number">01</div>
+        <div class="project-copy"><h3>Social Campaign Production Tracker</h3><p class="lede">A centralized production view for deliverables, review rounds, approvals, deadlines, and launch details across social platforms.</p><div class="meta-line">Campaign Operations · Google Sheets · TikTok · Instagram · YouTube</div></div>
+        <div class="visual-stage">
+          <div class="tracker"><div class="tracker-head"><span>Asset</span><span>Platform</span><span>Status</span><span>Review</span></div><div class="tracker-r"><b>Hero Video</b><span>TikTok</span><span class="pill">Approved</span><span>Final</span></div><div class="tracker-r"><b>Cutdown A</b><span>Instagram</span><span class="pill yellow">Review</span><span>Round 2</span></div><div class="tracker-r"><b>Creator Post</b><span>TikTok</span><span class="pill blue">Editing</span><span>Round 1</span></div><div class="tracker-r"><b>BTS Clip</b><span>YouTube</span><span class="pill">Approved</span><span>Final</span></div></div>
+        </div>
+      </div>
+      <details class="case-details"><summary>Open case study</summary><div class="detail-grid"><div class="detail-block"><h4>Challenge</h4><p>Multi-platform campaign work requires teams to keep track of many deliverables, platform specifications, review stages, approvals, deadlines, and launch details at the same time.</p></div><div class="detail-block"><h4>What I supported</h4><ul><li>Rebuilt and updated paid asset trackers.</li><li>Tracked deliverables, specifications, deadlines, review rounds, approvals, and go-live details.</li><li>Maintained a centralized view of campaign progress across social platforms.</li><li>Updated information as projects moved through review and launch preparation.</li></ul></div><div class="detail-block"><h4>What it demonstrates</h4><p>Attention to detail, production visibility, deadline tracking, review-stage awareness, and an understanding of how social content moves from creation through approval and launch.</p></div></div></details>
+    </article>
+
+    <article class="project-row" id="case-wbs">
+      <div class="project-main">
+        <div class="project-number">02</div>
+        <div class="project-copy"><h3>Work-Back Schedule &amp; Timeline Planning</h3><p class="lede">Mapping campaign milestones backward from launch and translating timing into clear phases, tasks, dependencies, and review windows.</p><div class="meta-line">Project Planning · Asana · Google Sheets · Dependencies</div></div>
+        <div class="visual-stage tall"><div style="width:100%"><div class="timeline-mini"><div class="mile"><div class="mile-box">Strategy &amp; Brief</div><div class="mile-dot"></div><small>W1</small></div><div class="mile"><div class="mile-box">Creative Development</div><div class="mile-dot"></div><small>W2</small></div><div class="mile"><div class="mile-box">Creator Sourcing</div><div class="mile-dot"></div><small>W3</small></div><div class="mile"><div class="mile-box">Content + Reviews</div><div class="mile-dot"></div><small>W4–8</small></div><div class="mile"><div class="mile-box">Launch</div><div class="mile-dot"></div><small>W9</small></div></div><div class="timeline-note">Fictional timeline used only to demonstrate the scheduling logic I practiced.</div></div></div>
+      </div>
+      <details class="case-details"><summary>Open case study</summary><div class="detail-grid"><div class="detail-block"><h4>Challenge</h4><p>A campaign schedule only works when high-level timing is translated into clear phases, tasks, dependencies, milestones, and review windows that teams can actually follow.</p></div><div class="detail-block"><h4>What I supported</h4><ul><li>Supported integration of work-back schedules from Google Sheets into Asana.</li><li>Organized timelines into project phases and individual tasks.</li><li>Added dates, statuses, dependencies, notes, and timing information.</li><li>Observed how project managers structure schedules across planning, strategy, creative, creator work, launch, reporting, and housekeeping.</li></ul></div><div class="detail-block"><h4>What it demonstrates</h4><p>Work-back planning, schedule structure, task sequencing, dependency awareness, and the ability to translate a campaign lifecycle into a project-management system.</p></div></div></details>
+    </article>
+
+    <article class="project-row" id="case-files">
+      <div class="project-main">
+        <div class="project-number">03</div>
+        <div class="project-copy"><h3>Creator Campaign Project Organization</h3><p class="lede">A practical shared-resource structure supporting creator campaigns from early planning through reviews, analytics, and retrospective.</p><div class="meta-line">Creator Operations · Google Drive · File Governance · Documentation</div></div>
+        <div class="visual-stage"><div class="folders"><div class="folder"><i class="folder-icon"></i>01_Project Brief</div><div class="folder"><i class="folder-icon"></i>06_Concepts</div><div class="folder"><i class="folder-icon"></i>02_Creator Profiling</div><div class="folder"><i class="folder-icon"></i>07_Content Reviews</div><div class="folder"><i class="folder-icon"></i>03_Sourcing</div><div class="folder"><i class="folder-icon"></i>08_Approved Assets</div><div class="folder"><i class="folder-icon"></i>04_Contracts</div><div class="folder"><i class="folder-icon"></i>09_Analytics</div><div class="folder"><i class="folder-icon"></i>05_Creator Briefs</div><div class="folder"><i class="folder-icon"></i>10_Retrospective</div></div></div>
+      </div>
+      <details class="case-details"><summary>Open case study</summary><div class="detail-grid"><div class="detail-block"><h4>Challenge</h4><p>Creator projects generate large volumes of documents throughout sourcing, contracting, briefing, concepting, content review, launch, and reporting. Poor organization slows teams down.</p></div><div class="detail-block"><h4>What I supported</h4><ul><li>Maintained project resources in the appropriate shared-drive folders.</li><li>Organized briefs, creator profiling documents, sourcing/outreach materials, contracts and invoices.</li><li>Maintained creator briefs, concepts, content review files, analytics, and retrospective reports.</li><li>Used the campaign lifecycle as a guide for where resources belonged.</li></ul></div><div class="detail-block"><h4>What it demonstrates</h4><p>Information architecture, documentation discipline, creator-program workflow awareness, and the ability to maintain organized shared resources across a project lifecycle.</p></div></div></details>
+    </article>
+
+    <article class="project-row" id="case-hot">
+      <div class="project-main">
+        <div class="project-number">04</div>
+        <div class="project-copy"><h3>Daily Hot Sheet</h3><p class="lede">A concise daily communication tool surfacing immediate priorities, timing, ownership, resources, and team availability.</p><div class="meta-line">Team Operations · Slack Canvas · Prioritization · Visibility</div></div>
+        <div class="visual-stage"><div class="hotsheet"><div class="hot-top"><span>HOT SHEET</span><span>Sample · Fictional</span></div><div class="hot-cols"><div class="hot-box"><b>Today's Priorities</b>Finalize feedback<br>Review creator concepts</div><div class="hot-box"><b>Upcoming</b>Creative review<br>Client status</div><div class="hot-box"><b>Availability</b>OOO coverage<br>Team notes</div><div class="hot-box"><b>Resources</b>Timeline<br>Feedback doc</div></div></div></div>
+      </div>
+      <details class="case-details"><summary>Open case study</summary><div class="detail-grid"><div class="detail-block"><h4>Challenge</h4><p>Fast-moving teams can lose time scanning multiple channels to understand what matters today, who is available, and where to find the right resource.</p></div><div class="detail-block"><h4>What I supported</h4><ul><li>Created and distributed daily Hot Sheets through Slack.</li><li>Tracked priority action items, deadlines, assigned owners, out-of-office notes, and resources.</li><li>Reviewed availability information before distribution.</li><li>Maintained a quick-reference view of the day’s most relevant project information.</li></ul></div><div class="detail-block"><h4>What it demonstrates</h4><p>Prioritization, concise communication, team-awareness, resource linking, and the ability to synthesize fast-moving information into an easy daily reference.</p></div></div></details>
+    </article>
+
+    <article class="project-row" id="case-wow">
+      <div class="project-main">
+        <div class="project-number">05</div>
+        <div class="project-copy"><h3>Ways of Working / Team Onboarding</h3><p class="lede">Process documentation that makes responsibilities, communication expectations, workflows, and operating practices easier to understand.</p><div class="meta-line">Process Design · Google Slides · Documentation · Onboarding</div></div>
+        <div class="visual-stage"><div class="wowdeck"><div class="slide"><div class="slide-title">Ways of Working</div><div class="rules"><div class="rule"><b>Communication</b>Where updates live</div><div class="rule"><b>Responsibilities</b>Who owns what</div><div class="rule"><b>Workflow</b>How work moves</div><div class="rule"><b>Meetings</b>Cadence + purpose</div><div class="rule"><b>Resources</b>Where files live</div><div class="rule"><b>Escalation</b>When to flag risk</div></div></div></div></div>
+      </div>
+      <details class="case-details"><summary>Open case study</summary><div class="detail-grid"><div class="detail-block"><h4>Challenge</h4><p>Teams work more consistently when important operating practices are documented instead of living only in people’s heads or scattered messages.</p></div><div class="detail-block"><h4>What I supported</h4><ul><li>Supported development of Ways of Working and onboarding materials.</li><li>Helped organize team processes, responsibilities, communication expectations, and workflows.</li><li>Contributed to account resources including timelines, trackers, and process decks.</li><li>Observed how project managers translate working norms into reusable documentation.</li></ul></div><div class="detail-block"><h4>What it demonstrates</h4><p>Process thinking, documentation, onboarding awareness, communication design, and an understanding of how PM systems help teams work consistently.</p></div></div></details>
+    </article>
+
+    <article class="project-row" id="case-recap">
+      <div class="project-main">
+        <div class="project-number">06</div>
+        <div class="project-copy"><h3>Meeting Recap &amp; Action System</h3><p class="lede">A follow-up workflow for converting live meeting discussion into clear actions, timing, resources, and next steps.</p><div class="meta-line">Project Communication · Slack · Action Items · Follow-through</div></div>
+        <div class="visual-stage"><div class="recap"><div class="recap-top">Post-Meeting Recap · Fictional Example</div><div class="msg"><b>Action 01</b>Creative team to incorporate consolidated feedback.</div><div class="msg"><b>Action 02</b>PM to update timing and confirm review window.</div><div class="msg"><b>Resources</b>Feedback document · Working deck · Timeline</div><div class="msg"><b>Next Checkpoint</b>Internal review before client delivery.</div></div></div>
+      </div>
+      <details class="case-details"><summary>Open case study</summary><div class="detail-grid"><div class="detail-block"><h4>Challenge</h4><p>Decisions and follow-ups can disappear after a meeting unless somebody turns the discussion into a clear record of what happens next.</p></div><div class="detail-block"><h4>What I supported</h4><ul><li>Took notes during internal meetings.</li><li>Prepared recap messages with action items and timing.</li><li>Included links to relevant feedback documents, decks, and project resources.</li><li>Shared follow-ups through Slack so next steps were visible to the team.</li></ul></div><div class="detail-block"><h4>What it demonstrates</h4><p>Active listening, synthesis, action-item tracking, resource organization, and clear post-meeting communication.</p></div></div></details>
+    </article>
+  </div>
+</section>
+
+<section class="resume" id="resume">
+  <div class="wrap">
+    <div class="resume-header">
+      <div><div class="kicker">Resume</div><h2>Experience, in brief.</h2></div>
+      <p>A quick view of the experience behind the portfolio. The full résumé is available as a PDF for role details, education, certifications, and tools.</p>
+    </div>
+    <div class="resume-list">
+      <div class="resume-row"><div class="resume-date">2026</div><div class="resume-role">Creative Project Manager — Intern</div><div class="resume-org">The·Team (formerly Wasserman)</div></div>
+      <div class="resume-row"><div class="resume-date">2022–2025</div><div class="resume-role">Legal Specialist</div><div class="resume-org">Polsinelli</div></div>
+      <div class="resume-row"><div class="resume-date">2022</div><div class="resume-role">Legal Coordinator</div><div class="resume-org">Milbank / RR Donnelley</div></div>
+      <div class="resume-row"><div class="resume-date">2019–2022</div><div class="resume-role">Court Specialist</div><div class="resume-org">Mesa Municipal Court</div></div>
+    </div>
+    <div class="resume-footer">
+      <div class="resume-education"><strong>MBA, Project Management</strong> — Grand Canyon University · Dec 2026 &nbsp; / &nbsp; <strong>BS, Criminology &amp; Criminal Justice</strong> — Arizona State University · Lean Six Sigma Black Belt · PMP certification in progress</div>
+      <a class="resume-button" href="assets/Raissa_Harrell_Resume.pdf" target="_blank" rel="noopener">View full résumé ↗</a>
+    </div>
+  </div>
+</section>
+
+<section class="process" id="process">
+  <div class="wrap">
+    <div class="kicker">Project lifecycle exposure</div>
+    <h2>From brief intake through reporting.</h2>
+    <div class="process-line">
+      <div class="process-step"><small>01</small><h3>Initiation + Planning</h3><p>Brief intake, kickoff participation, project setup, calendar support, and schedule visibility.</p></div>
+      <div class="process-step"><small>02</small><h3>Strategy + Concept</h3><p>Tracked materials, reviews, decisions, resources, and evolving project information.</p></div>
+      <div class="process-step"><small>03</small><h3>Production</h3><p>Supported deliverables, creator workflows, feedback rounds, documentation, and team updates.</p></div>
+      <div class="process-step"><small>04</small><h3>Launch</h3><p>Maintained visibility into approvals, deadlines, final details, and launch readiness.</p></div>
+      <div class="process-step"><small>05</small><h3>Reporting + Retro</h3><p>Maintained organized resources through analytics, reporting, retrospective, and housekeeping.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="wrap about-grid">
+    <div><div class="kicker">About my approach</div><p class="about-copy">I’m most energized by the operational side of creative work: building structure, finding the right information, connecting moving pieces, and helping teams turn ideas into something executable.</p></div>
+    <div class="capability-list">
+      <div class="capability"><span>Project Planning &amp; Scheduling</span><span>01</span></div>
+      <div class="capability"><span>Campaign Operations</span><span>02</span></div>
+      <div class="capability"><span>Creator Workflow Support</span><span>03</span></div>
+      <div class="capability"><span>Cross-Functional Communication</span><span>04</span></div>
+      <div class="capability"><span>Process Documentation</span><span>05</span></div>
+      <div class="capability"><span>Launch Readiness</span><span>06</span></div>
+      <div class="capability"><span>Project Resource Organization</span><span>07</span></div>
+      <div class="capability"><span>Continuous Improvement Mindset</span><span>08</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="contact">
+  <div class="wrap contact-grid">
+    <h2>Built to show the work without exposing the work.</h2>
+    <p><strong>Confidentiality-first portfolio:</strong> every visual on this site is independently recreated using fictional information to demonstrate my responsibilities and project-management thinking while protecting client and employer materials.</p>
+  </div>
+</section>
+</main>
+<footer><div class="wrap footer-inner"><div>RAISSA HARRELL · PROJECT MANAGEMENT PORTFOLIO</div><div><a href="assets/Raissa_Harrell_Resume.pdf" target="_blank" rel="noopener">Résumé</a> · Social · Creator · Creative Operations</div></div></footer>
+</body>
+</html>
