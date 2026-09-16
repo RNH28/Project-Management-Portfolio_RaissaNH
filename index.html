@@ -100,21 +100,69 @@
     .tools-heading .display{font-size:52px}
     .tools-heading p{font-size:14px;color:#5f5763;max-width:650px;margin:0;border-left:1px solid rgba(75,53,87,.35);padding-left:28px}
     .tools-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:5px;align-items:start}
-    .tool{text-align:center;font-size:10px;font-weight:700;line-height:1.18;color:#312b35}
-    .tool img{width:42px;height:42px;object-fit:contain;margin:0 auto 7px}
-    .tool .wide-logo{width:78px;height:42px}
+    .tool{
+  text-align:center;
+  font-size:10px;
+  font-weight:700;
+  line-height:1.18;
+  color:#312b35;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-start;
+}
+
+.tool img{
+  width:54px;
+  height:54px;
+  object-fit:contain;
+  object-position:center;
+  margin:0 auto 8px;
+  background:transparent;
+}
+
+.tool .wide-logo{
+  width:72px;
+  height:54px;
+  object-fit:contain;
+}
 
     /* BRANDS */
     .brands{padding:19px 0;background:linear-gradient(90deg,rgba(244,215,228,.86),rgba(230,213,248,.87),rgba(249,216,203,.82));border-top:1px solid rgba(78,57,89,.07);border-bottom:1px solid rgba(78,57,89,.07)}
     .brands-grid{display:grid;grid-template-columns:.72fr 1.35fr .93fr;gap:28px;align-items:center}
     .brands-title{font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:.16em}
     .logos{display:grid;grid-template-columns:repeat(3,1fr);align-items:center}
-    .logo-box{height:70px;display:grid;place-items:center;padding:8px 20px;border-left:1px solid rgba(76,55,86,.22);position:relative}
-    .logo-box:first-child{border-left:0}
-    .logo-box img{max-height:56px;max-width:150px;object-fit:contain;position:relative;z-index:2}.logo-box img.casamigos-logo{max-height:66px;max-width:175px}
-    .brand-fallback{font-size:28px;font-weight:700;position:absolute;color:#2f2932;z-index:1}
-    .brand-fallback.gemini{font-size:28px;background:linear-gradient(90deg,#4187ff,#6d6be8,#e074b9);-webkit-background-clip:text;color:transparent}
-    .brand-fallback.casa{font-family:Georgia,serif;font-size:23px;letter-spacing:.04em}
+    .logo-box{
+  height:78px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:4px 20px;
+  border-left:1px solid rgba(76,55,86,.22);
+  position:relative;
+  background:transparent;
+}
+
+.logo-box:first-child{
+  border-left:0;
+}
+
+.logo-box img{
+  width:150px;
+  height:62px;
+  object-fit:contain;
+  object-position:center;
+  position:relative;
+  z-index:2;
+  background:transparent;
+}
+
+.logo-box img.casamigos-logo{
+  width:150px;
+  height:62px;
+  max-width:none;
+  max-height:none;
+}
     .nda{font-size:10px;line-height:1.45;color:#655d69;margin:0;border-left:1px solid rgba(76,55,86,.22);padding-left:22px}
 
     /* FEATURED */
