@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Raissa Nayanka Harrell — Resume | Project Management, Operations, Process Improvement, and Cross-Functional Delivery." />
+  <title>Raissa Harrell | Resume</title>
+  <style>
+    :root{
+      --ink:#29213a;
+      --ink-soft:#5f5668;
+      --cream:#fffaf6;
+      --paper:#fffdf9;
+      --plum:#6d4b70;
+      --plum-deep:#523552;
+      --mauve:#916b82;
+      --lilac:#d9c3f2;
+      --lilac-soft:#eee3fb;
+      --rose:#f3cbd6;
+      --peach:#f7d4c4;
+      --blush:#f8dce5;
+      --line:rgba(79,57,92,.14);
+      --shadow:0 18px 48px rgba(67,48,76,.11);
+      --radius:16px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      color:var(--ink);
+      background:
+        radial-gradient(circle at 7% 13%,rgba(248,202,218,.38),transparent 26%),
+        radial-gradient(circle at 94% 15%,rgba(215,194,242,.40),transparent 27%),
+        radial-gradient(circle at 88% 72%,rgba(249,216,196,.38),transparent 24%),
+        linear-gradient(180deg,#fffaf6 0%,#fff9f7 48%,#fbf4ff 100%);
+      font-family:Arial,Helvetica,sans-serif;
+      line-height:1.42;
+    }
+
+    a{color:inherit}
+    .wrap{width:min(1180px,calc(100% - 72px));margin:auto}
+    .eyebrow{font-size:12px;font-weight:800;letter-spacing:.25em;text-transform:uppercase;margin:0 0 8px;color:#4b4055}
+    .display{font-family:Georgia,"Times New Roman",serif;font-weight:400;letter-spacing:-.045em;margin:0}
+
+    /* NAV — mirrors portfolio */
+    .nav{position:sticky;top:0;z-index:100;background:rgba(255,250,247,.87);backdrop-filter:blur(15px);border-bottom:1px solid rgba(68,49,78,.06)}
+    .nav-inner{height:62px;display:flex;align-items:center;justify-content:space-between;gap:28px}
+    .brand{text-decoration:none;font-family:Georgia,"Times New Roman",serif;font-weight:700;letter-spacing:.15em;font-size:18px;white-space:nowrap}
+    .nav-links{display:flex;align-items:center;gap:28px;font-size:13px;font-weight:600}
+    .nav-links a{text-decoration:none}
+    .resume-pill{padding:9px 16px;border-radius:999px;background:linear-gradient(135deg,#efd4e9,#d9c7f3);font-size:12px;text-transform:uppercase;letter-spacing:.05em}
+
+    /* HERO */
+    .hero{padding:52px 0 34px;background:
+      radial-gradient(circle at 88% 18%,rgba(218,199,244,.48),transparent 28%),
+      radial-gradient(circle at 8% 78%,rgba(247,204,218,.45),transparent 26%),
+      linear-gradient(120deg,#fffaf5 0%,#fff6f6 46%,#f8ebf9 100%)}
+    .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:54px;align-items:end}
+    .hero h1{font-family:Georgia,"Times New Roman",serif;font-size:clamp(56px,8vw,102px);font-weight:400;line-height:.86;letter-spacing:-.06em;margin:6px 0 18px;color:#6f526f}
+    .hero-intro{font-size:15px;color:#554d59;margin:0;max-width:760px}
+    .contact-card{background:rgba(255,255,255,.58);border:1px solid rgba(255,255,255,.72);box-shadow:var(--shadow);border-radius:18px;padding:20px 22px}
+    .contact-card .label{font-size:10px;font-weight:900;letter-spacing:.18em;text-transform:uppercase;color:#74687a;margin-bottom:8px}
+    .contact-row{padding:8px 0;border-top:1px solid var(--line);font-size:13px;color:#4f4754}
+    .contact-row:first-of-type{border-top:0}
+    .contact-row a{text-decoration:none}
+
+    /* RESUME BODY */
+    .resume-shell{padding:30px 0 64px}
+    .resume-sheet{background:rgba(255,255,255,.74);border:1px solid rgba(89,65,99,.08);box-shadow:0 16px 42px rgba(70,49,76,.07);border-radius:18px;overflow:hidden}
+    .section{padding:28px 32px;border-top:1px solid var(--line)}
+    .section:first-child{border-top:0}
+    .section-head{display:grid;grid-template-columns:230px 1fr;gap:30px;align-items:start}
+    .section-title{font-family:Georgia,"Times New Roman",serif;font-size:34px;font-weight:400;line-height:.95;letter-spacing:-.03em;margin:0}
+    .section-kicker{font-size:10px;font-weight:900;letter-spacing:.18em;text-transform:uppercase;color:#75697d;margin-bottom:7px}
+    .objective{font-size:14px;line-height:1.62;color:#554d59;margin:0}
+
+    .edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .info-card{background:linear-gradient(135deg,rgba(248,220,229,.50),rgba(231,216,248,.54),rgba(250,223,211,.46));border:1px solid rgba(89,65,99,.08);border-radius:12px;padding:16px}
+    .info-card h3{font-family:Georgia,"Times New Roman",serif;font-size:20px;font-weight:400;line-height:1.08;margin:0 0 7px}
+    .info-card p{font-size:12px;color:#5c5360;margin:3px 0}
+    .meta{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:#746879}
+
+    .cert-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+
+    .job{padding:24px 0;border-top:1px solid var(--line)}
+    .job:first-child{border-top:0;padding-top:0}
+    .job-head{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:start;margin-bottom:10px}
+    .job h3{font-family:Georgia,"Times New Roman",serif;font-size:26px;font-weight:400;line-height:1.02;letter-spacing:-.02em;margin:0}
+    .company{font-size:12px;font-weight:800;margin-top:5px;color:#594f5d}
+    .dates{text-align:right;font-size:11px;line-height:1.5;color:#716777;white-space:nowrap}
+    .job ul,.skill-list{margin:0;padding-left:18px;color:#5b5360}
+    .job li,.skill-list li{font-size:13px;line-height:1.5;margin:7px 0}
+
+    .bottom-grid{display:grid;grid-template-columns:.82fr 1.18fr;gap:42px}
+    .tools-wrap{display:flex;flex-wrap:wrap;gap:7px}
+    .chip{font-size:11px;font-weight:700;color:#584e60;background:#eee3f4;border-radius:999px;padding:6px 9px}
+
+    footer{background:#fbf2f6;padding:16px 0;border-top:1px solid rgba(79,57,92,.09);font-size:10px;color:#6d6670}
+    .footer-inner{display:flex;justify-content:space-between;gap:20px;align-items:center}
+    .footer-left{font-family:Georgia,"Times New Roman",serif;font-size:13px;font-weight:700;letter-spacing:.13em}
+
+    @media(max-width:860px){
+      .wrap{width:min(100% - 40px,1180px)}
+      .hero-grid,.section-head,.bottom-grid{grid-template-columns:1fr}
+      .edu-grid{grid-template-columns:1fr}
+      .cert-grid{grid-template-columns:1fr}
+      .job-head{grid-template-columns:1fr}
+      .dates{text-align:left}
+      .nav-links{gap:14px}
+    }
+
+    @media(max-width:620px){
+      .wrap{width:min(100% - 26px,1180px)}
+      .nav-inner{height:56px}.brand{font-size:14px}.nav-links a:not(.resume-pill){display:none}
+      .hero{padding-top:34px}.hero h1{font-size:58px}
+      .section{padding:24px 20px}.section-title{font-size:29px}
+      .footer-inner{display:block}.footer-left{margin-bottom:5px}
+    }
+
+    @media print{
+      body{background:#fff}
+      .nav,footer{display:none!important}
+      .hero{background:#fff;padding:18px 0 14px}
+      .hero-grid{grid-template-columns:1fr .55fr;gap:26px}
+      .hero h1{font-size:48px;color:#29213a;margin-bottom:8px}
+      .hero-intro{font-size:11px}
+      .contact-card{box-shadow:none;border:1px solid #ddd;background:#fff;padding:12px}
+      .resume-shell{padding:0}
+      .resume-sheet{box-shadow:none;border:0;border-radius:0;background:#fff}
+      .section{padding:16px 0;break-inside:avoid}
+      .section-head{grid-template-columns:150px 1fr;gap:20px}
+      .section-title{font-size:22px}
+      .job{break-inside:avoid;padding:14px 0}
+      .job h3{font-size:19px}
+      .job li,.skill-list li,.objective{font-size:10px}
+      .info-card{background:#fff;border:1px solid #ddd;padding:10px}
+      .chip{border:1px solid #ddd;background:#fff}
+      .wrap{width:100%;padding:0 24px}
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="index.html">RAISSA HARRELL</a>
+      <div class="nav-links">
+        <a href="index.html">Portfolio</a>
+        <a href="https://www.linkedin.com/in/raissanharrell/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="RaissaNH_Resume.pdf" target="_blank" rel="noopener noreferrer">Open PDF</a>
+        <a class="resume-pill" href="RaissaNH_Resume.pdf" download="RaissaNH_Resume.pdf">Download PDF ↓</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">Résumé · Project Management</div>
+        <h1>Raissa<br>Nayanka Harrell</h1>
+        <p class="hero-intro">MBA student specializing in Project Management with a Lean Six Sigma Black Belt in Marketing, bringing more than eight years of experience in deadline-driven legal and business operations.</p>
+      </div>
+      <aside class="contact-card">
+        <div class="label">Contact</div>
+        <div class="contact-row"><a href="tel:+14802024650">(480) 202-4650</a></div>
+        <div class="contact-row"><a href="mailto:raissa.harrell@gmail.com">raissa.harrell@gmail.com</a></div>
+        <div class="contact-row"><a href="index.html">Portfolio</a></div>
+        <div class="contact-row"><a href="https://www.linkedin.com/in/raissanharrell/" target="_blank" rel="noopener noreferrer">My LinkedIn ↗</a></div>
+      </aside>
+    </div>
+  </header>
+
+  <main class="resume-shell">
+    <div class="wrap">
+      <article class="resume-sheet">
+
+        <section class="section">
+          <div class="section-head">
+            <div>
+              <div class="section-kicker">01</div>
+              <h2 class="section-title">Objective</h2>
+            </div>
+            <p class="objective">MBA student specializing in Project Management with a Lean Six Sigma Black Belt in Marketing, bringing more than eight years of experience in deadline-driven legal and business operations. Experienced in coordinating cross-functional teams, managing projects and deliverables from initial scope through final delivery, and maintaining stakeholder communication. Skilled in Excel, project tracking, risk identification, process improvement, and maintaining quality while meeting deadlines. Seeking to transition this experience into project management, operations, or business-focused roles.</p>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-head">
+            <div>
+              <div class="section-kicker">02</div>
+              <h2 class="section-title">Education</h2>
+            </div>
+            <div class="edu-grid">
+              <div class="info-card">
+                <div class="meta">Phoenix, AZ · December 2026</div>
+                <h3>MBA, Project Management</h3>
+                <p>Grand Canyon University</p>
+              </div>
+              <div class="info-card">
+                <div class="meta">Phoenix, AZ · May 2018</div>
+                <h3>BS, Criminology and Criminal Justice</h3>
+                <p>Arizona State University</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-head">
+            <div>
+              <div class="section-kicker">03</div>
+              <h2 class="section-title">Certification</h2>
+            </div>
+            <div class="cert-grid">
+              <div class="info-card">
+                <div class="meta">March 2026</div>
+                <h3>Lean Six Sigma Black Belt, emphasis in Marketing</h3>
+                <p>Educate 360 – Lean Six Sigma Online</p>
+                <p>Credential ID 177771629</p>
+              </div>
+              <div class="info-card">
+                <div class="meta">Claymont, DE · October 2026</div>
+                <h3>PMP 60 HRS PDU (PMP certification in progress)</h3>
+                <p>Project Management Institute</p>
+              </div>
+              <div class="info-card">
+                <div class="meta">Tucson, AZ · February 2023</div>
+                <h3>Paralegal</h3>
+                <p>CLS Barbri – University of Arizona</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-head">
+            <div>
+              <div class="section-kicker">04</div>
+              <h2 class="section-title">Professional Experience</h2>
+            </div>
+            <div>
+              <div class="job">
+                <div class="job-head">
+                  <div>
+                    <h3>Project Manager - Intern</h3>
+                    <div class="company">The·Team</div>
+                  </div>
+                  <div class="dates">Manhattan, NY<br>June 2026 – Aug 2026</div>
+                </div>
+                <ul>
+                  <li>Supported integrated social and creator campaigns across multiple client accounts, coordinating project activity from planning and strategy through concept development, production, launch, and reporting.</li>
+                  <li>Maintained production deliverables matrices tracking creative assets, feedback rounds, approvals, deadlines, and go-live requirements to help keep campaign work progressing toward launch.</li>
+                  <li>Supported project managers in coordinating creative, strategy, production, creator, and account teams by tracking project updates, documenting action items, and communicating changes in timing, feedback, and priorities.</li>
+                  <li>Maintained timelines, project trackers, onboarding materials, workflow documentation (RAID Logs), and account resources used to organize campaign execution and provide teams with visibility into project status.</li>
+                  <li>Helped prepare campaigns for launch by monitoring outstanding deliverables, coordinated project documentation, and ensuring teams had communication across Slack, email, meetings, and shared project systems.</li>
+                </ul>
+              </div>
+
+              <div class="job">
+                <div class="job-head">
+                  <div>
+                    <h3>Legal Specialist</h3>
+                    <div class="company">Polsinelli</div>
+                  </div>
+                  <div class="dates">Kansas City, MI<br>November 2022 – April 2025</div>
+                </div>
+                <ul>
+                  <li>Supported drafting, filing, and transcribing legal matters across Intellectual Property, Real Estate, and Patent matters while leading a concurrent records consolidation project within a matrix environment.</li>
+                  <li>Led the end-to-end execution of a nine-month document consolidation project spanning 1,000+ case files, coordinating with the director and paralegal team to identify documentation gaps, standardize records, and complete migration into iManage.</li>
+                  <li>Member of the DEI and Employee Engagement Committees, organized staff events.</li>
+                </ul>
+              </div>
+
+              <div class="job">
+                <div class="job-head">
+                  <div>
+                    <h3>Legal Coordinator</h3>
+                    <div class="company">Milbank (RR Donnelly)</div>
+                  </div>
+                  <div class="dates">Phoenix, AZ<br>May 2022 – October 2022</div>
+                </div>
+                <ul>
+                  <li>Led legal document production operations across U.S. and offshore teams, managing workflow coordination for a 26-person team spanning Phoenix and Chennai.</li>
+                  <li>Oversaw workload distribution and client request fulfillment, improving handoffs between teams and addressing delays tied to document assignment, missing-file research, and retrieval.</li>
+                  <li>Developed standardized workflows, tracking processes, and SOPs to improve turnaround time, reduce errors, and create greater consistency across the operation.</li>
+                </ul>
+              </div>
+
+              <div class="job">
+                <div class="job-head">
+                  <div>
+                    <h3>Court Specialist</h3>
+                    <div class="company">Mesa Municipal Court</div>
+                  </div>
+                  <div class="dates">Mesa, AZ<br>June 2019 – April 2022</div>
+                </div>
+                <ul>
+                  <li>Managed end-to-end misdemeanor case operations within a municipal court environment, supporting the progression of matters from filing through hearing and resolution.</li>
+                  <li>Coordinated court scheduling, case documentation, jury operations, and interagency communication with judges, attorneys, law enforcement, MVD, and DPS to maintain accurate records, timely proceedings, and clear communication across parties.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="bottom-grid">
+            <div>
+              <div class="section-kicker">05</div>
+              <h2 class="section-title" style="margin-bottom:18px">Skills</h2>
+              <ul class="skill-list">
+                <li>Proficient in Agile Methodologies and Six Sigma Methodology.</li>
+                <li>Event planning and execution.</li>
+                <li>Experience supporting issue tracking, reporting, briefing.</li>
+                <li>Time management with the ability to manage multiple projects and teams.</li>
+                <li>Creating work-back schedules, identifying risk and leading teams independently.</li>
+              </ul>
+            </div>
+            <div>
+              <div class="section-kicker">06</div>
+              <h2 class="section-title" style="margin-bottom:18px">Tools</h2>
+              <div class="tools-wrap">
+                <span class="chip">Asana</span>
+                <span class="chip">MS Office Suite and database software (Excel, Outlook, PowerPoint, Project, Word)</span>
+                <span class="chip">Slack</span>
+                <span class="chip">FrameIO</span>
+                <span class="chip">Google Workspace (Sheets, Slides, Drive)</span>
+                <span class="chip">Zoom/ Teams</span>
+                <span class="chip">Kofax</span>
+                <span class="chip">ChromeRiver Mercury</span>
+                <span class="chip">iManage/ Amicus Attorney/ eDiscovery.</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </article>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <div class="footer-left">RAISSA HARRELL</div>
+      <div>Project Management · Operations · Process Improvement</div>
+      <div>raissa.harrell@gmail.com</div>
+    </div>
+  </footer>
+</body>
+</html>
