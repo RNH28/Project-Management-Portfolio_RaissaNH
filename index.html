@@ -92,7 +92,33 @@
     .credential b{display:block;color:white}
     .about-quote{border-left:1px solid rgba(255,255,255,.5);padding-left:27px}
     .about-quote strong{display:block;font-family:Georgia,"Times New Roman",serif;font-style:italic;font-weight:400;font-size:25px;line-height:1.25;margin-bottom:23px}
-    .about-quote span{font-size:12px;line-height:1.65;text-transform:uppercase;letter-spacing:.04em;color:#f8eff6}
+    .about-links{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+.about-links a{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:180px;
+  padding:11px 18px;
+  border:1px solid rgba(255,255,255,.70);
+  border-radius:999px;
+  color:#fff;
+  text-decoration:none;
+  font-size:11px;
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  transition:.2s ease;
+}
+
+.about-links a:hover{
+  background:#fff;
+  color:#5b405d;
+}
 
     /* TOOLS */
     .tools{padding:30px 0 27px;background:rgba(255,252,249,.83)}
@@ -320,8 +346,8 @@
           <div class="polaroid-note">MBA Graduate 2026 🎓</div>
         </div>
         <div>
-          <div class="eyebrow">About me</div>
-          <h2>Strategy meets<br>execution.</h2>
+          <div class="eyebrow">Portfolio</div>
+          <h2>About<br>Me.</h2>
           <p class="about-copy">MBA graduate in Project Management with a Lean Six Sigma Black Belt in Marketing, bringing more than eight years of experience across legal and business operations plus hands-on creative project management. I’m passionate about creative operations, project coordination, process improvement, and building systems that help teams do their best work.</p>
           <div class="credentials">
             <div class="credential"><span class="credential-icon">◇</span><span><b>MBA Graduate</b>Project Management · Dec 2026</span></div>
@@ -330,10 +356,22 @@
           </div>
         </div>
         <div class="about-quote">
-          <strong>“Systems create freedom.”</strong>
-          <span>Organized executor<br>Collaborative leader<br>Creative thinker<br>Continuous learner</span>
-        </div>
-      </div>
+  <strong>Résumé</strong>
+
+  <div class="about-links">
+    <a href="resume.html"
+       target="_blank"
+       rel="noopener noreferrer">
+      View Résumé
+    </a>
+
+    <a href="https://www.linkedin.com/in/raissanharrell/"
+       target="_blank"
+       rel="noopener noreferrer">
+      LinkedIn
+    </a>
+  </div>
+</div>
     </section>
 
     <section class="tools" id="tools">
