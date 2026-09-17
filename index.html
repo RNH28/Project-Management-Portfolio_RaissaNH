@@ -319,64 +319,333 @@
    ANIMATIONS
 ========================= */
 
-.nav-links a {
-  position: relative;
-  transition: transform .25s ease, color .25s ease;
+  :root {
+  --motion-ease: cubic-bezier(.16, 1, .3, 1);
 }
 
-.nav-links a:hover {
+
+/* -------------------------
+   NAVIGATION
+------------------------- */
+
+.nav-links a {
+  position: relative;
+  transition:
+    transform .35s var(--motion-ease),
+    color .3s ease;
+}
+
+.nav-links a:not(.resume-pill)::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 100%;
+  height: 1px;
+  background: var(--mauve);
+
+  transform: scaleX(0);
+  transform-origin: right;
+
+  transition: transform .4s var(--motion-ease);
+}
+
+.nav-links a:not(.resume-pill):hover {
   transform: translateY(-3px);
   color: var(--mauve);
 }
 
-.btn {
+.nav-links a:not(.resume-pill):hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+
+/* -------------------------
+   BUTTONS
+------------------------- */
+
+.btn,
+.resume-pill {
   transition:
-    transform .3s ease,
-    box-shadow .3s ease,
-    background .3s ease;
+    transform .35s var(--motion-ease),
+    box-shadow .35s ease,
+    background .35s ease;
+}
+
+.btn:hover,
+.resume-pill:hover {
+  transform: translateY(-4px);
 }
 
 .btn:hover {
-  transform: translateY(-4px) scale(1.02);
-  box-shadow: 0 12px 30px rgba(73,53,79,.18);
+  box-shadow: 0 14px 32px rgba(73,53,79,.18);
 }
 
-.project-card {
+
+/* -------------------------
+   HERO NAME
+------------------------- */
+
+.hero h1 {
+  overflow: hidden;
+}
+
+.hero-letter {
+  display: inline-block;
+
+  opacity: 0;
+
+  transform:
+    translateY(110%)
+    rotate(4deg);
+
+  animation:
+    heroLetterIn
+    .9s
+    var(--motion-ease)
+    forwards;
+
+  animation-delay:
+    calc(.15s + (var(--letter) * .07s));
+}
+
+@keyframes heroLetterIn {
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      rotate(0);
+  }
+
+}
+
+
+/* HERO INTRO */
+
+.hero-role,
+.hero-intro,
+.hero-actions {
+
+  opacity: 0;
+
+  transform: translateY(22px);
+
+  animation:
+    heroContentIn
+    .9s
+    var(--motion-ease)
+    forwards;
+}
+
+.hero-role {
+  animation-delay: .65s;
+}
+
+.hero-intro {
+  animation-delay: .78s;
+}
+
+.hero-actions {
+  animation-delay: .9s;
+}
+
+@keyframes heroContentIn {
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+}
+
+
+/* -------------------------
+   HERO IMAGE
+------------------------- */
+
+.hero-photo,
+.hero-arch {
   transition:
-    transform .4s cubic-bezier(.2,.8,.2,1),
+    transform
+    .8s
+    var(--motion-ease);
+}
+
+
+/* -------------------------
+   SCROLL REVEALS
+------------------------- */
+
+.motion-reveal {
+
+  opacity: 0;
+
+  transform:
+    translateY(45px);
+
+  transition:
+    opacity .85s ease,
+    transform .9s var(--motion-ease);
+
+  transition-delay:
+    var(--reveal-delay, 0ms);
+}
+
+.motion-reveal.is-visible {
+
+  opacity: 1;
+
+  transform:
+    translateY(0);
+}
+
+
+/* headings move slightly more */
+
+.display.motion-reveal,
+.about h2.motion-reveal {
+
+  transform:
+    translateY(55px)
+    rotate(.7deg);
+}
+
+.display.motion-reveal.is-visible,
+.about h2.motion-reveal.is-visible {
+
+  transform:
+    translateY(0)
+    rotate(0);
+}
+
+
+/* -------------------------
+   PROJECT CARDS
+------------------------- */
+
+.project-card {
+
+  position: relative;
+
+  transform-style: preserve-3d;
+
+  transition:
+    transform .3s var(--motion-ease),
     box-shadow .4s ease;
+
+  will-change: transform;
 }
 
 .project-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 22px 45px rgba(70,49,76,.13);
+
+  box-shadow:
+    0 25px 55px
+    rgba(70,49,76,.14);
 }
 
+
+/* project logo moves forward */
+
 .project-logo {
-  transition: transform .4s ease;
+
+  transition:
+    transform
+    .5s
+    var(--motion-ease);
 }
 
 .project-card:hover .project-logo {
-  transform: scale(1.06);
+
+  transform:
+    translateZ(20px)
+    scale(1.06);
 }
 
-.hero h1 {
-  transition:
-    transform .5s cubic-bezier(.2,.8,.2,1),
-    letter-spacing .5s ease;
-}
 
-.hero h1:hover {
-  transform: translateX(8px);
-  letter-spacing: -.045em;
-}
+/* -------------------------
+   EYEBROWS
+------------------------- */
 
 .eyebrow {
-  transition: letter-spacing .35s ease;
+
+  transition:
+    letter-spacing
+    .45s
+    var(--motion-ease);
 }
 
 .eyebrow:hover {
+
   letter-spacing: .34em;
+}
+
+
+/* -------------------------
+   TOOL ICONS
+------------------------- */
+
+.tool img {
+
+  transition:
+    transform
+    .45s
+    var(--motion-ease);
+}
+
+.tool:hover img {
+
+  transform:
+    translateY(-7px)
+    scale(1.08)
+    rotate(-2deg);
+}
+
+
+/* -------------------------
+   INDUSTRY CARDS
+------------------------- */
+
+.industry-card img {
+
+  transition:
+    transform
+    .8s
+    var(--motion-ease),
+    filter
+    .5s
+    ease;
+}
+
+.industry-card:hover img {
+
+  transform: scale(1.07);
+
+  filter:
+    brightness(.45)
+    saturate(.8);
+}
+
+
+/* -------------------------
+   ACCESSIBILITY
+------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+
+    animation-duration: .01ms !important;
+
+    animation-iteration-count: 1 !important;
+
+    transition-duration: .01ms !important;
+  }
+
 }
   </style>
 </head>
@@ -656,5 +925,246 @@ Depending on project complexity, I use Microsoft Project, Asana, or custom Excel
       <div>Willing to Relocate &nbsp; | &nbsp; raissa.harrell@gmail.com</div>
     </div>
   </footer>
+  <script>
+
+document.addEventListener("DOMContentLoaded", () => {
+
+
+  /* ========================
+     ANIMATE RAISSA LETTERS
+  ======================== */
+
+  const heroName = document.querySelector(".hero h1");
+
+  if (heroName) {
+
+    const text = heroName.textContent;
+
+    heroName.innerHTML = "";
+
+    [...text].forEach((letter, index) => {
+
+      const span = document.createElement("span");
+
+      span.className = "hero-letter";
+
+      span.style.setProperty("--letter", index);
+
+      span.textContent =
+        letter === " "
+        ? "\u00A0"
+        : letter;
+
+      heroName.appendChild(span);
+
+    });
+
+  }
+
+
+  /* ========================
+     SCROLL REVEAL
+  ======================== */
+
+  const revealElements =
+    document.querySelectorAll(
+      ".display, .about h2, .project-card, .system, .industry-card, .credential, .tool"
+    );
+
+
+  revealElements.forEach((element, index) => {
+
+    element.classList.add("motion-reveal");
+
+    element.style.setProperty(
+      "--reveal-delay",
+      `${(index % 4) * 80}ms`
+    );
+
+  });
+
+
+  const observer =
+    new IntersectionObserver(
+
+      (entries) => {
+
+        entries.forEach((entry) => {
+
+          if (entry.isIntersecting) {
+
+            entry.target.classList.add(
+              "is-visible"
+            );
+
+            observer.unobserve(
+              entry.target
+            );
+
+          }
+
+        });
+
+      },
+
+      {
+        threshold: .12
+      }
+
+    );
+
+
+  revealElements.forEach((element) => {
+
+    observer.observe(element);
+
+  });
+
+
+
+  /* ========================
+     SUBTLE 3D PROJECT CARDS
+  ======================== */
+
+  const cards =
+    document.querySelectorAll(
+      ".project-card"
+    );
+
+
+  const finePointer =
+    window.matchMedia(
+      "(pointer: fine)"
+    ).matches;
+
+
+  if (finePointer) {
+
+    cards.forEach((card) => {
+
+      card.addEventListener(
+        "mousemove",
+        (event) => {
+
+          const rect =
+            card.getBoundingClientRect();
+
+          const x =
+            event.clientX -
+            rect.left;
+
+          const y =
+            event.clientY -
+            rect.top;
+
+          const rotateY =
+            ((x / rect.width) - .5) * 5;
+
+          const rotateX =
+            ((y / rect.height) - .5) * -5;
+
+
+          card.style.transform =
+            `
+            translateY(-8px)
+            perspective(900px)
+            rotateX(${rotateX}deg)
+            rotateY(${rotateY}deg)
+            `;
+
+        }
+      );
+
+
+      card.addEventListener(
+        "mouseleave",
+        () => {
+
+          card.style.transform =
+            "translateY(0) perspective(900px) rotateX(0) rotateY(0)";
+
+        }
+      );
+
+    });
+
+  }
+
+
+
+  /* ========================
+     HERO PARALLAX
+  ======================== */
+
+  const hero =
+    document.querySelector(".hero");
+
+  const photo =
+    document.querySelector(".hero-photo");
+
+  const arch =
+    document.querySelector(".hero-arch");
+
+
+  if (
+    hero &&
+    photo &&
+    arch &&
+    window.matchMedia(
+      "(min-width: 861px) and (pointer: fine)"
+    ).matches
+  ) {
+
+    hero.addEventListener(
+      "mousemove",
+      (event) => {
+
+        const rect =
+          hero.getBoundingClientRect();
+
+        const x =
+          (
+            event.clientX -
+            rect.left
+          ) /
+          rect.width -
+          .5;
+
+        const y =
+          (
+            event.clientY -
+            rect.top
+          ) /
+          rect.height -
+          .5;
+
+
+        photo.style.transform =
+          `translate(${x * 10}px, ${y * 7}px)`;
+
+        arch.style.transform =
+          `translate(${x * -7}px, ${y * -5}px)`;
+
+      }
+    );
+
+
+    hero.addEventListener(
+      "mouseleave",
+      () => {
+
+        photo.style.transform = "";
+
+        arch.style.transform = "";
+
+      }
+    );
+
+  }
+
+
+});
+
+</script>
 </body>
 </html>
