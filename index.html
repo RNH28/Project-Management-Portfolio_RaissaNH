@@ -310,6 +310,74 @@
       .industry-cards{grid-template-columns:1fr}
       .footer-inner{display:block}.footer-left{margin-bottom:5px}
     }
+    @media(max-width:620px){
+  ...
+}
+
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+.nav-links a {
+  position: relative;
+  transition: transform .25s ease, color .25s ease;
+}
+
+.nav-links a:hover {
+  transform: translateY(-3px);
+  color: var(--mauve);
+}
+
+.btn {
+  transition:
+    transform .3s ease,
+    box-shadow .3s ease,
+    background .3s ease;
+}
+
+.btn:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 12px 30px rgba(73,53,79,.18);
+}
+
+.project-card {
+  transition:
+    transform .4s cubic-bezier(.2,.8,.2,1),
+    box-shadow .4s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 22px 45px rgba(70,49,76,.13);
+}
+
+.project-logo {
+  transition: transform .4s ease;
+}
+
+.project-card:hover .project-logo {
+  transform: scale(1.06);
+}
+
+.hero h1 {
+  transition:
+    transform .5s cubic-bezier(.2,.8,.2,1),
+    letter-spacing .5s ease;
+}
+
+.hero h1:hover {
+  transform: translateX(8px);
+  letter-spacing: -.045em;
+}
+
+.eyebrow {
+  transition: letter-spacing .35s ease;
+}
+
+.eyebrow:hover {
+  letter-spacing: .34em;
+}
   </style>
 </head>
 <body>
