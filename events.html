@@ -1,747 +1,131 @@
-<!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Events & Experiences by Raïssa Harrell: real celebrations, creative concepts, photos, videos and event stories."><title>Events &amp; Experiences | Raïssa Harrell</title><style>
-    :root{
-      --ink:#29213a;
-      --ink-soft:#5f5668;
-      --cream:#fffaf6;
-      --paper:#fffdf9;
-      --plum:#6d4b70;
-      --plum-deep:#523552;
-      --mauve:#916b82;
-      --lilac:#d9c3f2;
-      --lilac-soft:#eee3fb;
-      --rose:#f3cbd6;
-      --peach:#f7d4c4;
-      --blush:#f8dce5;
-      --line:rgba(79,57,92,.14);
-      --shadow:0 18px 48px rgba(67,48,76,.11);
-      --radius:16px;
-    }
-
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0;
-      color:var(--ink);
-      background:
-        radial-gradient(circle at 7% 13%,rgba(248,202,218,.38),transparent 26%),
-        radial-gradient(circle at 94% 15%,rgba(215,194,242,.40),transparent 27%),
-        radial-gradient(circle at 88% 72%,rgba(249,216,196,.38),transparent 24%),
-        linear-gradient(180deg,#fffaf6 0%,#fff9f7 48%,#fbf4ff 100%);
-      font-family:Arial,Helvetica,sans-serif;
-      line-height:1.42;
-    }
-
-    a{color:inherit}
-    img{display:block;max-width:100%}
-    .wrap{width:min(1300px,calc(100% - 72px));margin:auto}
-    .section{padding:44px 0}
-    .eyebrow{font-size:12px;font-weight:800;letter-spacing:.25em;text-transform:uppercase;margin:0 0 8px;color:#4b4055}
-    .display{font-family:Georgia,"Times New Roman",serif;font-size:clamp(44px,5vw,72px);font-weight:400;line-height:.93;letter-spacing:-.045em;margin:0}
-
-    /* NAV */
-    .nav{position:sticky;top:0;z-index:100;background:rgba(255,250,247,.87);backdrop-filter:blur(15px);border-bottom:1px solid rgba(68,49,78,.06)}
-    .nav-inner{height:62px;display:flex;align-items:center;justify-content:space-between;gap:28px}
-    .brand{text-decoration:none;font-family:Georgia,"Times New Roman",serif;font-weight:700;letter-spacing:.15em;font-size:18px;white-space:nowrap}
-    .nav-links{display:flex;align-items:center;gap:34px;font-size:13px;font-weight:600}
-    .nav-links a{text-decoration:none}
-    .resume-pill{padding:9px 16px;border-radius:999px;background:linear-gradient(135deg,#efd4e9,#d9c7f3);font-size:12px;text-transform:uppercase;letter-spacing:.05em}
-
-    /* HERO */
-    .hero{position:relative;overflow:hidden;min-height:460px;background:
-      radial-gradient(circle at 83% 22%,rgba(215,192,240,.38),transparent 27%),
-      radial-gradient(circle at 8% 82%,rgba(247,204,218,.40),transparent 26%),
-      linear-gradient(120deg,#fffaf5 0%,#fff6f6 46%,#f8ebf9 100%)}
-    .hero-grid{display:grid;grid-template-columns:1.03fr .97fr;min-height:460px;align-items:center;gap:10px}
-    .hero-copy{padding:44px 0 40px;z-index:2}
-    .script{display:block;font-family:"Segoe Script","Bradley Hand",cursive;font-size:56px;font-weight:400;line-height:.9;transform:rotate(-4deg);transform-origin:left;margin-bottom:-3px}
-    .hero h1{font-family:Georgia,"Times New Roman",serif;font-size:clamp(100px,11vw,155px);font-weight:400;line-height:.72;letter-spacing:-.065em;margin:0;color:#95697f;text-shadow:0 8px 28px rgba(137,90,119,.08)}
-    .hero-role{font-family:Georgia,"Times New Roman",serif;font-size:22px;margin:21px 0 8px}
-    .hero-intro{font-size:15px;color:#554d59;margin:0;max-width:620px}
-    .hero-actions{display:flex;gap:15px;margin-top:20px;flex-wrap:wrap}
-    .btn{display:inline-flex;align-items:center;justify-content:center;min-width:160px;padding:12px 20px;border:1px solid #4d4057;border-radius:999px;text-decoration:none;text-transform:uppercase;font-weight:800;font-size:11px;letter-spacing:.06em;background:rgba(255,255,255,.45)}
-    .btn.primary{background:#49354f;color:white;border-color:#49354f;box-shadow:0 9px 24px rgba(73,53,79,.18)}
-
-    .hero-visual{position:relative;align-self:stretch;min-height:460px;display:flex;align-items:flex-end;justify-content:center}
-    .hero-arch{position:absolute;width:73%;height:88%;top:0;left:13%;border-radius:240px 240px 20px 20px;background:linear-gradient(145deg,rgba(239,215,230,.62),rgba(218,198,244,.70));filter:saturate(.85)}
-    .hero-photo{position:absolute;z-index:2;width:66%;height:92%;bottom:0;left:18%;object-fit:cover;object-position:center 28%;border-radius:230px 230px 0 0;box-shadow:0 24px 65px rgba(61,43,69,.16)}
-    .impact-note{position:absolute;z-index:4;right:2%;top:31%;font-family:"Segoe Script","Bradley Hand",cursive;font-size:31px;line-height:1.03;transform:rotate(-7deg);color:#493453;text-align:center}
-    .hero-values{position:absolute;z-index:4;right:3%;top:13%;padding-left:18px;border-left:1px solid rgba(69,50,80,.35);font-size:11px;line-height:1.8;letter-spacing:.12em;text-transform:uppercase}
-
-    /* ABOUT */
-    .about{padding:40px 0;background:
-      radial-gradient(circle at 2% 5%,rgba(246,185,205,.46),transparent 29%),
-      radial-gradient(circle at 98% 90%,rgba(198,172,229,.44),transparent 30%),
-      linear-gradient(135deg,#8c637e 0%,#5b405d 52%,#8f6b80 100%);color:#fff}
-    .about-grid{display:grid;grid-template-columns:.68fr 1.46fr .75fr;gap:42px;align-items:center}
-    .polaroid{background:#fff;color:#332d36;padding:11px 11px 27px;transform:rotate(-5deg);box-shadow:0 20px 42px rgba(50,31,50,.25)}
-    .polaroid img{height:245px;width:100%;object-fit:cover;object-position:center 28%}
-    .polaroid-note{text-align:center;font-family:"Segoe Script","Bradley Hand",cursive;font-size:13px;margin-top:9px}
-    .about .eyebrow{color:#f7e9f2}
-    .about h2{font-family:Georgia,"Times New Roman",serif;font-size:53px;font-weight:400;line-height:.87;letter-spacing:-.04em;margin:0 0 12px}
-    .about-copy{font-size:15px;color:#f8eff5;margin:0;max-width:680px}
-    .credentials{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:22px}
-    .credential{display:flex;gap:10px;align-items:center;border-top:1px solid rgba(255,255,255,.23);padding-top:11px;font-size:12px;color:#f9eef6}
-    .credential-icon{font-size:27px;line-height:1;color:#f5d69a}
-    .credential b{display:block;color:white}
-    .about-quote{border-left:1px solid rgba(255,255,255,.5);padding-left:27px}
-    .about-quote strong{display:block;font-family:Georgia,"Times New Roman",serif;font-style:italic;font-weight:400;font-size:25px;line-height:1.25;margin-bottom:23px}
-    .about-links{
-  display:flex;
-  flex-direction:column;
-  gap:12px;
-}
-
-.about-links a{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  width:180px;
-  padding:11px 18px;
-  border:1px solid rgba(255,255,255,.70);
-  border-radius:999px;
-  color:#fff;
-  text-decoration:none;
-  font-size:11px;
-  font-weight:800;
-  text-transform:uppercase;
-  letter-spacing:.08em;
-  transition:.2s ease;
-}
-
-.about-links a:hover{
-  background:#fff;
-  color:#5b405d;
-}
-
-    /* TOOLS */
-    .tools{padding:30px 0 27px;background:rgba(255,252,249,.83)}
-    .tools-heading{display:grid;grid-template-columns:.95fr 1.05fr;gap:55px;align-items:center;margin-bottom:18px}
-    .tools-heading .display{font-size:52px}
-    .tools-heading p{font-size:14px;color:#5f5763;max-width:650px;margin:0;border-left:1px solid rgba(75,53,87,.35);padding-left:28px}
-    .tools-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:5px;align-items:start}
-    .tool{
-  text-align:center;
-  font-size:10px;
-  font-weight:700;
-  line-height:1.18;
-  color:#312b35;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:flex-start;
-}
-
-.tool img{
-  width:54px;
-  height:54px;
-  object-fit:contain;
-  object-position:center;
-  margin:0 auto 8px;
-  background:transparent;
-}
-
-.tool .wide-logo{
-  width:72px;
-  height:54px;
-  object-fit:contain;
-}
-
-    /* BRANDS */
-    .brands{padding:19px 0;background:linear-gradient(90deg,rgba(244,215,228,.86),rgba(230,213,248,.87),rgba(249,216,203,.82));border-top:1px solid rgba(78,57,89,.07);border-bottom:1px solid rgba(78,57,89,.07)}
-    .brands-grid{display:grid;grid-template-columns:.72fr 1.35fr .93fr;gap:28px;align-items:center}
-    .brands-title{font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:.16em}
-    .logos{display:grid;grid-template-columns:repeat(3,1fr);align-items:center}
-    .logo-box{
-  height:78px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:4px 20px;
-  border-left:1px solid rgba(76,55,86,.22);
-  position:relative;
-  background:transparent;
-}
-
-.logo-box:first-child{
-  border-left:0;
-}
-
-.logo-box img{
-  width:150px;
-  height:62px;
-  object-fit:contain;
-  object-position:center;
-  position:relative;
-  z-index:2;
-  background:transparent;
-}
-
-.logo-box img.casamigos-logo{
-  width:150px;
-  height:62px;
-  max-width:none;
-  max-height:none;
-}
-    .nda{font-size:10px;line-height:1.45;color:#655d69;margin:0;border-left:1px solid rgba(76,55,86,.22);padding-left:22px}
-
-    /* FEATURED */
-    .featured{padding:28px 0 31px;background:rgba(255,251,248,.78)}
-    .featured-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:16px}
-    .featured .display{font-size:50px}
-    .featured-link{text-decoration:none;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;padding-bottom:3px}
-    .project-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-    .project-card{background:rgba(255,255,255,.71);border:1px solid rgba(89,65,99,.08);box-shadow:0 12px 30px rgba(70,49,76,.055);border-radius:10px;overflow:hidden}
-    .project-logo-panel{
-  width:100%;
-  height:170px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:24px;
-  background:linear-gradient(
-    135deg,
-    rgba(248,220,229,.70),
-    rgba(231,216,248,.75),
-    rgba(250,223,211,.70)
-  );
-}
-
-.project-logo{
-  width:72%;
-  height:100px;
-  object-fit:contain;
-  object-position:center;
-  background:transparent;
-}
-    .project-body{padding:13px 14px 16px}
-    .project-index{font-size:9px;font-weight:900;letter-spacing:.18em;text-transform:uppercase;color:#73687a;margin-bottom:6px}
-    .project-body h3{font-family:Georgia,"Times New Roman",serif;font-size:23px;line-height:1.03;font-weight:400;margin:0 0 6px}
-    .project-body h4{font-size:11px;margin:0 0 8px;color:#5a515f}
-    .project-body p{font-size:12px;line-height:1.36;color:#5d5660;margin:0}
-    .tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:11px}
-    .tag{font-size:9px;background:#eee3f4;padding:5px 8px;border-radius:999px;color:#5d4f69;font-weight:700}
-
-    /* PM APPROACH */
-    .approach{padding:29px 0 27px;background:
-      radial-gradient(circle at 92% 22%,rgba(246,201,218,.30),transparent 26%),
-      radial-gradient(circle at 8% 90%,rgba(216,197,242,.34),transparent 27%),
-      linear-gradient(180deg,#fffaf7,#fdf7fb)}
-    .approach-head{display:grid;grid-template-columns:.82fr 1.18fr;gap:55px;align-items:center;margin-bottom:24px}
-    .approach .display{font-size:48px}
-    .approach-head p{font-size:13px;color:#5d5660;margin:0;border-left:1px solid rgba(76,55,86,.35);padding-left:27px}
-    .systems{display:grid;grid-template-columns:repeat(6,1fr);border-top:1px solid rgba(86,64,96,.26)}
-    .system{position:relative;padding:26px 14px 4px;border-left:1px solid rgba(86,64,96,.17);min-height:180px}
-    .system:first-child{border-left:0}
-    .num{position:absolute;top:-11px;left:8px;width:23px;height:23px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,#f1c7d5,#cbb4eb);font-size:9px;font-weight:900}
-    .system img{width:34px;height:34px;margin:0 0 10px;filter:brightness(0) saturate(100%)}
-    .system h3{font-size:12px;line-height:1.22;margin:0 0 7px}
-    .system p{font-size:10px;line-height:1.35;color:#645d68;margin:0}
-
-    /* INDUSTRIES */
-    .industries{padding:18px 0;background:linear-gradient(90deg,rgba(243,215,227,.77),rgba(231,217,247,.80),rgba(250,220,206,.78))}
-    .industries-grid{display:grid;grid-template-columns:.72fr 1.28fr;gap:34px;align-items:center}
-    .industries .display{font-size:47px}
-    .industry-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-    .industry-card{height:135px;border-radius:8px;position:relative;overflow:hidden;color:white;display:flex;align-items:flex-end;padding:18px 20px;background:#342e38}
-    .industry-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.38) saturate(.6)}
-    .industry-card:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(39,32,42,.78),rgba(39,32,42,.22))}
-    .industry-card h3{position:relative;z-index:2;font-family:Georgia,"Times New Roman",serif;font-size:23px;font-weight:400;line-height:1.04;margin:0}
-
-    /* CONTACT */
-    .contact{padding:27px 0;background:
-      radial-gradient(circle at 0 100%,rgba(247,200,218,.66),transparent 33%),
-      radial-gradient(circle at 100% 0,rgba(210,191,240,.72),transparent 35%),
-      linear-gradient(100deg,#f3d7e5 0%,#e5d3f6 48%,#f8d9cf 100%)}
-    .contact-grid{display:grid;grid-template-columns:.8fr 1.05fr .45fr;gap:35px;align-items:center}
-    .contact .display{font-size:45px}
-    .contact p{font-size:12px;color:#5d5660;margin:0}
-    .contact-actions{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
-    .contact .btn{padding:10px 18px;min-width:145px;font-size:10px}
-    .contact-script{font-family:"Segoe Script","Bradley Hand",cursive;font-size:25px;line-height:1.02;transform:rotate(-7deg);text-align:center;color:#4f3858}
-
-    footer{background:#fbf2f6;padding:16px 0;border-top:1px solid rgba(79,57,92,.09);font-size:10px;color:#6d6670}
-    .footer-inner{display:flex;justify-content:space-between;gap:20px;align-items:center}
-    .footer-left{font-family:Georgia,"Times New Roman",serif;font-size:13px;font-weight:700;letter-spacing:.13em}
-
-    @media(max-width:1100px){
-      .wrap{width:min(100% - 40px,1300px)}
-      .tools-grid{grid-template-columns:repeat(6,1fr);row-gap:18px}
-      .systems{grid-template-columns:repeat(3,1fr)}
-      .system{border-top:1px solid rgba(86,64,96,.17)}
-      .hero-photo{width:72%;left:14%}
-      .impact-note{font-size:24px}
-    }
-    @media(max-width:860px){
-      .nav-links{gap:16px}.nav-links a:nth-child(2),.nav-links a:nth-child(3),.nav-links a:nth-child(4){display:none}
-      .hero-grid,.about-grid,.tools-heading,.brands-grid,.approach-head,.industries-grid,.contact-grid{grid-template-columns:1fr}
-      .hero-grid{min-height:auto}.hero-copy{padding-bottom:10px}.hero-visual{min-height:430px}.hero-photo{height:420px;width:min(420px,72%);left:50%;transform:translateX(-50%)}.hero-arch{width:min(440px,75%);left:50%;transform:translateX(-50%)}.impact-note{right:4%}.hero-values{left:5%;right:auto;top:15%}
-      .about-grid{gap:30px}.polaroid{max-width:300px}.about-quote{border-left:0;padding-left:0}.credentials{grid-template-columns:1fr 1fr 1fr}
-      .project-grid{grid-template-columns:1fr}.project-image{height:210px}
-      .industry-cards{grid-template-columns:1fr 1fr}
-      .contact-script{text-align:left;transform:none}
-    }
-    @media(max-width:620px){
-      .wrap{width:min(100% - 26px,1300px)}
-      .nav-inner{height:56px}.brand{font-size:14px}.resume-pill{padding:7px 11px}.nav-links{gap:12px}.nav-links a:not(.resume-pill){display:none}
-      .hero{min-height:auto}.hero-copy{padding-top:35px}.script{font-size:42px}.hero h1{font-size:78px}.hero-role{font-size:17px}.hero-intro{font-size:13px}
-      .hero-visual{min-height:350px}.hero-photo{height:340px;width:78%}.hero-arch{width:80%;height:90%}.impact-note{font-size:18px;top:27%}.hero-values{display:none}
-      .about h2{font-size:42px}.about-copy{font-size:13px}.credentials{grid-template-columns:1fr}
-      .tools-heading .display,.featured .display,.approach .display,.industries .display,.contact .display{font-size:39px}
-      .tools-grid{grid-template-columns:repeat(4,1fr)}
-      .logos{grid-template-columns:1fr}.logo-box{border-left:0;border-top:1px solid rgba(76,55,86,.17)}.logo-box:first-child{border-top:0}
-      .featured-head{display:block}.featured-link{display:inline-block;margin-top:10px}
-      .systems{grid-template-columns:1fr}.system{border-left:0;min-height:auto;padding-bottom:18px}
-      .industry-cards{grid-template-columns:1fr}
-      .footer-inner{display:block}.footer-left{margin-bottom:5px}
-    }
-    @media(max-width:620px){
-  ...
-}
-
-
-/* =========================
-   ANIMATIONS
-========================= */
-
-  :root {
-  --motion-ease: cubic-bezier(.16, 1, .3, 1);
-}
-
-
-/* -------------------------
-   NAVIGATION
-------------------------- */
-
-.nav-links a {
-  position: relative;
-  transition:
-    transform .35s var(--motion-ease),
-    color .3s ease;
-}
-
-.nav-links a:not(.resume-pill)::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -5px;
-  width: 100%;
-  height: 1px;
-  background: var(--mauve);
-
-  transform: scaleX(0);
-  transform-origin: right;
-
-  transition: transform .4s var(--motion-ease);
-}
-
-.nav-links a:not(.resume-pill):hover {
-  transform: translateY(-3px);
-  color: var(--mauve);
-}
-
-.nav-links a:not(.resume-pill):hover::after {
-  transform: scaleX(1);
-  transform-origin: left;
-}
-
-
-/* -------------------------
-   BUTTONS
-------------------------- */
-
-.btn,
-.resume-pill {
-  transition:
-    transform .35s var(--motion-ease),
-    box-shadow .35s ease,
-    background .35s ease;
-}
-
-.btn:hover,
-.resume-pill:hover {
-  transform: translateY(-4px);
-}
-
-.btn:hover {
-  box-shadow: 0 14px 32px rgba(73,53,79,.18);
-}
-
-
-/* -------------------------
-   HERO NAME
-------------------------- */
-
-.hero h1 {
-  overflow: visible;
-}
-
-.hero-letter {
-  display: inline-block;
-
-  opacity: 0;
-
-  transform:
-    translateY(110%)
-    rotate(4deg);
-
-  animation:
-    heroLetterIn
-    .9s
-    var(--motion-ease)
-    forwards;
-
-  animation-delay:
-    calc(.15s + (var(--letter) * .07s));
-}
-
-@keyframes heroLetterIn {
-
-  to {
-    opacity: 1;
-
-    transform:
-      translateY(0)
-      rotate(0);
-  }
-
-}
-
-
-/* HERO INTRO */
-
-.hero-role,
-.hero-intro,
-.hero-actions {
-
-  opacity: 0;
-
-  transform: translateY(22px);
-
-  animation:
-    heroContentIn
-    .9s
-    var(--motion-ease)
-    forwards;
-}
-
-.hero-role {
-  animation-delay: .65s;
-}
-
-.hero-intro {
-  animation-delay: .78s;
-}
-
-.hero-actions {
-  animation-delay: .9s;
-}
-
-@keyframes heroContentIn {
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-}
-
-
-/* -------------------------
-   POLAROID
-------------------------- */
-
-.polaroid {
-  transition:
-    transform .35s var(--motion-ease),
-    box-shadow .35s ease;
-
-  transform-style: preserve-3d;
-  will-change: transform;
-}
-
-.polaroid:hover {
-  box-shadow:
-    0 28px 55px
-    rgba(50,31,50,.28);
-}
-
-
-/* -------------------------
-   SCROLL REVEALS
-------------------------- */
-
-.motion-reveal {
-
-  opacity: 0;
-
-  transform:
-    translateY(45px);
-
-  transition:
-    opacity .85s ease,
-    transform .9s var(--motion-ease);
-
-  transition-delay:
-    var(--reveal-delay, 0ms);
-}
-
-.motion-reveal.is-visible {
-
-  opacity: 1;
-
-  transform:
-    translateY(0);
-}
-
-
-/* headings move slightly more */
-
-.display.motion-reveal,
-.about h2.motion-reveal {
-
-  transform:
-    translateY(55px)
-    rotate(.7deg);
-}
-
-.display.motion-reveal.is-visible,
-.about h2.motion-reveal.is-visible {
-
-  transform:
-    translateY(0)
-    rotate(0);
-}
-
-
-/* -------------------------
-   PROJECT CARDS
-------------------------- */
-
-.project-card {
-
-  position: relative;
-
-  transform-style: preserve-3d;
-
-  transition:
-    transform .3s var(--motion-ease),
-    box-shadow .4s ease;
-
-  will-change: transform;
-}
-
-.project-card:hover {
-
-  box-shadow:
-    0 25px 55px
-    rgba(70,49,76,.14);
-}
-
-
-/* project logo moves forward */
-
-.project-logo {
-
-  transition:
-    transform
-    .5s
-    var(--motion-ease);
-}
-
-.project-card:hover .project-logo {
-
-  transform:
-    translateZ(20px)
-    scale(1.06);
-}
-
-
-/* -------------------------
-   EYEBROWS
-------------------------- */
-
-.eyebrow {
-
-  transition:
-    letter-spacing
-    .45s
-    var(--motion-ease);
-}
-
-.eyebrow:hover {
-
-  letter-spacing: .34em;
-}
-
-
-/* -------------------------
-   TOOL ICONS
-------------------------- */
-
-.tool img {
-
-  transition:
-    transform
-    .45s
-    var(--motion-ease);
-}
-
-.tool:hover img {
-
-  transform:
-    translateY(-7px)
-    scale(1.08)
-    rotate(-2deg);
-}
-
-
-/* -------------------------
-   INDUSTRY CARDS
-------------------------- */
-
-.industry-card img {
-
-  transition:
-    transform
-    .8s
-    var(--motion-ease),
-    filter
-    .5s
-    ease;
-}
-
-.industry-card:hover img {
-
-  transform: scale(1.07);
-
-  filter:
-    brightness(.45)
-    saturate(.8);
-}
-
-
-/* -------------------------
-   ACCESSIBILITY
-------------------------- */
-
-@media (prefers-reduced-motion: reduce) {
-
-  *,
-  *::before,
-  *::after {
-
-    animation-duration: .01ms !important;
-
-    animation-iteration-count: 1 !important;
-
-    transition-duration: .01ms !important;
-  }
-
-}
-
-    /* Events & Experiences navigation: only new styles */
-    .events-short{display:none}
-    @media(max-width:860px){
-      /* Display Events as fourth navigation item and keep Contact hidden at tablet sizes. */
-      .nav-links a:nth-child(4){display:inline-flex}
-      .nav-links a:nth-child(5){display:none}
-    }
-    @media(max-width:620px){
-      /* Mobile: display a short Events label next to the Resume button. */
-      .nav-links a.events-nav:not(.resume-pill){display:inline-flex;align-items:center}
-      .events-full{display:none}
-      .events-short{display:inline}
-    }
-  
-
-/* Event-specific content extends, rather than alters, the original website styles. */
-.nav-links .events-nav[aria-current="page"]{color:#7e547a}
-.event-hero .hero-grid{grid-template-columns:1.05fr .95fr}
-.event-hero h1{font-size:clamp(46px,5.5vw,82px);line-height:.95;letter-spacing:-.052em;margin:13px 0 20px;color:#95697f}
-.event-hero .script{font-size:clamp(30px,4vw,50px);margin-bottom:10px}
-.event-hero .hero-intro{font-size:15px;line-height:1.65;max-width:525px}
-.event-hero .hero-photo{width:72%;height:88%;left:16%;object-position:center 42%}
-.event-hero .hero-arch{height:91%}
-.event-hero .hero-values{right:4%;top:8%;border-left-color:#b69aaf}
-.event-hero .hero-visual{overflow:hidden}
-.event-hero .hero-note{font:italic 18px/1.3 Georgia,serif;color:#735b75;margin:12px 0 0}
-.event-listing .featured-head{gap:22px;align-items:end}
-.event-listing .featured-head p{max-width:365px;font-size:12px;line-height:1.5;color:#665b69;margin:0 0 5px}
-.event-card .project-logo-panel{padding:0;display:block;position:relative;overflow:hidden;text-decoration:none;height:170px}
-.event-card .project-logo-panel img{height:100%;width:100%;object-fit:cover;transition:transform .4s ease}
-.event-card:hover .project-logo-panel img{transform:scale(1.04)}
-.event-cover-text{height:100%;width:100%;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:10px;text-align:center;background:linear-gradient(115deg,#f9e5eb 0%,#e7dcf7 53%,#f7e2d7 100%);color:#5b405d}
-.event-cover-text strong{font:400 clamp(27px,3vw,37px)/1 Georgia,serif;max-width:90%}
-.event-cover-text small{font-size:10px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:#735d75}
-.event-card .project-body{min-height:178px;display:flex;flex-direction:column}
-.event-card .project-body .tags{margin-top:auto;padding-top:11px}
-.event-card h3 a{text-decoration:none}
-.event-card h3 a:hover{text-decoration:underline;text-decoration-color:#aa869f;text-underline-offset:4px}
-.event-card .card-cta{display:inline-block;margin-top:10px;font-size:11px;font-weight:800;text-decoration:none;color:#684c68}
-.event-card .card-cta:hover{text-decoration:underline}
-.event-count{font:400 19px Georgia,serif;color:#7d6380;text-align:right}
-.collection-note{margin-top:25px;border-top:1px solid var(--line);padding-top:17px;display:flex;align-items:center;justify-content:space-between;gap:20px}
-.collection-note p{margin:0;font-size:12px;color:var(--ink-soft)}
-.collection-note a{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;text-decoration:none}
-.events-process .approach-head{margin-bottom:16px}
-.events-process .systems{grid-template-columns:repeat(4,1fr)}
-.events-process .system{min-height:135px}
-.events-contact{padding:33px 0}
-.events-contact .contact-grid{grid-template-columns:.8fr 1.05fr .45fr}
-.events-contact .contact-script{font-size:27px}
-@media(max-width:1100px){.event-hero h1{font-size:clamp(46px,5vw,72px)}.events-process .systems{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:860px){.event-hero .hero-grid{grid-template-columns:1fr}.event-hero .hero-visual{min-height:400px}.event-hero .hero-photo{height:390px;width:min(400px,73%);left:50%;transform:translateX(-50%)}.event-hero .hero-arch{left:50%;transform:translateX(-50%)}.event-listing .featured-head{align-items:start;flex-direction:column}.events-contact .contact-grid{grid-template-columns:1fr}}
-@media(max-width:620px){.event-hero h1{font-size:clamp(45px,12vw,64px)}.event-hero .hero-visual{min-height:330px}.event-hero .hero-photo{height:325px}.event-hero .hero-values{display:none}.event-hero .script{font-size:35px}.event-hero .hero-intro{font-size:13px}.event-listing .featured-head .display{font-size:38px}.events-process .systems{grid-template-columns:1fr}.collection-note{display:block}.collection-note a{display:inline-block;margin-top:10px}.event-count{text-align:left}}
-a:focus-visible,button:focus-visible{outline:3px solid #9868a3;outline-offset:3px}
-@media(prefers-reduced-motion:reduce){.event-card .project-logo-panel img{transition:none}}
-</style></head>
-<body><nav class="nav" aria-label="Main navigation">
-  <div class="wrap nav-inner">
-    <a class="brand" href="index.html">Portfolio</a>
-    <div class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="index.html#about">About</a>
-      <a href="index.html#projects">Projects</a>
-      <a class="events-nav" href="events.html" aria-current="page"><span class="events-full">Events &amp; Experiences</span><span class="events-short">Events</span></a>
-      <a href="index.html#contact">Contact</a>
-      <a class="resume-pill" href="resume.html">Résumé →</a>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="A golf-inspired 30th birthday with personalized styling, a poolside celebration, and memorable live entertainment."><title>The Par-Tee | 30th Birthday Event | Raïssa Harrell</title><style>
+:root{--ink:#29213a;--ink-soft:#5f5668;--cream:#fffaf6;--paper:#fffdf9;--plum:#6d4b70;--plum-deep:#523552;--mauve:#916b82;--lilac:#d9c3f2;--lilac-soft:#eee3fb;--rose:#f3cbd6;--peach:#f7d4c4;--blush:#f8dce5;--line:rgba(79,57,92,.15);--shadow:0 18px 48px rgba(67,48,76,.11)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;color:var(--ink);background:radial-gradient(circle at 3% 17%,rgba(248,202,218,.25),transparent 28%),linear-gradient(180deg,#fffaf6,#fbf4ff);font:15px/1.6 Arial,Helvetica,sans-serif}
+a{color:inherit}img{display:block;width:100%;max-width:100%}button{font:inherit}a:focus-visible,button:focus-visible{outline:3px solid #a576a1;outline-offset:4px}.wrap{width:min(1300px,calc(100% - 72px));margin:0 auto}.eyebrow{font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;margin:0 0 14px;color:var(--plum)}.display{font:400 clamp(46px,5.2vw,83px)/.99 Georgia,'Times New Roman',serif;letter-spacing:-.048em;margin:0}.display em{font-weight:400;color:var(--mauve)}.serif{font-family:Georgia,'Times New Roman',serif}
+.nav{position:sticky;top:0;z-index:100;background:rgba(255,250,247,.94);backdrop-filter:blur(16px);border-bottom:1px solid rgba(68,49,78,.08)}.nav-inner{height:62px;display:flex;align-items:center;justify-content:space-between;gap:28px;position:relative}.brand{text-decoration:none;font-family:Georgia,'Times New Roman',serif;font-weight:700;letter-spacing:.15em;font-size:18px;white-space:nowrap}.nav-links{display:flex;align-items:center;gap:34px;font-size:13px;font-weight:600}.nav-links a{text-decoration:none;white-space:nowrap}.nav-links a:hover,.nav-links a[aria-current]{color:var(--mauve)}.nav-links a[aria-current]:not(.resume-pill){border-bottom:1px solid var(--mauve);padding-bottom:3px}.resume-pill{padding:9px 16px;border-radius:999px;background:linear-gradient(135deg,#efd4e9,#d9c7f3);font-size:12px;text-transform:uppercase;letter-spacing:.05em}.nav-toggle{display:none;width:42px;height:42px;border:1px solid var(--line);background:#fffaf8;border-radius:12px;align-items:center;justify-content:center;flex-direction:column;gap:4px;cursor:pointer;margin-left:auto}.nav-toggle span{display:block;width:18px;height:2px;background:var(--plum-deep);border-radius:2px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 21px;border:1px solid #49354f;border-radius:999px;text-decoration:none;text-transform:uppercase;font-weight:800;font-size:11px;letter-spacing:.07em;min-height:44px;background:rgba(255,255,255,.68);transition:transform .25s,box-shadow .25s}.btn.primary{background:#49354f;color:white;box-shadow:0 9px 24px rgba(73,53,79,.18)}.btn:hover{transform:translateY(-2px);box-shadow:0 14px 28px rgba(73,53,79,.14)}.inline-link{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border-bottom:1px solid #8e6e86;padding:0 0 7px}.inline-link:hover{color:#8f6b80}.section{padding:92px 0}.section-heading{display:flex;justify-content:space-between;gap:35px;align-items:end;margin-bottom:32px}.section-heading h2{font:400 clamp(37px,4.3vw,62px)/1.04 Georgia,serif;letter-spacing:-.044em;margin:0}.section-heading>p{max-width:400px;margin:0;color:var(--ink-soft)}
+.contact{background:linear-gradient(105deg,#f2d9e5,#e4d3f4 53%,#f7ddcf);padding:60px 0}.contact-inner{display:flex;justify-content:space-between;align-items:center;gap:35px}.contact h2{font:400 clamp(36px,4.5vw,60px)/1.04 Georgia,serif;margin:0 0 12px}.contact p:not(.eyebrow){max-width:600px;font-size:14px;color:var(--ink-soft);margin:0}.site-footer{background:#fbf2f6;padding:21px 0;font-size:11px;color:#655d69;border-top:1px solid var(--line)}.footer-inner{display:flex;justify-content:space-between;gap:30px;align-items:center}.footer-logo{font:700 13px Georgia,serif;letter-spacing:.13em}
+@media(max-width:900px){.wrap{width:min(100% - 38px,1300px)}.nav-toggle{display:inline-flex}.nav-links{display:none;position:absolute;top:100%;left:0;right:0;padding:12px;background:#fffaf8;border:1px solid var(--line);box-shadow:var(--shadow);border-radius:0 0 16px 16px;flex-direction:column;align-items:stretch;gap:0}.nav-links.is-open{display:flex}.nav-links a{display:block;padding:12px 14px}.nav-links .resume-pill{margin:6px 4px 3px;text-align:center}.section-heading{align-items:start;flex-direction:column;gap:14px}.contact-inner{align-items:start;flex-direction:column}}
+@media(max-width:620px){.wrap{width:min(100% - 30px,1300px)}.brand{font-size:14px}.section{padding:58px 0}.contact{padding:44px 0}.footer-inner{align-items:start;flex-direction:column;gap:8px}.eyebrow{font-size:10px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
+
+.detail-hero{background:radial-gradient(circle at 5% 80%,rgba(248,202,218,.4),transparent 35%),radial-gradient(circle at 93% 13%,rgba(215,194,242,.41),transparent 31%),linear-gradient(118deg,#fffaf6,#f8edf8);padding:42px 0 80px}.back-link{display:inline-flex;gap:9px;text-decoration:none;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#725c76;margin:0 0 48px}.detail-top{display:grid;grid-template-columns:.8fr 1.2fr;align-items:center;gap:5%}.detail-top h1{font:400 clamp(62px,8vw,126px)/.83 Georgia,serif;letter-spacing:-.06em;margin:0 0 25px}.detail-top h1 em{display:block;font-weight:400;color:#95697f}.detail-intro{font-size:16px;color:#5f5668;max-width:425px;line-height:1.8;margin:0 0 28px}.meta-pills{display:flex;gap:7px;flex-wrap:wrap}.meta-pills span{border-radius:99px;padding:8px 12px;border:1px solid var(--line);background:#fffdfa;font-size:10px;letter-spacing:.07em;text-transform:uppercase;font-weight:800;color:#715b73}.detail-hero-image{height:575px;position:relative;border-radius:260px 260px 16px 16px;overflow:hidden;border:8px solid #fffdf8;box-shadow:0 30px 65px rgba(45,32,53,.2)}.detail-hero-image img{height:100%;object-fit:cover;object-position:center 50%}.detail-image-caption{position:absolute;bottom:0;left:0;right:0;padding:35px 26px 20px;color:#fff;font-size:11px;letter-spacing:.11em;text-transform:uppercase;background:linear-gradient(transparent,rgba(22,16,25,.6))}.story-stripe{background:#5b405d;color:#fff;padding:23px 0}.story-stripe .wrap{display:flex;gap:30px;justify-content:space-between;align-items:center;flex-wrap:wrap}.story-stripe span{font-size:11px;letter-spacing:.12em;text-transform:uppercase}.story{display:grid;grid-template-columns:.75fr 1.25fr;gap:8%;align-items:start}.story h2,.gallery-section h2{font:400 clamp(42px,4vw,67px)/1.02 Georgia,serif;letter-spacing:-.04em;margin:0}.story-copy{font-size:16px;line-height:1.9;color:#5e5462}.story-copy p:first-child{margin-top:0}.details-blocks{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:35px}.detail-tile{background:#fffdf9;border:1px solid var(--line);border-radius:14px;padding:31px;box-shadow:0 10px 20px rgba(54,38,63,.04)}.detail-tile .number{font-size:11px;font-weight:800;letter-spacing:.12em;color:#a47695}.detail-tile h3{font:400 28px/1.09 Georgia,serif;letter-spacing:-.03em;margin:21px 0 11px}.detail-tile p{font-size:13px;line-height:1.72;color:var(--ink-soft);margin:0}.gallery-section{background:#f7eef7;padding:89px 0}.gallery-head{display:flex;justify-content:space-between;gap:24px;align-items:end;margin-bottom:33px}.gallery-head p{font-size:13px;color:var(--ink-soft);margin:0}.photo-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));grid-auto-flow:dense;gap:13px}.photo-item{padding:0;border:0;display:block;position:relative;overflow:hidden;border-radius:12px;background:#d9cadb;cursor:zoom-in;min-height:250px;grid-column:span 4}.photo-item:nth-child(1){grid-column:span 7;grid-row:span 2;min-height:516px}.photo-item:nth-child(2){grid-column:span 5}.photo-item:nth-child(3){grid-column:span 5}.photo-item:nth-child(4){grid-column:span 4;min-height:300px}.photo-item:nth-child(5){grid-column:span 4;min-height:300px}.photo-item:nth-child(6){grid-column:span 4;min-height:300px}.photo-item:nth-child(7){grid-column:span 8;min-height:260px}.photo-item img{height:100%;position:absolute;inset:0;object-fit:cover;transition:transform .55s}.photo-item:hover img{transform:scale(1.04)}.photo-item:after{content:'↗';position:absolute;right:15px;bottom:15px;color:white;background:rgba(41,33,58,.65);width:32px;height:32px;border-radius:50%;display:grid;place-items:center;font-size:19px}.photo-item:focus-visible{z-index:2}.planning-note{display:grid;grid-template-columns:.88fr 1.12fr;gap:5%;align-items:center;padding:32px;background:#fffdfa;border:1px solid var(--line);border-radius:15px;margin-top:42px}.planning-note h3{font:400 32px/1.05 Georgia,serif;letter-spacing:-.04em;margin:7px 0}.planning-note p{font-size:13px;color:var(--ink-soft);line-height:1.7;margin:0}.next-nav{padding:54px 0}.next-nav .wrap{display:flex;justify-content:space-between;gap:25px;align-items:center}.next-nav h2{font:400 37px Georgia,serif;margin:0}
+.lightbox{position:fixed;inset:0;background:rgba(22,17,25,.94);display:none;align-items:center;justify-content:center;z-index:1000;padding:78px 70px;color:white}.lightbox.open{display:flex}.lightbox figure{margin:0;max-width:min(1100px,95%);max-height:100%;display:flex;flex-direction:column;align-items:center;gap:9px}.lightbox img{width:auto;height:auto;max-width:100%;max-height:calc(100vh - 170px);object-fit:contain}.lightbox figcaption{font-size:12px;color:#e9dfe8;text-align:center}.lightbox button{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.35);color:white;border-radius:50%;width:42px;height:42px;cursor:pointer;position:absolute;display:grid;place-items:center;font-size:25px}.lightbox .close{top:22px;right:24px}.lightbox .prev{left:17px}.lightbox .next{right:17px}
+@media(max-width:900px){.detail-top{grid-template-columns:1fr 1fr}.detail-hero-image{height:470px}.details-blocks{grid-template-columns:1fr 1fr}.story{grid-template-columns:1fr}.planning-note{grid-template-columns:1fr}}
+@media(max-width:650px){.detail-hero{padding:25px 0 49px}.back-link{margin-bottom:30px}.detail-top{grid-template-columns:1fr}.detail-hero-image{height:410px;border-radius:180px 180px 12px 12px;margin-top:32px}.details-blocks{grid-template-columns:1fr;gap:12px}.detail-tile{padding:24px}.gallery-section{padding:60px 0}.gallery-head{flex-direction:column;align-items:start}.photo-grid{grid-template-columns:repeat(2,1fr);gap:8px}.photo-item,.photo-item:nth-child(n){grid-column:span 1;grid-row:span 1;min-height:210px}.photo-item:nth-child(1){grid-column:span 2;min-height:280px}.photo-item:nth-child(7){grid-column:span 2;min-height:240px}.photo-item:last-child{grid-column:span 2;min-height:220px}.lightbox{padding:68px 16px}.lightbox .prev{left:6px;bottom:15px;top:auto}.lightbox .next{right:6px;bottom:15px;top:auto}.lightbox figure{max-width:100%}.next-nav .wrap{align-items:start;flex-direction:column}.next-nav h2{font-size:31px}}
+
+/* Featured live entertainment photo story */
+.jump-performance{display:inline-block;margin-top:20px;font-size:11px;font-weight:800;text-decoration:none;letter-spacing:.08em;text-transform:uppercase;color:#795779;border-bottom:1px solid #b98fae;padding-bottom:7px}
+.performance-section{scroll-margin-top:85px;padding:88px 0 94px;background:linear-gradient(152deg,#fffaf6,#f9f0fa 73%,#f3e5f6)}
+.performance-heading{display:grid;grid-template-columns:1fr 1fr;gap:7%;align-items:end;margin-bottom:35px}
+.performance-heading h2{font:400 clamp(47px,5.2vw,78px)/.99 Georgia,serif;letter-spacing:-.055em;margin:0}
+.performance-heading h2 em{color:#95697f;font-weight:400}
+.performance-heading>p{font-size:15px;line-height:1.8;color:var(--ink-soft);margin:0 0 5px;max-width:580px}
+.performance-gallery{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:stretch}
+.performance-card{margin:0;border:1px solid var(--line);border-radius:15px;overflow:hidden;background:#fffdfa;box-shadow:0 15px 35px rgba(67,48,76,.08);display:flex;flex-direction:column}
+.performance-photo{border:0;padding:0;width:100%;display:block;cursor:zoom-in;overflow:hidden;background:#302838;position:relative}
+.performance-photo:after{content:'↗';position:absolute;right:16px;bottom:17px;width:37px;height:37px;border-radius:50%;display:grid;place-items:center;color:white;background:rgba(41,33,58,.74);font-size:19px}
+.performance-photo img{object-fit:cover;width:100%;transition:transform .6s;object-position:center}
+.performance-photo:hover img{transform:scale(1.025)}
+.performance-card.portrait .performance-photo{height:540px}
+.performance-card.portrait .performance-photo img{height:100%;object-position:center 37%}
+.performance-card.landscape .performance-photo{height:540px}
+.performance-card.landscape .performance-photo img{height:100%;object-position:center}
+.performance-card figcaption{padding:21px 24px 23px}
+.performance-card figcaption span{font-size:10px;letter-spacing:.14em;font-weight:800;text-transform:uppercase;color:#8e6884}
+.performance-card figcaption strong{display:block;margin:8px 0 4px;font:400 29px/1.18 Georgia,serif;letter-spacing:-.025em;color:var(--ink)}
+.performance-card figcaption p{margin:0;font-size:13px;color:var(--ink-soft);line-height:1.55}
+@media(max-width:760px){.performance-heading{grid-template-columns:1fr;gap:16px}.performance-gallery{grid-template-columns:1fr}.performance-section{padding:65px 0}.performance-card.portrait .performance-photo{height:470px}.performance-card.landscape .performance-photo{height:350px}}
+@media(max-width:460px){.performance-card.portrait .performance-photo{height:420px}.performance-card.landscape .performance-photo{height:280px}.performance-card figcaption{padding:17px 18px}.performance-card figcaption strong{font-size:25px}}
+
+/* Single highlight reel, matched to the existing Par-Tee theme */
+.video-highlights{padding:88px 0 96px;background:linear-gradient(150deg,#fffaf6 0%,#fdf4f9 55%,#f1e8f9 100%)}
+.video-heading{display:grid;grid-template-columns:1fr .82fr;gap:35px;align-items:end;margin-bottom:35px}
+.video-heading h2{font:400 clamp(42px,4.7vw,67px)/1.04 Georgia,'Times New Roman',serif;letter-spacing:-.045em;margin:0}
+.video-heading h2 em{color:var(--mauve);font-weight:400}
+.video-heading>p{color:var(--ink-soft);line-height:1.8;margin:0 0 3px;max-width:440px}
+.reel-layout{display:grid;grid-template-columns:minmax(0,520px) minmax(0,1fr);gap:26px;align-items:start}
+.reel-player{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:14px;box-shadow:0 14px 28px rgba(67,48,76,.07)}
+.reel-player video{width:100%;display:block;border-radius:12px;background:#241c2b;aspect-ratio:9/16;object-fit:contain}
+.reel-caption{font-size:12px;color:var(--ink-soft);margin:12px 6px 0}
+.reel-details{background:rgba(255,255,255,.72);border:1px solid rgba(142,104,138,.18);border-radius:18px;padding:28px;box-shadow:0 12px 28px rgba(67,48,76,.05)}
+.reel-kicker{font-size:10px;text-transform:uppercase;letter-spacing:.16em;font-weight:800;color:#956f8b;margin:0 0 10px}
+.reel-details h3{font:400 31px/1.08 Georgia,'Times New Roman',serif;letter-spacing:-.035em;margin:0 0 12px}
+.reel-details p{margin:0 0 14px;color:var(--ink-soft);line-height:1.8}
+.reel-list{list-style:none;padding:0;margin:18px 0 0;display:grid;gap:10px}
+.reel-list li{display:flex;gap:10px;align-items:flex-start;color:var(--ink);font-size:14px;line-height:1.6}
+.reel-list li::before{content:'✦';color:var(--mauve);font-size:14px;line-height:1.4;transform:translateY(1px)}
+.video-help{font-size:12px;margin:18px 0 0;color:var(--ink-soft)}
+@media(max-width:920px){.reel-layout{grid-template-columns:1fr;}.reel-player{max-width:520px}}
+@media(max-width:650px){.video-highlights{padding:58px 0 68px}.video-heading{grid-template-columns:1fr;gap:12px}.reel-details{padding:22px}.reel-details h3{font-size:27px}}
+
+/* Layout refresh: display full performers, without portrait cropping. */
+.performance-gallery { max-width: 1060px; margin-inline: auto; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 24px; align-items: start; }
+.performance-gallery .performance-card .performance-photo,
+.performance-gallery .performance-card.portrait .performance-photo,
+.performance-gallery .performance-card.landscape .performance-photo { height: auto; }
+.performance-gallery .performance-card .performance-photo img { position: static; display: block; width: 100%; height: auto; aspect-ratio: 2 / 3; object-fit: contain; object-position: center; }
+.performance-gallery .performance-card .performance-photo:hover img { transform: none; }
+
+/* Three curated photographs: welcome sign, group photo, gift bags. */
+.photo-grid { display: grid; grid-template-columns: minmax(0,1.07fr) minmax(0,1fr); gap: 22px; align-items: start; grid-auto-flow: row; }
+.photo-stack { display: grid; gap: 22px; }
+.photo-figure { margin: 0; min-width: 0; }
+.photo-grid .photo-item, .photo-grid .photo-item:nth-child(n) { position: relative; display:block; width:100%; height:auto; min-height:0; grid-column: auto; grid-row:auto; padding:0; border:0; overflow:hidden; border-radius:16px; background:#e5d6e9; cursor:zoom-in; box-shadow:0 13px 28px rgba(67,48,76,.08); }
+.photo-grid .photo-item img { position:static; display:block; width:100%; height:auto; min-height:0; object-fit:contain; object-position:center; transition:transform .4s; }
+.photo-grid .photo-item:hover img { transform:scale(1.01); }
+.photo-figure figcaption { padding: 11px 4px 0; font-size: 11px; font-weight: 800; text-transform: uppercase; color:#886b87; letter-spacing:.115em; }
+@media (max-width: 760px) { .performance-gallery { grid-template-columns: 1fr; max-width:520px; gap:20px; } .photo-grid { grid-template-columns:1fr; gap:20px; } .photo-stack { gap:20px; } }
+</style></head><body><header class="nav"><div class="wrap nav-inner"><a class="brand" href="index.html">Portfolio</a><button class="nav-toggle" type="button" aria-label="Open navigation menu" aria-controls="main-nav" aria-expanded="false"><span></span><span></span><span></span></button><nav class="nav-links" id="main-nav" aria-label="Main navigation"><a href="index.html">Home</a><a href="index.html#about">About</a><a href="index.html#projects">Projects</a><a href="events.html" aria-current="page">Events &amp; Experiences</a><a href="index.html#contact">Contact</a><a class="resume-pill" href="resume.html">Résumé →</a></nav></div></header>
+<main><section class="detail-hero"><div class="wrap"><a href="events.html#featured" class="back-link">← Back to events</a><div class="detail-top"><div><p class="eyebrow">01 / Event story / Private celebration</p><h1>The <em>Par-Tee.</em></h1><p class="detail-intro">Putting the twenties behind me. A golf-inspired 30th birthday celebration that moved from a playful pastel welcome to a glowing night by the pool — complete with live performances.</p><div class="meta-pills"><span>30th birthday</span><span>Golf-inspired</span><span>Day to night</span><span>Live entertainment</span></div><a href="#entertainment" class="jump-performance">Explore the live performances ↘</a></div><div class="detail-hero-image"><img src="assets/events/par-tee-30/golf-cart-welcome.webp" alt="Pink golf cart, Par-Tee welcome banner and balloon installation"><div class="detail-image-caption">The arrival moment / 01</div></div></div></div></section>
+<div class="story-stripe"><div class="wrap"><span>Private celebration</span><span>Par-Tee / Putting the twenties behind me</span><span>Real event photographs</span></div></div>
+<section class="section"><div class="wrap"><div class="story"><div><p class="eyebrow">The experience</p><h2>A celebration with personality.</h2></div><div class="story-copy"><p>The celebration reimagined the milestone of turning thirty through a golf-inspired “Par-Tee” theme. A pink golf cart, a custom welcome sign, and a cluster of pink, sage, and ivory balloons established the tone from the moment guests arrived.</p><p>As the event moved into evening, illuminated “30” numbers, softly lit pool water, and a dramatic fire feature transformed the outdoor setting. Coordinated guest favor bags and smaller decorative touches gave the celebration a consistent visual identity. Live dance, fire, and acrobatic performances added another dimension to the guest experience.</p></div></div>
+<div class="details-blocks"><div class="detail-tile"><span class="number">01 / The arrival</span><h3>A playful welcome.</h3><p>A pastel balloon installation framed the pink golf cart and a custom “Welcome to the Par-Tee” display.</p></div><div class="detail-tile"><span class="number">02 / After dark</span><h3>The evening glow.</h3><p>Oversized illuminated numbers, balloon accents, pool lighting, and the fire feature defined the nighttime setting.</p></div><div class="detail-tile"><span class="number">03 / Small touches</span><h3>Details for guests.</h3><p>A coordinated display of patterned favor bags carried the celebration’s polished presentation into the smaller moments.</p></div></div></div></section>
+<section class="performance-section" id="entertainment" aria-labelledby="entertainment-title">
+<div class="wrap">
+<div class="performance-heading"><div><p class="eyebrow">Beyond the décor / Live entertainment</p><h2 id="entertainment-title">The night <em>came alive.</em></h2></div><p>Live performers brought energy and spectacle to the celebration. A candlelit dance and fire artistry gave guests a memorable live entertainment experience beyond the décor.</p></div>
+<div class="performance-gallery">
+<figure class="performance-card portrait"><button class="performance-photo" type="button" aria-label="Enlarge photo: Dancer balancing a candlelit tray during the poolside performance"><img src="assets/events/par-tee-30/live-dance-performance.webp" alt="Dancer in a blue costume balancing an illuminated tray above her head beside the pool" loading="lazy"></button><figcaption><span>01 / Candlelit performance</span><strong>Illuminating the evening.</strong><p>A striking dance moment set against the electric-blue pool.</p></figcaption></figure>
+<figure class="performance-card portrait"><button class="performance-photo" type="button" aria-label="Enlarge photo: Fire dancer performing beside the pool"><img src="assets/events/par-tee-30/fire-dance-performance.webp" alt="Fire dancer in red performing outdoors by the pool" loading="lazy"></button><figcaption><span>02 / Fire performance</span><strong>Unexpected moments.</strong><p>Fire artistry added drama to the evening celebration.</p></figcaption></figure>
+</div>
+</div></section>
+<section class="video-highlights" id="videos" aria-labelledby="video-highlights-title"><div class="wrap"><div class="video-heading"><div><p class="eyebrow">In motion / Event footage</p><h2 id="video-highlights-title">Watch the <em>highlight reel.</em></h2></div><p>A visual journey through the celebration, from first arrivals to the final birthday moments.</p></div><div class="reel-layout"><div class="reel-player"><video controls playsinline preload="metadata" poster="assets/events/par-tee-30/videos/par-tee-highlight-poster.webp" aria-label="Combined highlight reel from the Par-Tee birthday celebration"><source src="assets/events/par-tee-30/videos/par-tee-highlight-reel.mp4" type="video/mp4">Your browser does not support embedded videos. <a href="assets/events/par-tee-30/videos/par-tee-highlight-reel.mp4">Open the highlight reel</a>.</video><p class="reel-caption">The Par-Tee / Event film</p></div><div class="reel-details"><p class="reel-kicker">Event film · 1:15</p><h3>A complete Par-Tee recap</h3><p>Step inside a golf-inspired thirtieth birthday, from the first welcome moments to a glowing celebration after dark.</p><p>See the venue, guest arrivals, catering details, poolside atmosphere, and the memorable cake entrance in one film.</p><ul class="reel-list"><li>Golf-inspired welcome and outdoor venue.</li><li>Catering details and guest gathering.</li><li>Poolside lighting, music, and the birthday cake entrance.</li></ul><p class="video-help">Press play to experience the celebration.</p></div></div></div></section>
+<section class="gallery-section" id="photos" aria-labelledby="gallery-title">
+<div class="wrap">
+  <div class="gallery-head"><div><p class="eyebrow">Selected moments / 03 photographs</p><h2 id="gallery-title">Details that tell the story.</h2></div><p>Three favorite moments: the welcome, the people, and the thoughtful finishing touches.</p></div>
+  <div class="photo-grid">
+    <div class="photo-stack">
+      <figure class="photo-figure">
+        <button type="button" class="photo-item" data-photo="0" aria-label="View the full Par-Tee welcome sign photograph"><img src="assets/events/par-tee-30/par-tee-welcome-sign.webp" alt="Golf-themed Welcome to the Par-Tee sign with personal notes from guests" loading="lazy"></button>
+        <figcaption>The welcome sign</figcaption>
+      </figure>
+      <figure class="photo-figure">
+        <button type="button" class="photo-item" data-photo="1" aria-label="View the full group celebration photograph"><img src="assets/events/par-tee-30/guest-group-photo.webp" alt="Birthday guests together with live performers during the evening celebration" loading="lazy"></button>
+        <figcaption>The people who made the night</figcaption>
+      </figure>
     </div>
+    <figure class="photo-figure favors-feature">
+      <button type="button" class="photo-item" data-photo="2" aria-label="View the full guest favor bag photograph"><img src="assets/events/par-tee-30/guest-favor-display.webp" alt="Coordinated patterned favor bags arranged on a green outdoor event table" loading="lazy"></button>
+      <figcaption>Thoughtful take-home details</figcaption>
+    </figure>
   </div>
-</nav>
-<header class="hero event-hero" id="top"><div class="wrap hero-grid">
-<div class="hero-copy"><span class="script">The collection</span><h1>Events &amp;<br>Experiences.</h1><div class="hero-role">Event Planning • Creative Concepts • Celebrations</div>
-<p class="hero-intro">An evolving portfolio of personal celebrations and creative experiences. Explore real event moments, design details, entertainment, and the work behind bringing each occasion to life.</p>
-<div class="hero-actions"><a class="btn primary" href="#events">View my events →</a><a class="btn" href="index.html#projects">Project management work →</a></div><p class="hero-note">Every event has its own story.</p></div>
-<div class="hero-visual"><div class="hero-arch"></div><img class="hero-photo" src="assets/events/par-tee-30/golf-cart-welcome.webp" alt="Par-Tee event with balloon installation and golf cart"><div class="hero-values">Creative vision<br>Thoughtful details<br>Memorable moments</div></div></div></header>
-<main><section class="featured event-listing" id="events"><div class="wrap">
-<div class="featured-head"><div><div class="eyebrow">Featured Events / 4 experiences</div><h2 class="display">Event Experience</h2></div><p>Like the project cards on my main website, each event has its own story. Select a card to explore its photos, videos, and planning details.</p></div>
-<div class="project-grid"><article class="project-card event-card">
-    <a class="project-logo-panel" href="event-par-tee.html" aria-label="View The Par-Tee event"><img src="assets/events/par-tee-30/golf-cart-welcome.webp" loading="lazy" alt="Pink golf cart, golf-themed party sign, and pastel balloons"></a>
-    <div class="project-body"><div class="project-index">01 / Milestone birthday / Real event</div>
-    <h3><a href="event-par-tee.html">The Par-Tee</a></h3><h4>Golf-Inspired 30th Birthday</h4>
-    <p>A playful golf-inspired celebration with pastel welcome details, a poolside atmosphere, and live dance, fire, and acrobatic performances.</p><div class="tags"><span class="tag">Private Event</span><span class="tag">30th Birthday</span><span class="tag">Live Entertainment</span></div><a class="card-cta" href="event-par-tee.html">View event →</a></div>
-  </article><article class="project-card event-card">
-    <a class="project-logo-panel" href="event-galentines.html" aria-label="View Galentine’s event"><div class="event-cover-text"><small>Event 02 / Preview</small><strong>Galentine’s</strong><small>Media coming soon</small></div></a>
-    <div class="project-body"><div class="project-index">02 / Social celebration / Media to add</div>
-    <h3><a href="event-galentines.html">Galentine’s</a></h3><h4>Galentine’s Event</h4>
-    <p>A Galentine’s event story. Photos, videos, the event concept, and planning contributions will be added when you share your materials.</p><div class="tags"><span class="tag">Galentine’s</span><span class="tag">Celebration</span><span class="tag">Gallery Coming Soon</span></div><a class="card-cta" href="event-galentines.html">View event →</a></div>
-  </article><article class="project-card event-card">
-    <a class="project-logo-panel" href="event-tini-bit-older.html" aria-label="View A Tini Bit Older event"><div class="event-cover-text"><small>Event 03 / Preview</small><strong>A Tini Bit Older</strong><small>Media coming soon</small></div></a>
-    <div class="project-body"><div class="project-index">03 / Themed experience / Media to add</div>
-    <h3><a href="event-tini-bit-older.html">A Tini Bit Older</a></h3><h4>Themed Celebration</h4>
-    <p>A Tini Bit Older event story. The event photographs, video highlights, and details of your work are ready to be incorporated.</p><div class="tags"><span class="tag">Themed Event</span><span class="tag">Creative Concept</span><span class="tag">Gallery Coming Soon</span></div><a class="card-cta" href="event-tini-bit-older.html">View event →</a></div>
-  </article><article class="project-card event-card">
-    <a class="project-logo-panel" href="event-romantic-getaway.html" aria-label="View Romantic Getaway event"><div class="event-cover-text"><small>Event 04 / Preview</small><strong>Romantic Getaway</strong><small>Media coming soon</small></div></a>
-    <div class="project-body"><div class="project-index">04 / Private experience / Media to add</div>
-    <h3><a href="event-romantic-getaway.html">Romantic Getaway</a></h3><h4>Romantic Experience</h4>
-    <p>A romantic getaway event story. The gallery and behind-the-scenes narrative will be completed using your real photos and videos.</p><div class="tags"><span class="tag">Private Experience</span><span class="tag">Romantic Getaway</span><span class="tag">Gallery Coming Soon</span></div><a class="card-cta" href="event-romantic-getaway.html">View event →</a></div>
-  </article></div>
-<div class="collection-note"><p><b>Portfolio in progress:</b> The Par-Tee includes real photos. Galentine’s, A Tini Bit Older, and Romantic Getaway are awaiting your media.</p><a href="index.html#projects">Explore project work ↗</a></div>
-</div></section>
-<section class="approach events-process" id="process"><div class="wrap"><div class="approach-head"><div><div class="eyebrow">Creative vision meets structure</div><h2 class="display">From concept<br>to experience.</h2></div><p>My project management background informs how I approach creative work. Each case study can show not only the final event, but also the actual planning responsibilities, assets, and outcomes.</p></div>
-<div class="systems"><div class="system"><span class="num">01</span><h3>Concept</h3><p>Creative direction and the purpose of the event.</p></div><div class="system"><span class="num">02</span><h3>Plan</h3><p>Timelines, layouts, suppliers, and logistics where applicable.</p></div><div class="system"><span class="num">03</span><h3>Experience</h3><p>Guest-facing moments, entertainment, and execution.</p></div><div class="system"><span class="num">04</span><h3>Showcase</h3><p>Real photographs, event footage, and results.</p></div></div>
-</div></section>
-<section class="contact events-contact" id="contact"><div class="wrap contact-grid"><div><div class="eyebrow">Let’s collaborate</div><h2 class="display">Contact Me.</h2></div><div><p>For event planning opportunities, collaborations, or creative production inquiries, let's connect.</p><div class="contact-actions"><a class="btn primary" href="mailto:raissa.harrell@gmail.com?subject=Event%20Inquiry">Email Me →</a><a class="btn" href="index.html">Main Portfolio →</a></div></div><div class="contact-script">Good ideas.<br>Great people.<br>Beautiful moments ♡</div></div></section>
-</main><footer><div class="wrap footer-inner"><div class="footer-left">RAISSA HARRELL</div><div>Project Management &nbsp; • &nbsp; Creative &amp; Content &nbsp; • &nbsp; Events</div><div>Willing to Relocate &nbsp; | &nbsp; raissa.harrell@gmail.com</div></div></footer>
-</body></html>
+  <div class="planning-note"><div><p class="eyebrow">Case study in progress</p><h3>Behind the planning.</h3></div><p>The photographs document the event itself. Your specific planning responsibilities, collaborators, planning timeline, and results can be added here once those details are confirmed. This keeps the portfolio accurate while still showing the experience.</p></div>
+</div>
+</section>
+<section class="next-nav"><div class="wrap"><div><p class="eyebrow">Explore more work</p><h2>Every event has a story.</h2></div><a class="btn primary" href="events.html">Back to Events Portfolio ↗</a></div></section>
+<section class="contact"><div class="wrap contact-inner"><div><p class="eyebrow">Let’s work together</p><h2>Let’s create something memorable.</h2><p>Interested in an event, a creative collaboration, or an opportunity to work together? I'd love to connect.</p></div><a class="btn primary" href="mailto:raissa.harrell@gmail.com?subject=Event%20Planning%20Inquiry">Get in touch ↗</a></div></section>
+</main><footer class="site-footer"><div class="wrap footer-inner"><span class="footer-logo">RAISSA HARRELL</span><span>Project Management &nbsp; · &nbsp; Creative Production &nbsp; · &nbsp; Events</span><a href="index.html">Back to main portfolio ↗</a></div></footer>
+<div class="lightbox" role="dialog" aria-modal="true" aria-label="Event photo viewer" aria-hidden="true"><button class="close" aria-label="Close photo viewer" type="button">×</button><button class="prev" aria-label="Previous photograph" type="button">‹</button><figure><img src="" alt=""><figcaption></figcaption></figure><button class="next" aria-label="Next photograph" type="button">›</button></div>
+<script>document.addEventListener('DOMContentLoaded',()=>{const b=document.querySelector('.nav-toggle'),n=document.querySelector('#main-nav');if(!b||!n)return;b.addEventListener('click',()=>{const o=n.classList.toggle('is-open');b.setAttribute('aria-expanded',String(o));b.setAttribute('aria-label',o?'Close navigation menu':'Open navigation menu')});n.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{n.classList.remove('is-open');b.setAttribute('aria-expanded','false')}))});</script>
+<script>
+(function(){
+const imgs=[...document.querySelectorAll('.photo-item, .performance-photo')];const lb=document.querySelector('.lightbox');const viewer=lb.querySelector('img'),cap=lb.querySelector('figcaption');let current=0,previous=null;
+function open(i){current=(i+imgs.length)%imgs.length;const image=imgs[current].querySelector('img');viewer.src=image.src;viewer.alt=image.alt;cap.textContent=(current+1)+' / '+imgs.length+' · '+image.alt;previous=document.activeElement;lb.classList.add('open');lb.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';lb.querySelector('.close').focus()}
+function close(){lb.classList.remove('open');lb.setAttribute('aria-hidden','true');document.body.style.overflow='';viewer.removeAttribute('src');if(previous)previous.focus()}
+imgs.forEach((b,i)=>b.addEventListener('click',()=>open(i)));
+lb.querySelector('.close').addEventListener('click',close);lb.querySelector('.prev').addEventListener('click',()=>open(current-1));lb.querySelector('.next').addEventListener('click',()=>open(current+1));lb.addEventListener('click',e=>{if(e.target===lb)close()});document.addEventListener('keydown',e=>{if(!lb.classList.contains('open'))return;if(e.key==='Escape')close();if(e.key==='ArrowRight')open(current+1);if(e.key==='ArrowLeft')open(current-1);if(e.key==='Tab'){const buttons=[...lb.querySelectorAll('button')];let j=buttons.indexOf(document.activeElement);if(e.shiftKey&&j===0){e.preventDefault();buttons[buttons.length-1].focus()}else if(!e.shiftKey&&j===buttons.length-1){e.preventDefault();buttons[0].focus()}}});
+})();
+</script><script>
+</script></body></html>
