@@ -162,7 +162,6 @@ a{color:inherit}img{display:block;width:100%;max-width:100%}button{font:inherit}
 }
 .performer-hover-preview .preview-bottom { padding:3px 6px 5px; display:flex; gap:14px; align-items:center; justify-content:space-between; }
 .performer-hover-preview .preview-title { font:400 22px/1.15 Georgia,'Times New Roman',serif; color:#32263a; margin:0; }
-.performer-hover-preview .preview-hint { font:600 10px/1.45 Arial,sans-serif; letter-spacing:.06em; text-transform:uppercase; color:#92728b; white-space:nowrap; }
 @media (max-width:1040px) {
   .performance-gallery { grid-template-columns:1fr; max-width:730px; }
   .performance-gallery .performance-card { grid-template-columns:235px minmax(0,1fr); }
@@ -255,13 +254,12 @@ lb.querySelector('.close').addEventListener('click',close);lb.querySelector('.pr
   const preview = document.createElement('div');
   preview.className = 'performer-hover-preview';
   preview.setAttribute('aria-hidden', 'true');
-  preview.innerHTML = '<div class="preview-frame"><img alt=""><div class="preview-bottom"><p class="preview-title"></p><span class="preview-hint">Move away to close</span></div></div>';
+  preview.innerHTML = '<div class="preview-frame"><img alt=""><div class="preview-bottom"><p class="preview-title"></p></div></div>';
   document.body.appendChild(preview);
   const pic = preview.querySelector('img');
   const title = preview.querySelector('.preview-title');
   function hide() { preview.classList.remove('is-visible'); }
   buttons.forEach(button => {
-    button.setAttribute('title', 'Hover to preview · Click to enlarge');
     button.addEventListener('mouseenter', () => {
       const image = button.querySelector('img');
       if (!image) return;
