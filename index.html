@@ -654,6 +654,20 @@
   }
 
 }
+
+    /* Events & Experiences navigation: only new styles */
+    .events-short{display:none}
+    @media(max-width:860px){
+      /* Display Events as fourth navigation item and keep Contact hidden at tablet sizes. */
+      .nav-links a:nth-child(4){display:inline-flex}
+      .nav-links a:nth-child(5){display:none}
+    }
+    @media(max-width:620px){
+      /* Mobile: display a short Events label next to the Resume button. */
+      .nav-links a.events-nav:not(.resume-pill){display:inline-flex;align-items:center}
+      .events-full{display:none}
+      .events-short{display:inline}
+    }
   </style>
 </head>
 <body>
@@ -664,6 +678,7 @@
         <a href="#top">Home</a>
         <a href="#about">About</a>
         <a href="#projects">Projects</a>
+        <a class="events-nav" href="events.html"><span class="events-full">Events &amp; Experiences</span><span class="events-short">Events</span></a>
         <a href="#contact">Contact</a>
         <a class="resume-pill" href="resume.html">Résumé →</a>
       </div>
