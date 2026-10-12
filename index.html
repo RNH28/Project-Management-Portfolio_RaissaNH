@@ -1,20 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-V2D81Q47R4"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-V2D81Q47R4');
-</script>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Raïssa Harrell — Project Manager Portfolio." />
-  <title>Raïssa Harrell | Project Manager</title>
-  <style>
+<html lang="en"><head><!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-V2D81Q47R4"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-V2D81Q47R4');</script>
+<meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="Raïssa Harrell — Project Manager, corporate projects, and creative event experiences." name="description"/><title>Raïssa Harrell | Project Manager Portfolio</title><style>
     :root{
       --ink:#29213a;
       --ink-soft:#5f5668;
@@ -668,286 +656,121 @@
       .events-full{display:none}
       .events-short{display:inline}
     }
-  </style>
-</head>
-<body>
-  <nav class="nav">
-    <div class="wrap nav-inner">
-      <a class="brand" href="#top">Portfolio</a>
-      <div class="nav-links">
-        <a href="#top">Home</a>
-        <a href="#about">About</a>
-        <a href="#Corporate projects">Corporate Projects</a>
-        <a class="events-nav" href="events.html"><span class="events-full">Events &amp; Experiences</span><span class="events-short">Events</span></a>
-        <a href="#contact">Contact</a>
-        <a class="resume-pill" href="resume.html">Résumé →</a>
-      </div>
-    </div>
-  </nav>
+  
 
-  <header class="hero" id="top">
-    <div class="wrap hero-grid">
-      <div class="hero-copy">
-        <span class="script">Hi I’m</span>
-        <h1>Raïssa</h1>
-        <div class="hero-role">Project Manager • Brands & Properties • Creative & Content</div>
-        <p class="hero-intro">I bring structure to creative work — organizing timelines, deliverables, resources, communication, and launch readiness so teams can keep moving.</p>
-        <div class="hero-actions">
-          <a class="btn primary" href="#projects">View my work →</a>
-          <a class="btn" href="#contact">Get in touch</a>
-        </div>
-      </div>
-      <div class="hero-visual">
-        <div class="hero-arch"></div>
-        <img class="hero-photo" src="assets/raissa-headshot3.jpg" alt="Raïssa Harrell">
-    </div>
-  </header>
-
-  <main>
-    <section class="about" id="about">
-      <div class="wrap about-grid">
-        <div class="polaroid">
-          <img src="assets/raissa-headshot3.jpg" alt="Raïssa Harrell portrait">
-          <div class="polaroid-note">MBA Graduate 2026 🎓</div>
-        </div>
-        <div>
-          <div class="eyebrow">CAREER TRANSITION</div>
-          <h2>About Me.</h2>
-          <p class="about-copy">After recognizing that project management has been a consistent thread throughout my legal and operations career, I began an intentional career transition in 2025. Since then, I’ve pursued my MBA in Project Management, earned a Lean Six Sigma Black Belt in Marketing, and gained hands-on creative project management experience supporting integrated campaigns.</p>
-          <div class="credentials">
-            <div class="credential"><span class="credential-icon">◇</span><span><b>MBA Graduate</b>Project Management · Dec 2026</span></div>
-            <div class="credential"><span class="credential-icon">↗</span><span><b>Lean Six Sigma</b>Black Belt · Marketing</span></div>
-            <div class="credential"><span class="credential-icon">♙</span><span><b>Focus</b>Operations · PM · Process Improvement</span></div>
-          </div>
-        </div>
-        <div class="about-quote">
-  <strong>Credentials</strong>
-
-  <div class="about-links">
-    <a href="resume.html">
-  View Résumé
-</a>
-
-    <a href="https://www.linkedin.com/in/raissanharrell/"
-       target="_blank"
-       rel="noopener noreferrer">
-      LinkedIn
-    </a>
-  </div>
+/* Multi-page portfolio additions */
+.nav-links a[aria-current="page"]{color:var(--mauve)}
+.nav-links a[aria-current="page"]:not(.resume-pill)::after{transform:scaleX(1)}
+.mobile-nav-toggle{display:none;border:1px solid var(--line);border-radius:999px;background:#fffaf6;color:var(--ink);padding:9px 14px;font-size:12px;font-weight:800;cursor:pointer}
+.subpage-hero{padding:76px 0 68px;background:radial-gradient(circle at 87% 12%,rgba(214,191,240,.38),transparent 35%),radial-gradient(circle at 5% 88%,rgba(248,202,218,.4),transparent 33%),linear-gradient(125deg,#fffaf6,#f9edfa);border-bottom:1px solid var(--line)}
+.subpage-grid{display:grid;grid-template-columns:1.08fr .92fr;align-items:center;gap:68px}
+.subpage-hero h1{font:400 clamp(54px,7.2vw,94px)/.97 Georgia,"Times New Roman",serif;letter-spacing:-.055em;margin:12px 0 22px}
+.subpage-hero h1 em{color:#986e88;font-weight:400}
+.subpage-hero p{color:var(--ink-soft);font-size:16px;max-width:660px;line-height:1.65}
+.subpage-detail{border-left:1px solid rgba(79,57,92,.28);padding:24px 0 24px 36px;color:var(--ink-soft);font-size:15px;line-height:1.65}
+.subpage-detail strong{display:block;font:400 29px/1.1 Georgia,"Times New Roman",serif;color:var(--ink);margin-bottom:12px}
+.subpage-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:25px}
+.home-paths{padding:68px 0 76px;background:rgba(255,251,248,.82)}
+.home-paths-head{display:flex;align-items:end;justify-content:space-between;gap:30px;margin-bottom:30px}
+.home-paths-head p{font-size:15px;line-height:1.6;color:var(--ink-soft);max-width:420px;margin:0}
+.home-paths-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.home-path{display:flex;flex-direction:column;align-items:flex-start;gap:16px;min-height:270px;padding:29px 27px;border:1px solid var(--line);border-radius:18px;background:linear-gradient(135deg,#fffdfb,#f9edf7);text-decoration:none;box-shadow:0 12px 30px rgba(70,49,76,.04);transition:transform .25s ease,box-shadow .25s ease}
+.home-path:nth-child(2){background:linear-gradient(135deg,#faf1fc,#fff7f0)}
+.home-path:nth-child(3){background:linear-gradient(135deg,#fff2f5,#eee5fa)}
+.home-path:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+.home-path-index{font-size:11px;letter-spacing:.18em;font-weight:800;color:var(--plum)}
+.home-path h3{font:400 32px/1.06 Georgia,"Times New Roman",serif;letter-spacing:-.035em;margin:0}
+.home-path p{font-size:13px;line-height:1.65;color:var(--ink-soft);margin:0}
+.home-path .path-arrow{font-size:13px;font-weight:800;color:var(--plum);margin-top:auto}
+.intro-band{background:linear-gradient(110deg,#f3dce8,#e5d7f6,#f8dfd6);padding:43px 0}
+.intro-band-inner{display:flex;justify-content:space-between;align-items:center;gap:25px}
+.intro-band p{font:400 clamp(24px,3.2vw,41px)/1.12 Georgia,"Times New Roman",serif;max-width:870px;margin:0}
+.page-inner-section{scroll-margin-top:88px}
+@media(max-width:960px){.subpage-grid{gap:35px}.home-paths-grid{gap:12px}.home-path{padding:23px 19px}.home-path h3{font-size:27px}}
+@media(max-width:860px){
+ .nav{position:sticky}.nav-inner{position:relative}
+ .mobile-nav-toggle{display:block;margin-left:auto}
+ .nav-links{display:none!important;position:absolute;top:calc(100% - 3px);right:0;left:0;flex-direction:column;align-items:stretch;gap:3px;background:#fffaf8;padding:16px;border:1px solid var(--line);border-radius:0 0 16px 16px;box-shadow:var(--shadow);z-index:105}
+ .nav-links.open{display:flex!important}
+ .nav-links.open a{display:flex!important;align-items:center;justify-content:space-between;padding:12px 10px;font-size:14px;border-radius:8px}
+ .nav-links.open a.resume-pill{justify-content:center}
+ .nav-links a::after{display:none}
+ .subpage-grid{grid-template-columns:1fr;gap:16px}.subpage-detail{border-left:0;border-top:1px solid var(--line);padding:22px 0 0}
+ .home-paths-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:620px){.nav-inner{height:60px}.nav-links.open a.events-nav:not(.resume-pill){display:flex!important}.events-full{display:inline}.events-short{display:none}
+ .subpage-hero{padding:48px 0}.subpage-hero h1{font-size:51px}.subpage-hero p{font-size:14px}
+ .home-paths{padding:48px 0}.home-paths-head{display:block}.home-paths-head p{margin-top:15px}
+ .home-paths-grid{grid-template-columns:1fr}.home-path{min-height:225px}
+ .intro-band-inner{display:block}.intro-band-inner a{margin-top:20px}.intro-band{padding:35px 0}
+}
+</style></head><body><nav aria-label="Primary navigation" class="nav"><div class="wrap nav-inner">
+<a class="brand" href="index.html">Portfolio</a>
+<button aria-controls="portfolio-nav-links" aria-expanded="false" class="mobile-nav-toggle" type="button">Menu ☰</button>
+<div class="nav-links" id="portfolio-nav-links">
+<a aria-current="page" data-page="home" href="index.html">Home</a>
+<a data-page="about" href="about.html">About</a>
+<a data-page="projects" href="corporate-projects.html">Corporate Projects</a>
+<a class="events-nav" href="events.html"><span class="events-full">Events &amp; Experiences</span><span class="events-short">Events</span></a>
+<a href="index.html#contact">Contact</a>
+<a class="resume-pill" href="resume.html">Résumé →</a>
+</div></div></nav>
+<header class="hero" id="top"><div class="wrap hero-grid">
+<div class="hero-copy"><span class="script">Hi I’m</span><h1>Raïssa</h1>
+<div class="hero-role">Project Manager • Brands &amp; Properties • Creative &amp; Content</div>
+<p class="hero-intro">I bring structure to creative work — organizing timelines, deliverables, resources, communication, and launch readiness so teams can keep moving.</p>
+<div class="hero-actions"><a class="btn primary" href="corporate-projects.html">View my work →</a><a class="btn" href="#contact">Get in touch</a></div></div>
+<div class="hero-visual"><div class="hero-arch"></div><img alt="Raïssa Harrell" class="hero-photo" src="assets/raissa-headshot3.jpg"/></div>
+</div></header>
+<main>
+<section aria-labelledby="explore-title" class="home-paths"><div class="wrap">
+<div class="home-paths-head"><div><p class="eyebrow">EXPLORE THE PORTFOLIO</p><h2 class="display" id="explore-title">The work. <em style="color:#986e88">The story.</em></h2></div>
+<p>Explore my background, project management work, and creative event experiences. Each area has its own dedicated page.</p></div>
+<div class="home-paths-grid">
+<a class="home-path" href="about.html"><span class="home-path-index">01 / THE STORY</span><h3>About Me</h3><p>My career transition, background across industries, certifications, and tools I use to deliver work.</p><span class="path-arrow">Meet Raïssa →</span></a>
+<a class="home-path" href="corporate-projects.html"><span class="home-path-index">02 / PROFESSIONAL WORK</span><h3>Corporate Projects</h3><p>Creative campaign coordination, legal document consolidation, and public-sector operations—with the systems behind the results.</p><span class="path-arrow">Explore projects →</span></a>
+<a class="home-path" href="events.html"><span class="home-path-index">03 / CREATIVE EXPERIENCES</span><h3>Events &amp; Experiences</h3><p>Explore the Par-Tee and Galentine’s through event photography, thoughtful design details, and video highlights.</p><span class="path-arrow">See event stories →</span></a>
+</div></div></section>
+<section class="contact" id="contact">
+<div class="wrap contact-grid">
+<div><div class="eyebrow">Let’s work together</div><h2 class="display">Contact Me.</h2></div>
+<div>
+<p>Seeking new opportunities after obtaining my Masters in Business Administration, Lean Six Sigma Black Belt in Marketing, and 35 PDU hours with the Project Management Institute. Let’s connect and build something great!</p>
+<div class="contact-actions">
+<a class="btn primary" href="mailto:raissa.harrell@gmail.com">Email Me →</a>
+<!-- Replace the LinkedIn URL below with your actual profile URL -->
+<a class="btn" href="https://www.linkedin.com/in/raissanharrell/" rel="noopener noreferrer" target="_blank">LinkedIn →</a>
+<a class="btn" href="resume.html">Résumé →</a>
 </div>
-    </section>
-
-    <section class="tools" id="tools">
-      <div class="wrap">
-        <div class="tools-heading">
-          <div>
-            <div class="eyebrow">Tools &amp; systems</div>
-            <h2 class="display">The tools I use<br>to make it happen.</h2>
-          </div>
-          <p>I work across creative, legal, and business environments using tools that keep teams aligned, projects on track, and communication clear.</p>
-        </div>
-        <div class="tools-grid">
-
-  <div class="tool">
-    <img src="assets/Asana-logo.png" alt="Asana">
-    <span>Asana</span>
-  </div>
-
-  <div class="tool">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/9/98/Microsoft_Project_%282019%E2%80%93present%29.svg" alt="Microsoft Project">
-    <span>Microsoft<br>Project</span>
-  </div>
-
-  <div class="tool">
-    <img src="assets/Excel-logo.png" alt="Microsoft Excel">
-    <span>Excel</span>
-  </div>
-
-  <div class="tool">
-    <img src="assets/Word-logo.png" alt="Microsoft Word">
-    <span>Word</span>
-  </div>
-
-  <div class="tool">
-    <img src="assets/PowerPoint-logo.png" alt="Microsoft PowerPoint">
-    <span>PowerPoint</span>
-  </div>
-
-  <div class="tool">
-    <img src="assets/Outlook-logo.png" alt="Microsoft Outlook">
-    <span>Outlook</span>
-  </div>
-
-  <div class="tool">
-    <img src="assets/Teams-logo.png" alt="Microsoft Teams">
-    <span>Teams</span>
-  </div>
-
-  <div class="tool">
-    <img src="assets/Slack-logo.png" alt="Slack">
-    <span>Slack</span>
-  </div>
-
-  <div class="tool">
-    <img src="assets/canva-logo.png" alt="Canva">
-    <span>Canva</span>
-  </div>
-
-  <div class="tool">
-    <img src="assets/Google-logo.png" alt="Google Workspace">
-    <span>Google<br>Workspace</span>
-  </div>
-
-  <div class="tool">
-  <img src="assets/frameio-logo.png" alt="Frame.io">
-    <span>Frame.IO</span>
 </div>
-
-  <div class="tool">
-    <img src="assets/Zoom-logo.png" alt="Zoom">
-    <span>Zoom</span>
-  </div>
-
+<div class="contact-script">Exciting<br/>Projects.<br/>Phenomenal<br/>Teamwork ♡</div>
 </div>
-      </div>
-    </section>
-
-    <section class="brands" aria-label="Brands supported during internship">
-      <div class="wrap brands-grid">
-        <div class="brands-title">Brands I supported during my internship</div>
-        <div class="logos">
-          <div class="logo-box">
-  <img src="assets/android.png" alt="Android logo">
-  </div>
-
-<div class="logo-box">
-  <img src="assets/gemini.png" alt="Gemini logo">
-  </div>
-          <div class="logo-box"><img class="casamigos-logo"
-         src="assets/casamigos-logo.png"
-         alt="Casamigos logo">
-  </div>
-        </div>
-        <p class="nda">Brand names are shown only to identify experience. No client assets, internal screenshots, campaign creative, contracts, budgets, or proprietary materials are displayed.</p>
-      </div>
-    </section>
-
-    <section class="featured" id="projects">
-      <div class="wrap">
-        <div class="featured-head">
-          <div><div class="eyebrow">Featured projects</div><h2 class="display">Work Experience</h2></div>
-          <a class="featured-link" href="#approach">How I Approach New Projects →</a>
-        </div>
-        <div class="project-grid">
-          <article class="project-card">
-            <div class="project-logo-panel">
-  <img class="project-logo"
-     src="assets/The%20Team-Logo.png"
-     alt="The Team logo">
+</section>
+</main><footer>
+<div class="wrap footer-inner">
+<div class="footer-left">RAISSA HARRELL</div>
+<div>Project Manager   •   Brands &amp; Properties   •   Creative &amp; Content</div>
+<div>Willing to Relocate   |   raissa.harrell@gmail.com</div>
 </div>
-            <div class="project-body">
-              <div class="project-index">01 / Creative Project Management</div>
-              <h3>Brands &amp; Properties: Creative &amp; Content</h3>
-              <h4>The·Team · Project Manager Intern</h4>
-              <p>Supported integrated social and creator campaigns from planning and strategy through concept development, production, launch, and reporting. Monitored timelines, trackers, review rounds, approvals, and launch readiness across multiple client accounts.</p>
-              <div class="tags"><span class="tag">Workback Schedules</span><span class="tag">Paid Asset Trackers</span><span class="tag">Internal & External Creator Management Files</span><span class="tag">Retrospective Materials</span></div>
-            </div>
-          </article>
-
-          <article class="project-card">
-  <div class="project-logo-panel">
-    <img class="project-logo"
-     src="assets/Polsinelli-logo.png"
-     alt="Polsinelli logo">
-  </div>
-
-  <div class="project-body">
-            <div class="project-body">
-              <div class="project-index">02 / Legal Operations</div>
-              <h3>Legal Document Consolidation (1,000+ Files)</h3>
-              <h4>Polsinelli · Legal Specialist</h4>
-              <p>Led a nine-month records consolidation project spanning more than 1,000 case files, coordinating with the director and paralegal team to identify documentation gaps, standardize records, and complete migration into iManage.</p>
-              <div class="tags"><span class="tag">Process Improvement</span><span class="tag">Cross-Functional Teams</span><span class="tag">Records Management</span><span class="tag">iManage</span></div>
-            </div>
-          </article>
-
-          <article class="project-card">
-  <div class="project-logo-panel">
-    <img class="project-logo"
-     src="assets/Mesa-logo.png"
-     alt="Mesa Arizona logo">
-  </div>
-
-  <div class="project-body">
-            <div class="project-body">
-              <div class="project-index">03 / Court Operations</div>
-              <h3>Case Management</h3>
-              <h4>Mesa Municipal Court · Court Specialist</h4>
-              <p>Managed end-to-end misdemeanor case operations, including scheduling, case documentation, jury operations, and interagency communication with judges, attorneys, law enforcement, MVD, and DPS.</p>
-              <div class="tags"><span class="tag">Stakeholder Coordination</span><span class="tag">Case Management</span><span class="tag">Process Efficiency</span><span class="tag">Public Service</span></div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="approach" id="approach">
-      <div class="wrap">
-        <div class="approach-head">
-          <div><div class="eyebrow">My project management approach</div><h2 class="display">Systems for<br>successful delivery.</h2></div>
-          <p>My project management approach is typically hybrid, combining structured project planning with Agile and iterative execution. I begin by defining project scope, deliverables, stakeholders, milestones, deadlines, and dependencies.
-
-Depending on project complexity, I use Microsoft Project, Asana, or custom Excel/Google Sheets trackers and SOPs to build schedules, establish dependencies, assign resources, track milestones, and monitor progress. For more complex schedules, I use Microsoft Project to evaluate critical paths, predecessor relationships, resource allocation, and performance against the original plan.</p>
-        </div>
-        <div class="systems">
-          <div class="system"><span class="num">01</span><img src="https://api.iconify.design/lucide:clipboard-list.svg" alt=""><h3>Social Campaign Production Tracker</h3><p>Track assets, feedback rounds, timelines, tasks, approvals, and deadlines.</p></div>
-          <div class="system"><span class="num">02</span><img src="https://api.iconify.design/lucide:calendar-days.svg" alt=""><h3>Work-Back Schedule &amp; Timeline Planning</h3><p>Build realistic timelines with milestones, dependencies, and key dates.</p></div>
-          <div class="system"><span class="num">03</span><img src="https://api.iconify.design/lucide:users.svg" alt=""><h3>Creator Campaign Project Organization</h3><p>Organize creator workflows, contracts, deliverables, and communications.</p></div>
-          <div class="system"><span class="num">04</span><img src="https://api.iconify.design/lucide:file-text.svg" alt=""><h3>Daily Hot Sheet</h3><p>Provide daily updates on progress, priorities, and action items.</p></div>
-          <div class="system"><span class="num">05</span><img src="https://api.iconify.design/lucide:book-open.svg" alt=""><h3>Ways of Working / Team Onboarding</h3><p>Create onboarding materials, SOPs, and workflow documentation to set teams up for success.</p></div>
-          <div class="system"><span class="num">06</span><img src="https://api.iconify.design/lucide:messages-square.svg" alt=""><h3>Meeting Recap &amp; Action Items</h3><p>Document key decisions, action items, and next steps to maintain accountability.</p></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="industries" id="experience">
-      <div class="wrap industries-grid">
-        <div>
-          <div class="eyebrow">My focus: Timely Results and Strong Communication.</div>
-          <h2 class="display">8+ years of experience across different industries</h2>
-        </div>
-        <div class="industry-cards">
-          <div class="industry-card"><img src="assets/industry-creative.png" alt="Creative marketing and production"><h3>Social Media<br>&amp; Production</h3></div>
-          <div class="industry-card"><img src="assets/industry-legal.png" alt="Legal operations and courts"><h3>Legal <br>&amp; Court Operations</h3></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="contact" id="contact">
-      <div class="wrap contact-grid">
-        <div><div class="eyebrow">Let’s work together</div><h2 class="display">Contact Me.</h2></div>
-        <div>
-          <p>Seeking new opportunities after obtaining my Masters in Business Administration, Lean Six Sigma Black Belt in Marketing, and 35 PDU hours with the Project Management Institute. Let’s connect and build something great!</p>
-          <div class="contact-actions">
-            <a class="btn primary" href="mailto:raissa.harrell@gmail.com">Email Me →</a>
-            <!-- Replace the LinkedIn URL below with your actual profile URL -->
-            <a class="btn" href="https://www.linkedin.com/in/raissanharrell/" target="_blank" rel="noopener noreferrer">LinkedIn →</a>
-            <a class="btn" href="resume.html">Résumé →</a>
-          </div>
-        </div>
-        <div class="contact-script">Exciting<br>Projects.<br>Phenomenal<br>Teamwork ♡</div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="wrap footer-inner">
-      <div class="footer-left">RAISSA HARRELL</div>
-      <div>Project Manager &nbsp; • &nbsp; Brands & Properties &nbsp; • &nbsp; Creative & Content</div>
-      <div>Willing to Relocate &nbsp; | &nbsp; raissa.harrell@gmail.com</div>
-    </div>
-  </footer>
-  <script>
+</footer>
+<script>
+(function(){
+ const hash=decodeURIComponent(window.location.hash.slice(1)).trim().toLowerCase();
+ const redirects={about:'about.html',tools:'about.html#tools',projects:'corporate-projects.html',
+ 'corporate projects':'corporate-projects.html',approach:'corporate-projects.html#approach',experience:'about.html#experience'};
+ if(redirects[hash])window.location.replace(redirects[hash]);
+})();
+</script><script>
+(function(){
+ const btn=document.querySelector('.mobile-nav-toggle');
+ const links=document.querySelector('.nav-links');
+ if(btn&&links){
+   btn.addEventListener('click',()=>{const opened=links.classList.toggle('open');btn.setAttribute('aria-expanded',String(opened));btn.textContent=opened?'Close ×':'Menu ☰';});
+   links.addEventListener('click',e=>{if(e.target.closest('a')){links.classList.remove('open');btn.setAttribute('aria-expanded','false');btn.textContent='Menu ☰';}});
+   document.addEventListener('keydown',e=>{if(e.key==='Escape'){links.classList.remove('open');btn.setAttribute('aria-expanded','false');btn.textContent='Menu ☰';}});
+ }
+})();
+</script><script>
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -1165,6 +988,4 @@ if (
 
 });
 
-</script>
-</body>
-</html>
+</script></body></html>
