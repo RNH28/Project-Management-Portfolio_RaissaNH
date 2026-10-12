@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact Raïssa Harrell, Project Manager, and view her résumé PDF.">
+  <meta name="theme-color" content="#fffaf6">
+  <title>Contact | Raïssa Harrell</title>
+  <style>
+    :root {
+      --ink:#29213a;
+      --ink-soft:#5f5668;
+      --cream:#fffaf6;
+      --paper:#fffdf9;
+      --plum:#6d4b70;
+      --plum-deep:#523552;
+      --mauve:#916b82;
+      --lilac:#d9c3f2;
+      --lilac-soft:#eee3fb;
+      --rose:#f3cbd6;
+      --peach:#f7d4c4;
+      --line:rgba(79,57,92,.14);
+      --shadow:0 18px 48px rgba(67,48,76,.11);
+    }
+    * {box-sizing:border-box}
+    html {scroll-behavior:smooth}
+    body {margin:0;color:var(--ink);font-family:Arial,Helvetica,sans-serif;line-height:1.48;
+      background:radial-gradient(circle at 3% 30%,rgba(248,202,218,.35),transparent 31%),
+      radial-gradient(circle at 96% 8%,rgba(215,194,242,.42),transparent 33%),
+      linear-gradient(180deg,#fffaf6 0%,#fff9f7 55%,#fbf4ff 100%);}
+    a {color:inherit}
+    .wrap {width:min(1300px,calc(100% - 72px));margin-inline:auto}
+    .nav {position:sticky;top:0;z-index:100;background:rgba(255,250,247,.94);backdrop-filter:blur(15px);border-bottom:1px solid rgba(68,49,78,.07)}
+    .nav-inner {height:62px;display:flex;align-items:center;justify-content:space-between;gap:28px}
+    .brand {text-decoration:none;font-family:Georgia,'Times New Roman',serif;font-weight:700;letter-spacing:.15em;font-size:18px;white-space:nowrap}
+    .nav-links {display:flex;align-items:center;gap:34px;font-size:13px;font-weight:600}
+    .nav-links a {text-decoration:none;position:relative;transition:color .25s ease}
+    .nav-links a:not(.resume-pill):hover,.nav-links a[aria-current="page"] {color:var(--mauve)}
+    .nav-links a[aria-current="page"]::after {content:"";position:absolute;height:1px;left:0;right:0;bottom:-6px;background:var(--mauve)}
+    .resume-pill {padding:9px 16px;border-radius:999px;background:linear-gradient(135deg,#efd4e9,#d9c7f3);font-size:12px;text-transform:uppercase;letter-spacing:.05em}
+    .mobile-nav-toggle {display:none;font:700 13px Arial,Helvetica,sans-serif;color:var(--ink);border:1px solid var(--line);border-radius:999px;padding:9px 14px;background:rgba(255,255,255,.8);cursor:pointer}
+    .events-short {display:none}
+    main {min-height:calc(100vh - 162px)}
+    .contact-hero {padding:65px 0 42px;position:relative;overflow:hidden}
+    .contact-hero::after {content:"";position:absolute;width:410px;height:410px;border-radius:50%;background:linear-gradient(145deg,rgba(239,215,230,.35),rgba(218,198,244,.35));right:-180px;top:-210px;pointer-events:none}
+    .eyebrow {margin:0 0 17px;font-size:11px;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:var(--plum)}
+    h1,h2 {font-family:Georgia,'Times New Roman',serif;font-weight:400;letter-spacing:-.045em}
+    h1 {font-size:clamp(66px,8vw,122px);line-height:.91;margin:0 0 22px}
+    h1 em {color:var(--mauve);font-weight:400}
+    .intro {color:var(--ink-soft);font-size:17px;max-width:600px;margin:0}
+    .contact-layout {padding:0 0 75px;display:grid;grid-template-columns:.82fr 1.18fr;gap:25px;align-items:start}
+    .contact-card {border:1px solid var(--line);border-radius:22px;background:rgba(255,253,249,.92);box-shadow:var(--shadow);padding:32px}
+    .card-eyebrow {font-size:10px;text-transform:uppercase;letter-spacing:.2em;color:var(--mauve);font-weight:800;margin:0 0 20px}
+    .contact-detail {padding:21px 0;border-top:1px solid var(--line)}
+    .contact-detail:first-of-type {padding-top:0;border-top:0}
+    .contact-detail-label {display:block;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#78647b;font-weight:800;margin:0 0 10px}
+    .contact-detail-value {display:block;font-family:Georgia,'Times New Roman',serif;font-size:clamp(18px,2.3vw,26px);overflow-wrap:anywhere;text-decoration:none;line-height:1.3}
+    .contact-detail-value:hover {color:var(--plum)}
+    .contact-detail-note {color:var(--ink-soft);font-size:12px;margin:8px 0 0}
+    .primary-link,.secondary-link {display:inline-flex;align-items:center;justify-content:center;gap:9px;text-decoration:none;padding:12px 19px;border-radius:999px;font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;transition:transform .2s ease}
+    .primary-link:hover,.secondary-link:hover {transform:translateY(-2px)}
+    .primary-link {color:white;background:#49354f;border:1px solid #49354f;box-shadow:0 9px 24px rgba(73,53,79,.13)}
+    .secondary-link {color:var(--ink);border:1px solid #49354f;background:rgba(255,255,255,.7)}
+    .resume-top {display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:20px}
+    .resume-top h2 {font-size:clamp(30px,3.5vw,42px);margin:0;line-height:1.05}
+    .resume-top .card-eyebrow {margin:0 0 9px}
+    .resume-links {display:flex;gap:9px;flex-wrap:wrap}
+    .resume-frame {width:100%;height:610px;border:1px solid var(--line);border-radius:13px;background:#f1eaf5;display:block}
+    .resume-note {font-size:12px;color:var(--ink-soft);margin:13px 0 0}
+    .resume-note a {text-decoration:underline;text-underline-offset:3px}
+    footer {background:#fbf2f6;padding:17px 0;border-top:1px solid rgba(79,57,92,.09);font-size:10px;color:#6d6670}
+    .footer-inner {display:flex;justify-content:space-between;gap:20px;align-items:center}
+    .footer-left {font-family:Georgia,'Times New Roman',serif;font-size:13px;font-weight:700;letter-spacing:.13em;color:var(--ink)}
+    @media (max-width:1020px) {
+      .nav-links {gap:18px;font-size:12px}
+      .wrap {width:min(100% - 40px,1300px)}
+      .contact-layout {grid-template-columns:1fr}
+    }
+    @media (max-width:760px) {
+      .nav-inner {height:60px}
+      .mobile-nav-toggle {display:inline-flex}
+      .nav-links {display:none;position:absolute;top:60px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;padding:11px max(20px,calc((100vw - 1300px)/2));background:#fffaf7;box-shadow:0 20px 35px rgba(43,31,50,.13);border-bottom:1px solid var(--line)}
+      .nav-links.open {display:flex}
+      .nav-links a {padding:14px 12px;font-size:14px}
+      .nav-links a[aria-current="page"]::after {display:none}
+      .nav-links .resume-pill {margin:8px 12px 12px;text-align:center}
+      .contact-hero {padding:45px 0 32px}
+      .contact-layout {padding-bottom:48px}
+      .resume-frame {height:485px}
+    }
+    @media (max-width:480px) {
+      .wrap {width:calc(100% - 30px)}
+      .contact-card {padding:22px 19px;border-radius:17px}
+      .intro {font-size:15px}
+      .contact-detail-value {font-size:21px}
+      .resume-frame {height:400px}
+      .footer-inner {flex-direction:column;align-items:flex-start;gap:8px}
+    }
+    @media (prefers-reduced-motion:reduce) {* {scroll-behavior:auto!important;transition-duration:0.01ms!important}}
+  </style>
+</head>
+<body>
+  <nav class="nav" aria-label="Primary navigation">
+    <div class="wrap nav-inner">
+      <a class="brand" href="index.html">Portfolio</a>
+      <button class="mobile-nav-toggle" type="button" aria-controls="contact-nav-links" aria-expanded="false">Menu ☰</button>
+      <div class="nav-links" id="contact-nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="corporate-projects.html">Corporate Projects</a>
+        <a href="events.html"><span class="events-full">Events &amp; Experiences</span></a>
+        <a href="contact.html" aria-current="page">Contact</a>
+        <a class="resume-pill" href="resume.html">Résumé →</a>
+      </div>
+    </div>
+  </nav>
+  <main>
+    <header class="contact-hero">
+      <div class="wrap">
+        <p class="eyebrow">Let's connect / Contact information</p>
+        <h1>Get in <em>touch.</em></h1>
+        <p class="intro">For professional inquiries, collaboration opportunities, and project discussions, reach me directly using the details below.</p>
+      </div>
+    </header>
+    <div class="wrap contact-layout">
+      <section class="contact-card" aria-label="Contact information">
+        <p class="card-eyebrow">Direct contact</p>
+        <div class="contact-detail">
+          <span class="contact-detail-label">Email address</span>
+          <a class="contact-detail-value" href="mailto:raissa.harrell@gmail.com">raissa.harrell@gmail.com</a>
+          <p class="contact-detail-note">Click to open an email.</p>
+        </div>
+        <div class="contact-detail">
+          <span class="contact-detail-label">LinkedIn profile</span>
+          <a class="contact-detail-value" href="https://www.linkedin.com/in/raissanharrell/" target="_blank" rel="noopener noreferrer">linkedin.com/in/raissanharrell/ ↗</a>
+          <p class="contact-detail-note">Connect with me professionally.</p>
+        </div>
+        <a class="primary-link" href="mailto:raissa.harrell@gmail.com">Email me →</a>
+      </section>
+      <section class="contact-card" aria-label="Résumé PDF">
+        <div class="resume-top">
+          <div>
+            <p class="card-eyebrow">Professional résumé</p>
+            <h2>My résumé.</h2>
+          </div>
+          <div class="resume-links">
+            <a class="primary-link" href="RaissaNH_Resume.pdf" download>Download PDF ↓</a>
+            <a class="secondary-link" href="RaissaNH_Resume.pdf" target="_blank" rel="noopener noreferrer">Open PDF ↗</a>
+          </div>
+        </div>
+        <iframe class="resume-frame" title="Raïssa Harrell résumé PDF preview" src="RaissaNH_Resume.pdf#toolbar=0&amp;view=FitH" loading="lazy"></iframe>
+        <p class="resume-note">Can't see the preview? <a href="RaissaNH_Resume.pdf" target="_blank" rel="noopener noreferrer">Open the résumé PDF directly.</a></p>
+      </section>
+    </div>
+  </main>
+  <footer>
+    <div class="wrap footer-inner">
+      <div class="footer-left">RAISSA HARRELL</div>
+      <div>Project Manager &nbsp; • &nbsp; Brands &amp; Properties &nbsp; • &nbsp; Creative &amp; Content</div>
+      <div>raissa.harrell@gmail.com</div>
+    </div>
+  </footer>
+  <script>
+    (() => {
+      const button = document.querySelector('.mobile-nav-toggle');
+      const links = document.querySelector('.nav-links');
+      if (!button || !links) return;
+      const closeMenu = () => {
+        links.classList.remove('open');
+        button.setAttribute('aria-expanded', 'false');
+        button.textContent = 'Menu ☰';
+      };
+      button.addEventListener('click', () => {
+        const expanded = links.classList.toggle('open');
+        button.setAttribute('aria-expanded', String(expanded));
+        button.textContent = expanded ? 'Close ×' : 'Menu ☰';
+      });
+      links.addEventListener('click', (e) => { if(e.target.closest('a')) closeMenu(); });
+      document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeMenu(); });
+    })();
+  </script>
+</body>
+</html>
