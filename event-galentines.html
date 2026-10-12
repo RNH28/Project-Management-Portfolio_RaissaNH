@@ -233,6 +233,10 @@ a{color:inherit}img{display:block;width:100%;max-width:100%}button{font:inherit}
   .g-photo-section .g-still-copy p{font-size:12px;line-height:1.5}
   .g-still-kicker{font-size:9px}
 }
+/* On touch screens and mobile, keep photographs tappable without the decorative arrow badges. */
+@media (hover:none), (max-width:620px) {
+  .g-photo-section .g-still-open {display:none!important}
+}
 @media(hover:none){.g-stills-hover-preview{display:none}}
 @media(prefers-reduced-motion:reduce){
   .g-photo-section .g-still-card,.g-stills-hover-preview,.g-stills-hover-preview .preview-frame{transition:none}
